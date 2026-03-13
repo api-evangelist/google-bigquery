@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cloud.google.com/schemas/bigquery/table.json",
+  "title": "Google BigQuery Table",
+  "description": "Schema representing a BigQuery table resource, including its structure, metadata, and configuration.",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The resource type, always bigquery#table",
+      "const": "bigquery#table"
+    },
+    "id": {
+      "type": "string",
+      "description": "The fully-qualified unique name of the table in the format projectId:datasetId.tableId"
+    },
+    "tableReference": {
+      "$ref": "#/$defs/TableReference",
+      "description": "Reference describing the ID of this table"
+    },
+    "friendlyName": {
+      "type": "string",
+      "description": "A descriptive name for this table",
+      "maxLength": 1024
+    },
+    "description": {
+      "type": "string",
+      "description": "A user-friendly description of this table"
+    },
+    "schema": {
+      "$ref": "#/$defs/TableSchema",
+      "description": "Describes the schema of this table"
+    },
+    "numRows": {
+      "type": "string",
+      "description": "The number of rows of data in this table"
+    },
+    "numBytes": {
+      "type": "string",
+      "description": "The size of this table in bytes, excluding any data in the streaming buffer"
+    },
+    "type": {
+      "type": "string",
+      "description": "Describes the table type",
+      "enum": ["TABLE", "VIEW", "MATERIALIZED_VIEW", "EXTERNAL", "SNAPSHOT"]
+    },
+    "location": {
+      "type": "string",
+      "description": "The geographic location where the table resides"
+    },
+    "labels": {
+      "type": "object",
+      "description": "The labels associated with this table",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "creationTime": {
+      "type": "string",
+      "description": "The time when this table was created, in milliseconds since the epoch"
+    },
+    "expirationTime": {
+      "type": "string",
+      "description": "The time when this table expires, in milliseconds since the epoch"
+    },
+    "lastModifiedTime": {
+      "type": "string",
+      "description": "The time when this table was last modified, in milliseconds since the epoch"
+    }
+  },
+  "$defs": {
+    "TableReference": {
+      "type": "object",
+      "description": "A reference uniquely identifying a BigQuery table",
+      "required": ["projectId", "datasetId", "tableId"],
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "description": "The ID of the project containing this table"
+        },
+        "datasetId": {
+          "type": "string",
+          "description": "The ID of the dataset containing this table"
+        },
+        "tableId": {
+          "type": "string",
+          "description": "The ID of the table"
+        }
+      }
+    },
+    "TableSchema": {
+      "type": "object",
+      "description": "Schema of a BigQuery table",
+      "properties": {
+        "fields": {
+          "type": "array",
+          "description": "Describes the fields in a table",
+          "items": {
+            "$ref": "#/$defs/TableFieldSchema"
+          }
+        }
+      }
+    },
+    "TableFieldSchema": {
+      "type": "object",
+      "description": "A field in a BigQuery table schema",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The field name, must be unique within the table schema"
+        },
+        "type": {
+          "type": "string",
+          "description": "The field data type",
+          "enum": ["STRING", "BYTES", "INTEGER", "INT64", "FLOAT", "FLOAT64", "NUMERIC", "BIGNUMERIC", "BOOLEAN", "BOOL", "TIMESTAMP", "DATE", "TIME", "DATETIME", "GEOGRAPHY", "RECORD", "STRUCT", "JSON", "RANGE"]
+        },
+        "mode": {
+          "type": "string",
+          "description": "The field mode",
+          "enum": ["NULLABLE", "REQUIRED", "REPEATED"],
+          "default": "NULLABLE"
+        },
+        "description": {
+          "type": "string",
+          "description": "The field description"
+        },
+        "fields": {
+          "type": "array",
+          "description": "Describes the nested schema fields if the type is RECORD",
+          "items": {
+            "$ref": "#/$defs/TableFieldSchema"
+          }
+        },
+        "policyTags": {
+          "type": "object",
+          "description": "Policy tags attached to this field for column-level security",
+          "properties": {
+            "names": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "A list of policy tag resource names"
+            }
+          }
+        }
+      }
+    }
+  }
+}

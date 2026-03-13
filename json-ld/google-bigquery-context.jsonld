@@ -1,0 +1,107 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "bq": "https://cloud.google.com/bigquery/ns/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Dataset": {
+      "@id": "bq:Dataset",
+      "@context": {
+        "datasetId": "bq:datasetId",
+        "projectId": "bq:projectId",
+        "friendlyName": "schema:name",
+        "description": "schema:description",
+        "location": "schema:location",
+        "creationTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "lastModifiedTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "labels": "bq:labels",
+        "selfLink": {
+          "@id": "schema:url",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "Table": {
+      "@id": "bq:Table",
+      "@context": {
+        "tableId": "bq:tableId",
+        "datasetId": "bq:datasetId",
+        "projectId": "bq:projectId",
+        "friendlyName": "schema:name",
+        "description": "schema:description",
+        "type": "bq:tableType",
+        "numRows": "bq:numRows",
+        "numBytes": "bq:numBytes",
+        "schema": "bq:tableSchema",
+        "creationTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "expirationTime": {
+          "@id": "bq:expirationTime",
+          "@type": "xsd:dateTime"
+        },
+        "labels": "bq:labels"
+      }
+    },
+
+    "Job": {
+      "@id": "bq:Job",
+      "@context": {
+        "jobId": "bq:jobId",
+        "projectId": "bq:projectId",
+        "location": "schema:location",
+        "state": "bq:jobState",
+        "configuration": "bq:jobConfiguration",
+        "status": "bq:jobStatus",
+        "statistics": "bq:jobStatistics",
+        "creationTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Model": {
+      "@id": "bq:Model",
+      "@context": {
+        "modelId": "bq:modelId",
+        "datasetId": "bq:datasetId",
+        "projectId": "bq:projectId",
+        "modelType": "bq:modelType",
+        "friendlyName": "schema:name",
+        "description": "schema:description",
+        "labels": "bq:labels",
+        "creationTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Routine": {
+      "@id": "bq:Routine",
+      "@context": {
+        "routineId": "bq:routineId",
+        "datasetId": "bq:datasetId",
+        "projectId": "bq:projectId",
+        "routineType": "bq:routineType",
+        "language": "schema:programmingLanguage",
+        "description": "schema:description",
+        "creationTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}
