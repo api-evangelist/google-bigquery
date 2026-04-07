@@ -21,20 +21,18 @@ servers:
 tags:
   - name: Datasets
     description: Operations for managing BigQuery datasets
-  - name: Tables
-    description: Operations for managing tables within datasets
-  - name: Tabledata
-    description: Operations for reading and inserting table rows
   - name: Jobs
     description: Operations for managing query and load jobs
   - name: Models
     description: Operations for managing BigQuery ML models
-  - name: Routines
-    description: Operations for managing routines (functions and procedures)
   - name: Projects
     description: Operations for listing projects and service accounts
-  - name: RowAccessPolicies
-    description: Operations for managing row-level access policies
+  - name: Routines
+    description: Operations for managing routines (functions and procedures)
+  - name: Tabledata
+    description: Operations for reading and inserting table rows
+  - name: Tables
+    description: Operations for managing tables within datasets
 security:
   - oauth2: []
 paths:

@@ -8,12 +8,12 @@ created: '2026-03-13'
 modified: '2026-03-16'
 specificationVersion: '0.19'
 tags:
-  - Data Warehouse
   - Analytics
-  - SQL
   - Big Data
   - Cloud
+  - Data Warehouse
   - Serverless
+  - SQL
 apis:
   - aid: google-bigquery:bigquery
     name: BigQuery API
@@ -27,11 +27,11 @@ apis:
     humanURL: https://cloud.google.com/bigquery/docs
     baseURL: https://bigquery.googleapis.com
     tags:
-      - Data Warehouse
-      - SQL
       - Analytics
-      - Queries
+      - Data Warehouse
       - Datasets
+      - Queries
+      - SQL
     properties:
       - type: Documentation
         url: https://cloud.google.com/bigquery/docs/reference/rest
@@ -71,8 +71,8 @@ apis:
     humanURL: https://cloud.google.com/bigquery/docs/reference/migration/rest
     baseURL: https://bigquerymigration.googleapis.com
     tags:
-      - Migration
       - Data Migration
+      - Migration
       - SQL Translation
     properties:
       - type: Documentation
@@ -89,9 +89,9 @@ apis:
     humanURL: https://cloud.google.com/bigquery/docs/reference/reservations/rest
     baseURL: https://bigqueryreservation.googleapis.com
     tags:
-      - Reservations
       - Capacity
       - Compute
+      - Reservations
     properties:
       - type: Documentation
         url: https://cloud.google.com/bigquery/docs/reference/reservations/rest
@@ -107,9 +107,9 @@ apis:
     humanURL: https://cloud.google.com/bigquery/docs/reference/storage
     baseURL: https://bigquerystorage.googleapis.com
     tags:
+      - High Throughput
       - Storage
       - Streaming
-      - High Throughput
     properties:
       - type: Documentation
         url: https://cloud.google.com/bigquery/docs/reference/storage
