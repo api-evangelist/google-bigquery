@@ -41,7 +41,7 @@ paths:
   /projects:
     get:
       operationId: listProjects
-      summary: List projects
+      summary: Google BigQuery List projects
       description: >-
         Lists all projects to which the user has been granted any project role.
       tags:
@@ -63,7 +63,7 @@ paths:
   /projects/{projectId}/datasets:
     get:
       operationId: listDatasets
-      summary: List datasets
+      summary: Google BigQuery List datasets
       description: >-
         Lists all datasets in the specified project to which the user has been
         granted the READER dataset role.
@@ -96,7 +96,7 @@ paths:
           description: Project not found
     post:
       operationId: insertDataset
-      summary: Create a dataset
+      summary: Google BigQuery Create a dataset
       description: >-
         Creates a new empty dataset in the specified project.
       tags:
@@ -125,7 +125,7 @@ paths:
   /projects/{projectId}/datasets/{datasetId}:
     get:
       operationId: getDataset
-      summary: Get dataset
+      summary: Google BigQuery Get dataset
       description: >-
         Returns the dataset specified by datasetId.
       tags:
@@ -146,7 +146,7 @@ paths:
           description: Dataset not found
     patch:
       operationId: patchDataset
-      summary: Partially update dataset
+      summary: Google BigQuery Partially update dataset
       description: >-
         Updates information in an existing dataset. The update method replaces the
         entire dataset resource, whereas the patch method only replaces fields that
@@ -175,7 +175,7 @@ paths:
           description: Dataset not found
     put:
       operationId: updateDataset
-      summary: Update dataset
+      summary: Google BigQuery Update dataset
       description: >-
         Updates information in an existing dataset by replacing the entire dataset
         resource.
@@ -203,7 +203,7 @@ paths:
           description: Dataset not found
     delete:
       operationId: deleteDataset
-      summary: Delete dataset
+      summary: Google BigQuery Delete dataset
       description: >-
         Deletes the dataset specified by the datasetId value. Before you can delete
         a dataset, you must delete all its tables.
@@ -227,7 +227,7 @@ paths:
   /projects/{projectId}/datasets/{datasetId}/tables:
     get:
       operationId: listTables
-      summary: List tables
+      summary: Google BigQuery List tables
       description: >-
         Lists all tables in the specified dataset.
       tags:
@@ -250,7 +250,7 @@ paths:
           description: Dataset not found
     post:
       operationId: insertTable
-      summary: Create a table
+      summary: Google BigQuery Create a table
       description: >-
         Creates a new empty table in the specified dataset.
       tags:
@@ -280,7 +280,7 @@ paths:
   /projects/{projectId}/datasets/{datasetId}/tables/{tableId}:
     get:
       operationId: getTable
-      summary: Get table
+      summary: Google BigQuery Get table
       description: >-
         Gets the specified table resource by table ID.
       tags:
@@ -302,7 +302,7 @@ paths:
           description: Table not found
     patch:
       operationId: patchTable
-      summary: Partially update table
+      summary: Google BigQuery Partially update table
       description: >-
         Updates information in an existing table, replacing only the fields provided
         in the submitted table resource.
@@ -331,7 +331,7 @@ paths:
           description: Table not found
     delete:
       operationId: deleteTable
-      summary: Delete table
+      summary: Google BigQuery Delete table
       description: >-
         Deletes the table specified by tableId from the dataset.
       tags:
@@ -350,7 +350,7 @@ paths:
   /projects/{projectId}/datasets/{datasetId}/tables/{tableId}/data:
     get:
       operationId: listTabledata
-      summary: List table rows
+      summary: Google BigQuery List table rows
       description: >-
         Lists the rows of a table, returning rows in the response body.
       tags:
@@ -381,7 +381,7 @@ paths:
   /projects/{projectId}/datasets/{datasetId}/tables/{tableId}/insertAll:
     post:
       operationId: insertAllTabledata
-      summary: Insert rows
+      summary: Google BigQuery Insert rows
       description: >-
         Streams data into BigQuery one record at a time without needing to run a
         load job.
@@ -411,7 +411,7 @@ paths:
   /projects/{projectId}/jobs:
     get:
       operationId: listJobs
-      summary: List jobs
+      summary: Google BigQuery List jobs
       description: >-
         Lists all jobs that you started in the specified project.
       tags:
@@ -450,7 +450,7 @@ paths:
           description: Unauthorized
     post:
       operationId: insertJob
-      summary: Submit a job
+      summary: Google BigQuery Submit a job
       description: >-
         Starts a new asynchronous job such as a query, load, extract, or copy job.
       tags:
@@ -477,7 +477,7 @@ paths:
   /projects/{projectId}/jobs/{jobId}:
     get:
       operationId: getJob
-      summary: Get job
+      summary: Google BigQuery Get job
       description: >-
         Returns information about a specific job.
       tags:
@@ -498,7 +498,7 @@ paths:
           description: Job not found
     delete:
       operationId: deleteJob
-      summary: Delete job
+      summary: Google BigQuery Delete job
       description: >-
         Requests the deletion of the metadata of a job.
       tags:
@@ -516,7 +516,7 @@ paths:
   /projects/{projectId}/jobs/{jobId}/cancel:
     post:
       operationId: cancelJob
-      summary: Cancel job
+      summary: Google BigQuery Cancel job
       description: >-
         Requests that a job be cancelled. This call will return immediately, and the
         client will need to poll for the job status to see if the cancel completed
@@ -540,7 +540,7 @@ paths:
   /projects/{projectId}/queries:
     post:
       operationId: queryJobs
-      summary: Execute query
+      summary: Google BigQuery Execute query
       description: >-
         Runs a BigQuery SQL query synchronously and returns query results if the
         query completes within a specified timeout.
@@ -568,7 +568,7 @@ paths:
   /projects/{projectId}/queries/{jobId}:
     get:
       operationId: getQueryResults
-      summary: Get query results
+      summary: Google BigQuery Get query results
       description: >-
         Retrieves the results of a query job.
       tags:
@@ -598,7 +598,7 @@ paths:
   /projects/{projectId}/datasets/{datasetId}/models:
     get:
       operationId: listModels
-      summary: List models
+      summary: Google BigQuery List models
       description: >-
         Lists all models in the specified dataset.
       tags:
@@ -622,7 +622,7 @@ paths:
   /projects/{projectId}/datasets/{datasetId}/models/{modelId}:
     get:
       operationId: getModel
-      summary: Get model
+      summary: Google BigQuery Get model
       description: >-
         Gets the specified model resource by model ID.
       tags:
@@ -649,7 +649,7 @@ paths:
           description: Model not found
     patch:
       operationId: patchModel
-      summary: Update model
+      summary: Google BigQuery Update model
       description: >-
         Patch specific fields in the specified model.
       tags:
@@ -682,7 +682,7 @@ paths:
           description: Model not found
     delete:
       operationId: deleteModel
-      summary: Delete model
+      summary: Google BigQuery Delete model
       description: >-
         Deletes the model specified by modelId from the dataset.
       tags:
@@ -706,7 +706,7 @@ paths:
   /projects/{projectId}/datasets/{datasetId}/routines:
     get:
       operationId: listRoutines
-      summary: List routines
+      summary: Google BigQuery List routines
       description: >-
         Lists all routines in the specified dataset.
       tags:
@@ -727,7 +727,7 @@ paths:
           description: Unauthorized
     post:
       operationId: insertRoutine
-      summary: Create a routine
+      summary: Google BigQuery Create a routine
       description: >-
         Creates a new routine in the specified dataset.
       tags:
@@ -755,7 +755,7 @@ paths:
   /projects/{projectId}/datasets/{datasetId}/routines/{routineId}:
     get:
       operationId: getRoutine
-      summary: Get routine
+      summary: Google BigQuery Get routine
       description: >-
         Gets the specified routine resource by routine ID.
       tags:
@@ -782,7 +782,7 @@ paths:
           description: Routine not found
     put:
       operationId: updateRoutine
-      summary: Update routine
+      summary: Google BigQuery Update routine
       description: >-
         Updates information in an existing routine by replacing the entire routine
         resource.
@@ -816,7 +816,7 @@ paths:
           description: Routine not found
     delete:
       operationId: deleteRoutine
-      summary: Delete routine
+      summary: Google BigQuery Delete routine
       description: >-
         Deletes the routine specified by routineId from the dataset.
       tags:
