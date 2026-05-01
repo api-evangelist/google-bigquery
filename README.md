@@ -16,7 +16,7 @@ Google BigQuery is a fully managed, serverless data warehouse provided by Google
 ## Timestamps
 
 - **Created:** 2026-03-13
-- **Modified:** 2026-03-13
+- **Modified:** 2026-04-28
 
 ## APIs
 
@@ -107,6 +107,6 @@ The BigQuery Storage API provides high-throughput read and write access to BigQu
 
 ## Maintainers
 
-**FN:** API Evangelist
+**FN:** Kin Lane
 
-**Email:** info@apievangelist.com
+**Email:** kin@apievangelist.com
