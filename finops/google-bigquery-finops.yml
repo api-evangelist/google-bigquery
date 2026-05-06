@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,160 +9,137 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Google BigQuery
 providerId: google-bigquery
-publisherName: Google BigQuery
-serviceCategory: API
+publisherName: Google LLC
+serviceCategory: Data Warehouse / Analytics
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Analytics
-  - Big Data
-  - Cloud
   - Data Warehouse
-  - Serverless
+  - Analytics
+  - Google Cloud
   - SQL
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Google BigQuery API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+description: 'FOCUS-aligned FinOps for BigQuery: separate compute (on-demand TB-scanned or capacity slot-hours)
+  and storage (active vs long-term, logical vs physical) meters, billed continuously through Google Cloud
+  Billing. Detailed export to BigQuery itself is the canonical visibility surface.'
+sources:
+  - https://cloud.google.com/bigquery/pricing
+  - https://cloud.google.com/billing/docs/how-to/export-data-bigquery
+  - https://cloud.google.com/bigquery/docs/information-schema-jobs
 billingModel:
-  pricingCategory: Usage-Based
+  pricingCategory: Pay-As-You-Go + Committed Use
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
     - Usage
     - Purchase
     - Tax
-    - Credit
     - Adjustment
-  chargeFrequency: Recurring
+    - Credit
 focusColumns:
-  ServiceName: Google BigQuery
-  ServiceCategory: Developer Tools / API
-  ProviderName: Google BigQuery
-  PublisherName: Google BigQuery
-  InvoiceIssuerName: Google BigQuery
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  ServiceName: BigQuery
+  ServiceCategory: Database / Data Warehouse
+  ProviderName: Google Cloud
+  PublisherName: Google LLC
+  InvoiceIssuerName: Google LLC
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: query_bytes_processed
+    description: Bytes processed by on-demand SQL queries
+    unit: TB
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
+      - project
       - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
+      - user
+      - job_id
+  - name: slot_hours
+    description: Slot-hours consumed under a capacity reservation (Standard/Enterprise/Enterprise Plus)
+    unit: slot-hour
+    aggregation: sum
+    dimensions:
+      - reservation
+      - edition
+      - region
+  - name: active_storage
+    description: Active table storage (modified within 90 days) - logical or physical
+    unit: GB-month
+    aggregation: sum
+    dimensions:
+      - dataset
+      - region
+      - billing_model
+  - name: long_term_storage
+    description: Long-term table storage (unmodified 90+ days)
+    unit: GB-month
+    aggregation: sum
+    dimensions:
+      - dataset
+      - region
+      - billing_model
+  - name: streaming_inserts
+    description: Bytes ingested via legacy streaming insert API
     unit: GB
     aggregation: sum
     dimensions:
-      - api
+      - dataset
       - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
+  - name: storage_write_api
+    description: Bytes ingested via Storage Write API
+    unit: GB
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
+      - dataset
+      - region
+  - name: storage_read_api
+    description: Bytes read via Storage Read API
+    unit: GB
+    aggregation: sum
+    dimensions:
+      - dataset
+      - region
+  - name: bi_engine_capacity
+    description: BI Engine reserved memory
+    unit: GB-month
+    aggregation: max
+    dimensions:
+      - region
 apis:
   - name: BigQuery API
     baseURL: https://bigquery.googleapis.com
-    tags:
-      - Analytics
-      - Data Warehouse
-      - Datasets
-      - Queries
-      - SQL
     serviceName: BigQuery API
-    serviceCategory: API
-  - name: BigQuery Connection API
-    baseURL: https://bigqueryconnection.googleapis.com
-    tags:
-      - Connections
-      - External Data
-      - Federation
-    serviceName: BigQuery Connection API
-    serviceCategory: API
-  - name: BigQuery Migration API
-    baseURL: https://bigquerymigration.googleapis.com
-    tags:
-      - Data Migration
-      - Migration
-      - SQL Translation
-    serviceName: BigQuery Migration API
-    serviceCategory: API
+    serviceCategory: Data Warehouse
+  - name: BigQuery Storage Read API
+    baseURL: https://bigquerystorage.googleapis.com
+    serviceName: BigQuery Storage API
+    serviceCategory: Data Warehouse
   - name: BigQuery Reservation API
     baseURL: https://bigqueryreservation.googleapis.com
-    tags:
-      - Capacity
-      - Compute
-      - Reservations
     serviceName: BigQuery Reservation API
-    serviceCategory: API
-  - name: BigQuery Storage API
-    baseURL: https://bigquerystorage.googleapis.com
-    tags:
-      - High Throughput
-      - Storage
-      - Streaming
-    serviceName: BigQuery Storage API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+    serviceCategory: Data Warehouse
+  - name: BigQuery Connection API
+    baseURL: https://bigqueryconnection.googleapis.com
+    serviceName: BigQuery Connection API
+    serviceCategory: Data Warehouse
+principles:
+  - name: Visibility
+    description: Enable Cloud Billing detailed export to BigQuery and query INFORMATION_SCHEMA.JOBS_BY_PROJECT
+      for query-level cost attribution. Use the BigQuery Admin Resource Charts dashboard to see slot utilization
+      per reservation.
+  - name: Allocation
+    description: Tag jobs with labels (team, application, environment) and pivot the billing export by
+      label; use reservations + assignments to chargeback capacity to specific projects/folders.
+  - name: Optimization
+    description: Partition and cluster large tables to reduce bytes scanned; use materialized views and
+      BI Engine for hot queries; switch from on-demand to a capacity reservation when sustained slot consumption
+      makes it cheaper; commit 1y/3y for additional discount; switch eligible datasets to physical storage
+      billing when compression ratio is high.
+  - name: Accountability
+    description: Set per-project query bytes-billed daily caps as a hard guardrail; configure Cloud Billing
+      budget alerts at 50/80/100% per project; review the top-spending queries weekly via INFORMATION_SCHEMA.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -4,186 +4,285 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Google BigQuery
 providerId: google-bigquery
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Analytics
-  - Big Data
-  - Cloud
   - Data Warehouse
-  - Serverless
+  - Analytics
+  - Google Cloud
   - SQL
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+  - Big Data
+description: BigQuery is priced as separate compute and storage. Compute can be billed on-demand (per
+  TB scanned) or via capacity reservations sold as Standard / Enterprise / Enterprise Plus slot-hour
+  editions, with optional 1- or 3-year commitments for discounts. Storage is billed per GB-month with
+  active vs long-term tiers. A monthly free tier is included for all customers.
+sources:
+  - https://cloud.google.com/bigquery/pricing
+  - https://cloud.google.com/bigquery/docs/sandbox
 plans:
-  - id: google-bigquery-free
-    name: Free
+  - id: google-bigquery-free-tier
+    name: Free Tier
     type: freemium
-    description: Free entry tier for the Google BigQuery API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+    description: Monthly free quota included for every billing account. Sandbox is also available without
+      a billing account, with restricted DML and 60-day table expiration.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
+      - label: Free query (analysis) bytes
+        description: Monthly free on-demand query data processed
+        name: free_query_bytes
         type: quota
-        metric: requests
-        limit: 1000
+        metric: TB
+        limit: 1
         timeFrame: month
         geo: global
         domains:
           - https://bigquery.googleapis.com
-          - https://bigqueryconnection.googleapis.com
-          - https://bigquerymigration.googleapis.com
-          - https://bigqueryreservation.googleapis.com
-          - https://bigquerystorage.googleapis.com
         unit: 1
         price: '0.00'
         userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
+      - label: Free active storage
+        description: Monthly free active logical storage
+        name: free_storage
+        type: quota
+        metric: GB
         limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://bigquery.googleapis.com
-          - https://bigqueryconnection.googleapis.com
-          - https://bigquerymigration.googleapis.com
-          - https://bigqueryreservation.googleapis.com
-          - https://bigquerystorage.googleapis.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: BigQuery API
-      - name: BigQuery Connection API
-      - name: BigQuery Migration API
-      - name: BigQuery Reservation API
-      - name: BigQuery Storage API
-  - id: google-bigquery-pro
-    name: Professional
-    type: paid
-    description: Production tier for Google BigQuery. Provides higher quotas, priority support, and access
-      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
         timeFrame: month
         geo: global
         domains:
           - https://bigquery.googleapis.com
-          - https://bigqueryconnection.googleapis.com
-          - https://bigquerymigration.googleapis.com
-          - https://bigqueryreservation.googleapis.com
-          - https://bigquerystorage.googleapis.com
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://bigquery.googleapis.com
-          - https://bigqueryconnection.googleapis.com
-          - https://bigquerymigration.googleapis.com
-          - https://bigqueryreservation.googleapis.com
-          - https://bigquerystorage.googleapis.com
         unit: 1
         price: '0.00'
         userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
+    elements:
+      - name: Sandbox (no billing account)
+      - name: BigQuery API
+      - name: BigQuery Storage Read API
+      - name: BigQuery Connection API
+  - id: google-bigquery-on-demand
+    name: On-Demand Compute
+    type: usage-based
+    description: Pay per TB of data scanned by queries. Best for spiky or unpredictable workloads. List
+      price posted on the pricing page; per-region variation applies.
+    entries:
+      - label: Query analysis
+        description: On-demand bytes processed by queries
+        name: on_demand_query
         type: metered
-        metric: requests
+        metric: TB
         limit: -1
-        timeFrame: month
-        geo: global
+        timeFrame: usage
+        geo: US
         domains:
           - https://bigquery.googleapis.com
-          - https://bigqueryconnection.googleapis.com
-          - https://bigquerymigration.googleapis.com
-          - https://bigqueryreservation.googleapis.com
-          - https://bigquerystorage.googleapis.com
-        unit: 1000
-        price: TBD
+        unit: 1
+        price: see pricing page
         userMultiplied: false
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
       - name: BigQuery API
+      - name: BigQuery Storage Read API
       - name: BigQuery Connection API
-      - name: BigQuery Migration API
-      - name: BigQuery Reservation API
-      - name: BigQuery Storage API
-  - id: google-bigquery-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for Google BigQuery. Includes dedicated capacity, contractual
-      SLAs, security review, data residency options, and named technical account management.
+      - name: BigQuery Reservation API (optional)
+  - id: google-bigquery-capacity-standard
+    name: Capacity - Standard Edition
+    type: subscription
+    description: Slot-hour pricing for the Standard edition. Entry tier for capacity-based compute, suitable
+      for ad-hoc and standard SQL workloads. No commitment required; supports autoscaling.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Standard slot-hour
+        description: Per-slot-hour rate for the Standard edition
+        name: slot_hour_standard
+        type: metered
+        metric: slot-hour
         limit: -1
-        timeFrame: month
-        geo: configurable
+        timeFrame: usage
+        geo: US
         domains:
           - https://bigquery.googleapis.com
-          - https://bigqueryconnection.googleapis.com
-          - https://bigquerymigration.googleapis.com
-          - https://bigqueryreservation.googleapis.com
-          - https://bigquerystorage.googleapis.com
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://bigquery.googleapis.com
-          - https://bigqueryconnection.googleapis.com
-          - https://bigquerymigration.googleapis.com
-          - https://bigqueryreservation.googleapis.com
-          - https://bigquerystorage.googleapis.com
-        unit: 1
-        price: custom
+        price: see pricing page
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: BigQuery API
-      - name: BigQuery Connection API
-      - name: BigQuery Migration API
+      - name: Autoscaling slots
+      - name: Materialized views
       - name: BigQuery Reservation API
-      - name: BigQuery Storage API
+  - id: google-bigquery-capacity-enterprise
+    name: Capacity - Enterprise Edition
+    type: subscription
+    description: Higher-priced edition with additional governance, security, and DML/Data Manipulation
+      features (column-level security, customer-managed encryption keys, BigQuery ML inference). 1- and
+      3-year commitments offer discount.
+    entries:
+      - label: Enterprise slot-hour (on-demand)
+        description: Per-slot-hour rate for the Enterprise edition
+        name: slot_hour_enterprise
+        type: metered
+        metric: slot-hour
+        limit: -1
+        timeFrame: usage
+        geo: US
+        domains:
+          - https://bigquery.googleapis.com
+        unit: 1
+        price: see pricing page
+        userMultiplied: false
+      - label: Enterprise slot-hour (1y commit)
+        description: Discounted slot-hour rate with 1-year commitment
+        name: slot_hour_enterprise_1y
+        type: subscription
+        metric: slot-hour
+        limit: -1
+        timeFrame: year
+        geo: US
+        domains:
+          - https://bigquery.googleapis.com
+        unit: 1
+        price: see pricing page
+        userMultiplied: false
+      - label: Enterprise slot-hour (3y commit)
+        description: Discounted slot-hour rate with 3-year commitment
+        name: slot_hour_enterprise_3y
+        type: subscription
+        metric: slot-hour
+        limit: -1
+        timeFrame: year
+        geo: US
+        domains:
+          - https://bigquery.googleapis.com
+        unit: 1
+        price: see pricing page
+        userMultiplied: false
+    elements:
+      - name: All Standard features
+      - name: Column-level security
+      - name: Customer-managed encryption keys
+      - name: BigQuery ML inference
+      - name: 1y / 3y commit discounts
+  - id: google-bigquery-capacity-enterprise-plus
+    name: Capacity - Enterprise Plus Edition
+    type: enterprise
+    description: Top-tier edition adding multi-region disaster recovery, fine-grained authorization, and
+      cross-region replication. 1- and 3-year commitments available.
+    entries:
+      - label: Enterprise Plus slot-hour
+        description: Per-slot-hour rate for the Enterprise Plus edition
+        name: slot_hour_enterprise_plus
+        type: metered
+        metric: slot-hour
+        limit: -1
+        timeFrame: usage
+        geo: US
+        domains:
+          - https://bigquery.googleapis.com
+        unit: 1
+        price: see pricing page
+        userMultiplied: false
+    elements:
+      - name: All Enterprise features
+      - name: Cross-region disaster recovery
+      - name: Customer-managed encryption + Cloud HSM
+      - name: 1y / 3y commit discounts
+  - id: google-bigquery-storage
+    name: Storage
+    type: usage-based
+    description: Storage billed per GB-month, separately from compute. Active storage covers tables modified
+      in the last 90 days; long-term storage applies a discounted rate to tables unmodified for 90+ days.
+      Logical (uncompressed) and physical (compressed) billing models available.
+    entries:
+      - label: Active logical storage
+        description: GB-month for tables modified in the last 90 days (logical billing)
+        name: active_logical_storage
+        type: metered
+        metric: GB
+        limit: -1
+        timeFrame: month
+        geo: US
+        domains:
+          - https://bigquery.googleapis.com
+        unit: 1
+        price: see pricing page
+        userMultiplied: false
+      - label: Long-term logical storage
+        description: GB-month for tables unmodified 90+ days (50% discount vs active)
+        name: longterm_logical_storage
+        type: metered
+        metric: GB
+        limit: -1
+        timeFrame: month
+        geo: US
+        domains:
+          - https://bigquery.googleapis.com
+        unit: 1
+        price: see pricing page
+        userMultiplied: false
+      - label: Active physical storage
+        description: GB-month for compressed table data (active)
+        name: active_physical_storage
+        type: metered
+        metric: GB
+        limit: -1
+        timeFrame: month
+        geo: US
+        domains:
+          - https://bigquery.googleapis.com
+        unit: 1
+        price: see pricing page
+        userMultiplied: false
+      - label: Long-term physical storage
+        description: GB-month for compressed table data (long-term)
+        name: longterm_physical_storage
+        type: metered
+        metric: GB
+        limit: -1
+        timeFrame: month
+        geo: US
+        domains:
+          - https://bigquery.googleapis.com
+        unit: 1
+        price: see pricing page
+        userMultiplied: false
+      - label: Streaming inserts
+        description: Per-row insert via the legacy streaming API
+        name: streaming_inserts
+        type: metered
+        metric: GB
+        limit: -1
+        timeFrame: usage
+        geo: US
+        domains:
+          - https://bigquery.googleapis.com
+        unit: 1
+        price: see pricing page
+        userMultiplied: false
+      - label: Storage Write API
+        description: Per-byte ingest via the Storage Write API
+        name: storage_write_api
+        type: metered
+        metric: GB
+        limit: -1
+        timeFrame: usage
+        geo: US
+        domains:
+          - https://bigquery.googleapis.com
+        unit: 1
+        price: see pricing page
+        userMultiplied: false
+      - label: Storage Read API
+        description: Per-byte read via the Storage Read API
+        name: storage_read_api
+        type: metered
+        metric: GB
+        limit: -1
+        timeFrame: usage
+        geo: US
+        domains:
+          - https://bigquery.googleapis.com
+        unit: 1
+        price: see pricing page
+        userMultiplied: false
+    elements:
+      - name: Logical or physical billing election (per dataset)
+      - name: BigQuery Storage Read API
+      - name: BigQuery Storage Write API
+      - name: Streaming insert API (legacy)
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
