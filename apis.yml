@@ -114,7 +114,7 @@ apis:
       - type: Documentation
         url: https://cloud.google.com/bigquery/docs/reference/storage
 common:
-  - type: Getting Started
+  - type: GettingStarted
     url: https://cloud.google.com/bigquery/docs/quickstarts
   - type: Pricing
     url: https://cloud.google.com/bigquery/pricing
@@ -128,9 +128,9 @@ common:
     url: https://cloud.google.com/bigquery/docs/reference/libraries
   - type: Support
     url: https://cloud.google.com/bigquery/docs/support
-  - type: Status
+  - type: StatusPage
     url: https://status.cloud.google.com
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/google-bigquery-context.jsonld
   - type: Integrations
     url: https://cloud.google.com/marketplace
