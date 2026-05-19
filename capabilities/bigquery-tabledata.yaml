@@ -1,0 +1,121 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google BigQuery API — Tabledata
+  description: 'Google BigQuery API — Tabledata. 2 operations. Lead operation: Google BigQuery List table rows. Self-contained
+    Naftiko capability covering one Google Bigquery business surface.'
+  tags:
+  - Google Bigquery
+  - Tabledata
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_BIGQUERY_API_KEY: GOOGLE_BIGQUERY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bigquery-tabledata
+    baseUri: https://bigquery.googleapis.com/bigquery/v2
+    description: Google BigQuery API — Tabledata business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-datasets-datasetId-tables-tableId-data
+      path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}/data
+      operations:
+      - name: listtabledata
+        method: GET
+        description: Google BigQuery List table rows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: startIndex
+          in: query
+          type: integer
+          description: Zero-based index of the starting row to read
+    - name: projects-projectId-datasets-datasetId-tables-tableId-insertAll
+      path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}/insertAll
+      operations:
+      - name: insertalltabledata
+        method: POST
+        description: Google BigQuery Insert rows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_BIGQUERY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: bigquery-tabledata-rest
+    port: 8080
+    description: REST adapter for Google BigQuery API — Tabledata. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/datasets/{datasetid}/tables/{tableid}/data
+      name: projects-projectid-datasets-datasetid-tables-tableid-data
+      description: REST surface for projects-projectId-datasets-datasetId-tables-tableId-data.
+      operations:
+      - method: GET
+        name: listtabledata
+        description: Google BigQuery List table rows
+        call: bigquery-tabledata.listtabledata
+        with:
+          startIndex: rest.startIndex
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/datasets/{datasetid}/tables/{tableid}/insertall
+      name: projects-projectid-datasets-datasetid-tables-tableid-insertall
+      description: REST surface for projects-projectId-datasets-datasetId-tables-tableId-insertAll.
+      operations:
+      - method: POST
+        name: insertalltabledata
+        description: Google BigQuery Insert rows
+        call: bigquery-tabledata.insertalltabledata
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bigquery-tabledata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google BigQuery API — Tabledata. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-bigquery-list-table-rows
+      description: Google BigQuery List table rows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bigquery-tabledata.listtabledata
+      with:
+        startIndex: tools.startIndex
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-insert-rows
+      description: Google BigQuery Insert rows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: bigquery-tabledata.insertalltabledata
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

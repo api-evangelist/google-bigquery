@@ -1,0 +1,224 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google BigQuery API — Routines
+  description: 'Google BigQuery API — Routines. 5 operations. Lead operation: Google BigQuery List routines. Self-contained
+    Naftiko capability covering one Google Bigquery business surface.'
+  tags:
+  - Google Bigquery
+  - Routines
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_BIGQUERY_API_KEY: GOOGLE_BIGQUERY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bigquery-routines
+    baseUri: https://bigquery.googleapis.com/bigquery/v2
+    description: Google BigQuery API — Routines business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-datasets-datasetId-routines
+      path: /projects/{projectId}/datasets/{datasetId}/routines
+      operations:
+      - name: listroutines
+        method: GET
+        description: Google BigQuery List routines
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: insertroutine
+        method: POST
+        description: Google BigQuery Create a routine
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: projects-projectId-datasets-datasetId-routines-routineId
+      path: /projects/{projectId}/datasets/{datasetId}/routines/{routineId}
+      operations:
+      - name: getroutine
+        method: GET
+        description: Google BigQuery Get routine
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: routineId
+          in: path
+          type: string
+          description: The ID of the routine
+          required: true
+      - name: updateroutine
+        method: PUT
+        description: Google BigQuery Update routine
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: routineId
+          in: path
+          type: string
+          description: The ID of the routine
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteroutine
+        method: DELETE
+        description: Google BigQuery Delete routine
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: routineId
+          in: path
+          type: string
+          description: The ID of the routine
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_BIGQUERY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: bigquery-routines-rest
+    port: 8080
+    description: REST adapter for Google BigQuery API — Routines. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/datasets/{datasetid}/routines
+      name: projects-projectid-datasets-datasetid-routines
+      description: REST surface for projects-projectId-datasets-datasetId-routines.
+      operations:
+      - method: GET
+        name: listroutines
+        description: Google BigQuery List routines
+        call: bigquery-routines.listroutines
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: insertroutine
+        description: Google BigQuery Create a routine
+        call: bigquery-routines.insertroutine
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/datasets/{datasetid}/routines/{routineid}
+      name: projects-projectid-datasets-datasetid-routines-routineid
+      description: REST surface for projects-projectId-datasets-datasetId-routines-routineId.
+      operations:
+      - method: GET
+        name: getroutine
+        description: Google BigQuery Get routine
+        call: bigquery-routines.getroutine
+        with:
+          routineId: rest.routineId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateroutine
+        description: Google BigQuery Update routine
+        call: bigquery-routines.updateroutine
+        with:
+          routineId: rest.routineId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteroutine
+        description: Google BigQuery Delete routine
+        call: bigquery-routines.deleteroutine
+        with:
+          routineId: rest.routineId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bigquery-routines-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google BigQuery API — Routines. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-bigquery-list-routines
+      description: Google BigQuery List routines
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bigquery-routines.listroutines
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-create-routine
+      description: Google BigQuery Create a routine
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: bigquery-routines.insertroutine
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-get-routine
+      description: Google BigQuery Get routine
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bigquery-routines.getroutine
+      with:
+        routineId: tools.routineId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-update-routine
+      description: Google BigQuery Update routine
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: bigquery-routines.updateroutine
+      with:
+        routineId: tools.routineId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-delete-routine
+      description: Google BigQuery Delete routine
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: bigquery-routines.deleteroutine
+      with:
+        routineId: tools.routineId
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,189 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google BigQuery API — Models
+  description: 'Google BigQuery API — Models. 4 operations. Lead operation: Google BigQuery List models. Self-contained Naftiko
+    capability covering one Google Bigquery business surface.'
+  tags:
+  - Google Bigquery
+  - Models
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_BIGQUERY_API_KEY: GOOGLE_BIGQUERY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bigquery-models
+    baseUri: https://bigquery.googleapis.com/bigquery/v2
+    description: Google BigQuery API — Models business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-datasets-datasetId-models
+      path: /projects/{projectId}/datasets/{datasetId}/models
+      operations:
+      - name: listmodels
+        method: GET
+        description: Google BigQuery List models
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectId-datasets-datasetId-models-modelId
+      path: /projects/{projectId}/datasets/{datasetId}/models/{modelId}
+      operations:
+      - name: getmodel
+        method: GET
+        description: Google BigQuery Get model
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: modelId
+          in: path
+          type: string
+          description: The ID of the model
+          required: true
+      - name: patchmodel
+        method: PATCH
+        description: Google BigQuery Update model
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: modelId
+          in: path
+          type: string
+          description: The ID of the model
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemodel
+        method: DELETE
+        description: Google BigQuery Delete model
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: modelId
+          in: path
+          type: string
+          description: The ID of the model
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_BIGQUERY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: bigquery-models-rest
+    port: 8080
+    description: REST adapter for Google BigQuery API — Models. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/datasets/{datasetid}/models
+      name: projects-projectid-datasets-datasetid-models
+      description: REST surface for projects-projectId-datasets-datasetId-models.
+      operations:
+      - method: GET
+        name: listmodels
+        description: Google BigQuery List models
+        call: bigquery-models.listmodels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/datasets/{datasetid}/models/{modelid}
+      name: projects-projectid-datasets-datasetid-models-modelid
+      description: REST surface for projects-projectId-datasets-datasetId-models-modelId.
+      operations:
+      - method: GET
+        name: getmodel
+        description: Google BigQuery Get model
+        call: bigquery-models.getmodel
+        with:
+          modelId: rest.modelId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchmodel
+        description: Google BigQuery Update model
+        call: bigquery-models.patchmodel
+        with:
+          modelId: rest.modelId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemodel
+        description: Google BigQuery Delete model
+        call: bigquery-models.deletemodel
+        with:
+          modelId: rest.modelId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bigquery-models-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google BigQuery API — Models. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: google-bigquery-list-models
+      description: Google BigQuery List models
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bigquery-models.listmodels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-get-model
+      description: Google BigQuery Get model
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bigquery-models.getmodel
+      with:
+        modelId: tools.modelId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-update-model
+      description: Google BigQuery Update model
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: bigquery-models.patchmodel
+      with:
+        modelId: tools.modelId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-delete-model
+      description: Google BigQuery Delete model
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: bigquery-models.deletemodel
+      with:
+        modelId: tools.modelId
+      outputParameters:
+      - type: object
+        mapping: $.

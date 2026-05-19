@@ -1,0 +1,292 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google BigQuery API — Jobs
+  description: 'Google BigQuery API — Jobs. 7 operations. Lead operation: Google BigQuery List jobs. Self-contained Naftiko
+    capability covering one Google Bigquery business surface.'
+  tags:
+  - Google Bigquery
+  - Jobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_BIGQUERY_API_KEY: GOOGLE_BIGQUERY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bigquery-jobs
+    baseUri: https://bigquery.googleapis.com/bigquery/v2
+    description: Google BigQuery API — Jobs business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-jobs
+      path: /projects/{projectId}/jobs
+      operations:
+      - name: listjobs
+        method: GET
+        description: Google BigQuery List jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projection
+          in: query
+          type: string
+          description: Restricts information returned to a set of selected fields
+        - name: stateFilter
+          in: query
+          type: array
+          description: Filter for job state
+      - name: insertjob
+        method: POST
+        description: Google BigQuery Submit a job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: projects-projectId-jobs-jobId
+      path: /projects/{projectId}/jobs/{jobId}
+      operations:
+      - name: getjob
+        method: GET
+        description: Google BigQuery Get job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletejob
+        method: DELETE
+        description: Google BigQuery Delete job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectId-jobs-jobId-cancel
+      path: /projects/{projectId}/jobs/{jobId}/cancel
+      operations:
+      - name: canceljob
+        method: POST
+        description: Google BigQuery Cancel job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectId-queries
+      path: /projects/{projectId}/queries
+      operations:
+      - name: queryjobs
+        method: POST
+        description: Google BigQuery Execute query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: projects-projectId-queries-jobId
+      path: /projects/{projectId}/queries/{jobId}
+      operations:
+      - name: getqueryresults
+        method: GET
+        description: Google BigQuery Get query results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: startIndex
+          in: query
+          type: integer
+          description: Zero-based index of the starting row
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_BIGQUERY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: bigquery-jobs-rest
+    port: 8080
+    description: REST adapter for Google BigQuery API — Jobs. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/jobs
+      name: projects-projectid-jobs
+      description: REST surface for projects-projectId-jobs.
+      operations:
+      - method: GET
+        name: listjobs
+        description: Google BigQuery List jobs
+        call: bigquery-jobs.listjobs
+        with:
+          projection: rest.projection
+          stateFilter: rest.stateFilter
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: insertjob
+        description: Google BigQuery Submit a job
+        call: bigquery-jobs.insertjob
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/jobs/{jobid}
+      name: projects-projectid-jobs-jobid
+      description: REST surface for projects-projectId-jobs-jobId.
+      operations:
+      - method: GET
+        name: getjob
+        description: Google BigQuery Get job
+        call: bigquery-jobs.getjob
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletejob
+        description: Google BigQuery Delete job
+        call: bigquery-jobs.deletejob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/jobs/{jobid}/cancel
+      name: projects-projectid-jobs-jobid-cancel
+      description: REST surface for projects-projectId-jobs-jobId-cancel.
+      operations:
+      - method: POST
+        name: canceljob
+        description: Google BigQuery Cancel job
+        call: bigquery-jobs.canceljob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/queries
+      name: projects-projectid-queries
+      description: REST surface for projects-projectId-queries.
+      operations:
+      - method: POST
+        name: queryjobs
+        description: Google BigQuery Execute query
+        call: bigquery-jobs.queryjobs
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/queries/{jobid}
+      name: projects-projectid-queries-jobid
+      description: REST surface for projects-projectId-queries-jobId.
+      operations:
+      - method: GET
+        name: getqueryresults
+        description: Google BigQuery Get query results
+        call: bigquery-jobs.getqueryresults
+        with:
+          startIndex: rest.startIndex
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bigquery-jobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google BigQuery API — Jobs. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: google-bigquery-list-jobs
+      description: Google BigQuery List jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bigquery-jobs.listjobs
+      with:
+        projection: tools.projection
+        stateFilter: tools.stateFilter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-submit-job
+      description: Google BigQuery Submit a job
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: bigquery-jobs.insertjob
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-get-job
+      description: Google BigQuery Get job
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bigquery-jobs.getjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-delete-job
+      description: Google BigQuery Delete job
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: bigquery-jobs.deletejob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-cancel-job
+      description: Google BigQuery Cancel job
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: bigquery-jobs.canceljob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-execute-query
+      description: Google BigQuery Execute query
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: bigquery-jobs.queryjobs
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-bigquery-get-query-results
+      description: Google BigQuery Get query results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bigquery-jobs.getqueryresults
+      with:
+        startIndex: tools.startIndex
+      outputParameters:
+      - type: object
+        mapping: $.
