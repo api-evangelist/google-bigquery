@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TableDataList",
+  "title": "TableDataList",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The resource type"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Rows of results"
+    },
+    "pageToken": {
+      "type": "string",
+      "description": "A token to request the next page of results"
+    },
+    "totalRows": {
+      "type": "string",
+      "description": "The total number of rows in the table"
+    }
+  }
+}

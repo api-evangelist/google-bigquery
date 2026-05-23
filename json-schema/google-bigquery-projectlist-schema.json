@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProjectList",
+  "title": "ProjectList",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The resource type"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The project ID"
+          },
+          "friendlyName": {
+            "type": "string",
+            "description": "A descriptive name for the project"
+          },
+          "projectReference": {
+            "type": "object",
+            "properties": {
+              "projectId": {
+                "type": "string",
+                "description": "The ID of the project"
+              }
+            }
+          }
+        }
+      },
+      "description": "Projects to which the user has at least READ access"
+    },
+    "nextPageToken": {
+      "type": "string",
+      "description": "A token to request the next page of results"
+    },
+    "totalItems": {
+      "type": "integer",
+      "description": "The total number of projects"
+    }
+  }
+}

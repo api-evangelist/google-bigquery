@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JobCancelResponse",
+  "title": "JobCancelResponse",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The resource type"
+    },
+    "job": {
+      "$ref": "#/components/schemas/Job"
+    }
+  }
+}

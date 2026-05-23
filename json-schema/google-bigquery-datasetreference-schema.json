@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DatasetReference",
+  "title": "DatasetReference",
+  "type": "object",
+  "properties": {
+    "projectId": {
+      "type": "string",
+      "description": "The ID of the project containing the dataset"
+    },
+    "datasetId": {
+      "type": "string",
+      "description": "The ID of the dataset"
+    }
+  }
+}

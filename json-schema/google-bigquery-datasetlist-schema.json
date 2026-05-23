@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DatasetList",
+  "title": "DatasetList",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The resource type"
+    },
+    "datasets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Dataset"
+      },
+      "description": "An array of dataset resources"
+    },
+    "nextPageToken": {
+      "type": "string",
+      "description": "A token to request the next page of results"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TableReference",
+  "title": "TableReference",
+  "type": "object",
+  "properties": {
+    "projectId": {
+      "type": "string",
+      "description": "The ID of the project containing the table"
+    },
+    "datasetId": {
+      "type": "string",
+      "description": "The ID of the dataset containing the table"
+    },
+    "tableId": {
+      "type": "string",
+      "description": "The ID of the table"
+    }
+  }
+}

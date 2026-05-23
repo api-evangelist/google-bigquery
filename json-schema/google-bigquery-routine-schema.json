@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Routine",
+  "title": "Routine",
+  "type": "object",
+  "properties": {
+    "routineReference": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "description": "The ID of the project"
+        },
+        "datasetId": {
+          "type": "string",
+          "description": "The ID of the dataset"
+        },
+        "routineId": {
+          "type": "string",
+          "description": "The ID of the routine"
+        }
+      }
+    },
+    "routineType": {
+      "type": "string",
+      "description": "The type of the routine",
+      "enum": [
+        "SCALAR_FUNCTION",
+        "PROCEDURE",
+        "TABLE_VALUED_FUNCTION"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "description": "The language of the routine"
+    },
+    "definitionBody": {
+      "type": "string",
+      "description": "The body of the routine"
+    },
+    "description": {
+      "type": "string",
+      "description": "A user-friendly description of the routine"
+    },
+    "creationTime": {
+      "type": "string",
+      "description": "The time when this routine was created"
+    }
+  }
+}

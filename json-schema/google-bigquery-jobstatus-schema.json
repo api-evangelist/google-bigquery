@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JobStatus",
+  "title": "JobStatus",
+  "type": "object",
+  "properties": {
+    "state": {
+      "type": "string",
+      "description": "Running state of the job",
+      "enum": [
+        "PENDING",
+        "RUNNING",
+        "DONE"
+      ]
+    },
+    "errorResult": {
+      "$ref": "#/components/schemas/ErrorProto"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ErrorProto"
+      },
+      "description": "The first errors encountered during the running of the job"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Dataset",
+  "title": "Dataset",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The resource type, always bigquery#dataset"
+    },
+    "id": {
+      "type": "string",
+      "description": "The fully-qualified unique name of the dataset"
+    },
+    "datasetReference": {
+      "$ref": "#/components/schemas/DatasetReference"
+    },
+    "friendlyName": {
+      "type": "string",
+      "description": "A descriptive name for the dataset"
+    },
+    "description": {
+      "type": "string",
+      "description": "A user-friendly description of the dataset"
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with this dataset"
+    },
+    "location": {
+      "type": "string",
+      "description": "The geographic location where the dataset should reside"
+    },
+    "creationTime": {
+      "type": "string",
+      "description": "The time when this dataset was created in milliseconds since epoch"
+    },
+    "lastModifiedTime": {
+      "type": "string",
+      "description": "The date when this dataset was last modified in milliseconds since epoch"
+    }
+  }
+}

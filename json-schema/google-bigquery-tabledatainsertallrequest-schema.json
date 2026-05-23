@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TableDataInsertAllRequest",
+  "title": "TableDataInsertAllRequest",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The resource type"
+    },
+    "skipInvalidRows": {
+      "type": "boolean",
+      "description": "Whether to insert rows that contain values that do not match the schema"
+    },
+    "ignoreUnknownValues": {
+      "type": "boolean",
+      "description": "Whether to accept rows with fields not matching the schema"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "insertId": {
+            "type": "string",
+            "description": "A unique ID for deduplication"
+          },
+          "json": {
+            "type": "object",
+            "description": "A JSON object with a row of data"
+          }
+        }
+      },
+      "description": "The rows to insert"
+    }
+  }
+}

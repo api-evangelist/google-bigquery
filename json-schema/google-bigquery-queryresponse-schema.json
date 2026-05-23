@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/QueryResponse",
+  "title": "QueryResponse",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The resource type"
+    },
+    "schema": {
+      "$ref": "#/components/schemas/TableSchema"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Result rows"
+    },
+    "totalRows": {
+      "type": "string",
+      "description": "The total number of rows in the complete query result set"
+    },
+    "pageToken": {
+      "type": "string",
+      "description": "A token to request the next page of results"
+    },
+    "jobComplete": {
+      "type": "boolean",
+      "description": "Whether the query has completed"
+    },
+    "jobReference": {
+      "$ref": "#/components/schemas/JobReference"
+    },
+    "totalBytesProcessed": {
+      "type": "string",
+      "description": "The total number of bytes processed by the query"
+    }
+  }
+}

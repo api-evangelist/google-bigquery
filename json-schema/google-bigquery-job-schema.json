@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Job",
+  "title": "Job",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The resource type, always bigquery#job"
+    },
+    "id": {
+      "type": "string",
+      "description": "The fully-qualified unique name of the job"
+    },
+    "jobReference": {
+      "$ref": "#/components/schemas/JobReference"
+    },
+    "configuration": {
+      "$ref": "#/components/schemas/JobConfiguration"
+    },
+    "status": {
+      "$ref": "#/components/schemas/JobStatus"
+    },
+    "statistics": {
+      "type": "object",
+      "description": "Output only statistics about the job"
+    }
+  }
+}

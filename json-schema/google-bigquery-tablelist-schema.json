@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TableList",
+  "title": "TableList",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The resource type"
+    },
+    "tables": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Table"
+      },
+      "description": "Tables in the requested dataset"
+    },
+    "nextPageToken": {
+      "type": "string",
+      "description": "A token to request the next page of results"
+    },
+    "totalItems": {
+      "type": "integer",
+      "description": "The total number of tables in the dataset"
+    }
+  }
+}

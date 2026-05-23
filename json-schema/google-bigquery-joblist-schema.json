@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JobList",
+  "title": "JobList",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "description": "The resource type"
+    },
+    "jobs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Job"
+      },
+      "description": "List of jobs"
+    },
+    "nextPageToken": {
+      "type": "string",
+      "description": "A token to request the next page of results"
+    }
+  }
+}

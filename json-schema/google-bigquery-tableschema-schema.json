@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TableSchema",
+  "title": "TableSchema",
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TableFieldSchema"
+      },
+      "description": "Describes the fields in a table"
+    }
+  }
+}

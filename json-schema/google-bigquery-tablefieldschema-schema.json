@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TableFieldSchema",
+  "title": "TableFieldSchema",
+  "type": "object",
+  "required": [
+    "name",
+    "type"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The field name"
+    },
+    "type": {
+      "type": "string",
+      "description": "The field data type",
+      "enum": [
+        "STRING",
+        "BYTES",
+        "INTEGER",
+        "INT64",
+        "FLOAT",
+        "FLOAT64",
+        "NUMERIC",
+        "BIGNUMERIC",
+        "BOOLEAN",
+        "BOOL",
+        "TIMESTAMP",
+        "DATE",
+        "TIME",
+        "DATETIME",
+        "GEOGRAPHY",
+        "RECORD",
+        "STRUCT",
+        "JSON"
+      ]
+    },
+    "mode": {
+      "type": "string",
+      "description": "The field mode",
+      "enum": [
+        "NULLABLE",
+        "REQUIRED",
+        "REPEATED"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "The field description"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TableFieldSchema"
+      },
+      "description": "Nested fields for RECORD type"
+    }
+  }
+}

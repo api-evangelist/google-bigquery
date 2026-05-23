@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JobReference",
+  "title": "JobReference",
+  "type": "object",
+  "properties": {
+    "projectId": {
+      "type": "string",
+      "description": "The ID of the project containing the job"
+    },
+    "jobId": {
+      "type": "string",
+      "description": "The ID of the job"
+    },
+    "location": {
+      "type": "string",
+      "description": "The geographic location of the job"
+    }
+  }
+}

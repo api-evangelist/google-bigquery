@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Model",
+  "title": "Model",
+  "type": "object",
+  "properties": {
+    "modelReference": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "description": "The ID of the project"
+        },
+        "datasetId": {
+          "type": "string",
+          "description": "The ID of the dataset"
+        },
+        "modelId": {
+          "type": "string",
+          "description": "The ID of the model"
+        }
+      }
+    },
+    "modelType": {
+      "type": "string",
+      "description": "The type of the model"
+    },
+    "friendlyName": {
+      "type": "string",
+      "description": "A descriptive name for the model"
+    },
+    "description": {
+      "type": "string",
+      "description": "A user-friendly description of the model"
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with this model"
+    },
+    "creationTime": {
+      "type": "string",
+      "description": "The time when this model was created"
+    }
+  }
+}

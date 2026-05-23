@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ModelList",
+  "title": "ModelList",
+  "type": "object",
+  "properties": {
+    "models": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Model"
+      },
+      "description": "Models in the requested dataset"
+    },
+    "nextPageToken": {
+      "type": "string",
+      "description": "A token to request the next page of results"
+    }
+  }
+}

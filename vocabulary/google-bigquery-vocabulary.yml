@@ -1,0 +1,19 @@
+name: Google BigQuery Domain Vocabulary
+provider: Google BigQuery
+providerId: google-bigquery
+description: Tag-derived vocabulary for the Google BigQuery API surface; sourced from openapi/ tags.
+terms:
+- term: Datasets
+  description: Operations for managing BigQuery datasets
+- term: Jobs
+  description: Operations for managing query and load jobs
+- term: Models
+  description: Operations for managing BigQuery ML models
+- term: Projects
+  description: Operations for listing projects and service accounts
+- term: Routines
+  description: Operations for managing routines (functions and procedures)
+- term: Tabledata
+  description: Operations for reading and inserting table rows
+- term: Tables
+  description: Operations for managing tables within datasets

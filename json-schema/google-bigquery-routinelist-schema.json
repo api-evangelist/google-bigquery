@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RoutineList",
+  "title": "RoutineList",
+  "type": "object",
+  "properties": {
+    "routines": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Routine"
+      },
+      "description": "Routines in the requested dataset"
+    },
+    "nextPageToken": {
+      "type": "string",
+      "description": "A token to request the next page of results"
+    }
+  }
+}

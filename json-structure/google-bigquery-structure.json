@@ -1,0 +1,437 @@
+{
+  "provider": "Google BigQuery",
+  "providerId": "google-bigquery",
+  "kind": "json-structure",
+  "description": "Structural overview of the Google BigQuery API surface; extracted from openapi/.",
+  "schemaCount": 25,
+  "operationCount": 30,
+  "schemas": [
+    {
+      "name": "Dataset",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "DatasetReference",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "DatasetList",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Table",
+      "type": "object",
+      "propertyCount": 12,
+      "required": []
+    },
+    {
+      "name": "TableReference",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "TableSchema",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "TableFieldSchema",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "name",
+        "type"
+      ]
+    },
+    {
+      "name": "TableList",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "TableDataList",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "TableDataInsertAllRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "TableDataInsertAllResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Job",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "JobReference",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "JobConfiguration",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "JobStatus",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "JobList",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "JobCancelResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "QueryRequest",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "query"
+      ]
+    },
+    {
+      "name": "QueryResponse",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "Model",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "ModelList",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Routine",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "RoutineList",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ProjectList",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "ErrorProto",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/projects",
+      "operationId": "listProjects",
+      "summary": "Google BigQuery List projects",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/datasets",
+      "operationId": "listDatasets",
+      "summary": "Google BigQuery List datasets",
+      "tags": [
+        "Datasets"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/{projectId}/datasets",
+      "operationId": "insertDataset",
+      "summary": "Google BigQuery Create a dataset",
+      "tags": [
+        "Datasets"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/datasets/{datasetId}",
+      "operationId": "getDataset",
+      "summary": "Google BigQuery Get dataset",
+      "tags": [
+        "Datasets"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/projects/{projectId}/datasets/{datasetId}",
+      "operationId": "updateDataset",
+      "summary": "Google BigQuery Update dataset",
+      "tags": [
+        "Datasets"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/projects/{projectId}/datasets/{datasetId}",
+      "operationId": "deleteDataset",
+      "summary": "Google BigQuery Delete dataset",
+      "tags": [
+        "Datasets"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/projects/{projectId}/datasets/{datasetId}",
+      "operationId": "patchDataset",
+      "summary": "Google BigQuery Partially update dataset",
+      "tags": [
+        "Datasets"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/datasets/{datasetId}/tables",
+      "operationId": "listTables",
+      "summary": "Google BigQuery List tables",
+      "tags": [
+        "Tables"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/{projectId}/datasets/{datasetId}/tables",
+      "operationId": "insertTable",
+      "summary": "Google BigQuery Create a table",
+      "tags": [
+        "Tables"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/datasets/{datasetId}/tables/{tableId}",
+      "operationId": "getTable",
+      "summary": "Google BigQuery Get table",
+      "tags": [
+        "Tables"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/projects/{projectId}/datasets/{datasetId}/tables/{tableId}",
+      "operationId": "deleteTable",
+      "summary": "Google BigQuery Delete table",
+      "tags": [
+        "Tables"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/projects/{projectId}/datasets/{datasetId}/tables/{tableId}",
+      "operationId": "patchTable",
+      "summary": "Google BigQuery Partially update table",
+      "tags": [
+        "Tables"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/datasets/{datasetId}/tables/{tableId}/data",
+      "operationId": "listTabledata",
+      "summary": "Google BigQuery List table rows",
+      "tags": [
+        "Tabledata"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/{projectId}/datasets/{datasetId}/tables/{tableId}/insertAll",
+      "operationId": "insertAllTabledata",
+      "summary": "Google BigQuery Insert rows",
+      "tags": [
+        "Tabledata"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/jobs",
+      "operationId": "listJobs",
+      "summary": "Google BigQuery List jobs",
+      "tags": [
+        "Jobs"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/{projectId}/jobs",
+      "operationId": "insertJob",
+      "summary": "Google BigQuery Submit a job",
+      "tags": [
+        "Jobs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/jobs/{jobId}",
+      "operationId": "getJob",
+      "summary": "Google BigQuery Get job",
+      "tags": [
+        "Jobs"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/projects/{projectId}/jobs/{jobId}",
+      "operationId": "deleteJob",
+      "summary": "Google BigQuery Delete job",
+      "tags": [
+        "Jobs"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/{projectId}/jobs/{jobId}/cancel",
+      "operationId": "cancelJob",
+      "summary": "Google BigQuery Cancel job",
+      "tags": [
+        "Jobs"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/{projectId}/queries",
+      "operationId": "queryJobs",
+      "summary": "Google BigQuery Execute query",
+      "tags": [
+        "Jobs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/queries/{jobId}",
+      "operationId": "getQueryResults",
+      "summary": "Google BigQuery Get query results",
+      "tags": [
+        "Jobs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/datasets/{datasetId}/models",
+      "operationId": "listModels",
+      "summary": "Google BigQuery List models",
+      "tags": [
+        "Models"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/datasets/{datasetId}/models/{modelId}",
+      "operationId": "getModel",
+      "summary": "Google BigQuery Get model",
+      "tags": [
+        "Models"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/projects/{projectId}/datasets/{datasetId}/models/{modelId}",
+      "operationId": "deleteModel",
+      "summary": "Google BigQuery Delete model",
+      "tags": [
+        "Models"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/projects/{projectId}/datasets/{datasetId}/models/{modelId}",
+      "operationId": "patchModel",
+      "summary": "Google BigQuery Update model",
+      "tags": [
+        "Models"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/datasets/{datasetId}/routines",
+      "operationId": "listRoutines",
+      "summary": "Google BigQuery List routines",
+      "tags": [
+        "Routines"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/{projectId}/datasets/{datasetId}/routines",
+      "operationId": "insertRoutine",
+      "summary": "Google BigQuery Create a routine",
+      "tags": [
+        "Routines"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/datasets/{datasetId}/routines/{routineId}",
+      "operationId": "getRoutine",
+      "summary": "Google BigQuery Get routine",
+      "tags": [
+        "Routines"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/projects/{projectId}/datasets/{datasetId}/routines/{routineId}",
+      "operationId": "updateRoutine",
+      "summary": "Google BigQuery Update routine",
+      "tags": [
+        "Routines"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/projects/{projectId}/datasets/{datasetId}/routines/{routineId}",
+      "operationId": "deleteRoutine",
+      "summary": "Google BigQuery Delete routine",
+      "tags": [
+        "Routines"
+      ]
+    }
+  ]
+}
