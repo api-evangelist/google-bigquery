@@ -1,0 +1,1034 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google BigQuery API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects",
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              }
+            ]
+          },
+          "docs": "Lists all projects to which the user has been granted any project role."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List datasets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              },
+              {
+                "name": "all",
+                "value": "",
+                "type": "query",
+                "description": "Whether to list all datasets, including hidden ones"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter expression for filtering datasets by label"
+              }
+            ]
+          },
+          "docs": "Lists all datasets in the specified project to which the user has been granted the READER dataset role."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Create a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new empty dataset in the specified project."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              }
+            ]
+          },
+          "docs": "Returns the dataset specified by datasetId."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Update dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates information in an existing dataset by replacing the entire dataset resource."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Partially update dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Delete dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "deleteContents",
+                "value": "",
+                "type": "query",
+                "description": "If true, delete all the tables in the dataset"
+              }
+            ]
+          },
+          "docs": "Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              }
+            ]
+          },
+          "docs": "Lists all tables in the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Create a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new empty table in the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables/:tableId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the table"
+              }
+            ]
+          },
+          "docs": "Gets the specified table resource by table ID."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Partially update table",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables/:tableId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the table"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates information in an existing table, replacing only the fields provided in the submitted table resource."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Delete table",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables/:tableId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the table"
+              }
+            ]
+          },
+          "docs": "Deletes the table specified by tableId from the dataset."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tabledata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List table rows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables/:tableId/data",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the table"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              },
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based index of the starting row to read"
+              }
+            ]
+          },
+          "docs": "Lists the rows of a table, returning rows in the response body."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Insert rows",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables/:tableId/insertAll",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the table"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Streams data into BigQuery one record at a time without needing to run a load job."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/jobs",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              },
+              {
+                "name": "projection",
+                "value": "",
+                "type": "query",
+                "description": "Restricts information returned to a set of selected fields"
+              },
+              {
+                "name": "stateFilter",
+                "value": "",
+                "type": "query",
+                "description": "Filter for job state"
+              }
+            ]
+          },
+          "docs": "Lists all jobs that you started in the specified project."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Submit a job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/jobs",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts a new asynchronous job such as a query, load, extract, or copy job."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/jobs/:jobId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the job"
+              }
+            ]
+          },
+          "docs": "Returns information about a specific job."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Delete job",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/jobs/:jobId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the job"
+              }
+            ]
+          },
+          "docs": "Requests the deletion of the metadata of a job."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Cancel job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/jobs/:jobId/cancel",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the job"
+              }
+            ]
+          },
+          "docs": "Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed successfully."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Execute query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/queries",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Runs a BigQuery SQL query synchronously and returns query results if the query completes within a specified timeout."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get query results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/queries/:jobId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the job"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              },
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based index of the starting row"
+              }
+            ]
+          },
+          "docs": "Retrieves the results of a query job."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/models",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              }
+            ]
+          },
+          "docs": "Lists all models in the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get model",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/models/:modelId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the model"
+              }
+            ]
+          },
+          "docs": "Gets the specified model resource by model ID."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Update model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/models/:modelId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the model"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch specific fields in the specified model."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Delete model",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/models/:modelId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the model"
+              }
+            ]
+          },
+          "docs": "Deletes the model specified by modelId from the dataset."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Routines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List routines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/routines",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              }
+            ]
+          },
+          "docs": "Lists all routines in the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Create a routine",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/routines",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new routine in the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get routine",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/routines/:routineId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "routineId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the routine"
+              }
+            ]
+          },
+          "docs": "Gets the specified routine resource by routine ID."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Update routine",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/routines/:routineId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "routineId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the routine"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates information in an existing routine by replacing the entire routine resource."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Delete routine",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/routines/:routineId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "routineId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the routine"
+              }
+            ]
+          },
+          "docs": "Deletes the routine specified by routineId from the dataset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
