@@ -111,6 +111,8 @@ apis:
       - type: Documentation
         url: https://cloud.google.com/bigquery/docs/reference/storage
 common:
+  - type: OAuthScopes
+    url: scopes/google-bigquery-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/googleapis
   - type: GettingStarted
