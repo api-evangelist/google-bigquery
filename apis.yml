@@ -111,6 +111,12 @@ apis:
       - type: Documentation
         url: https://cloud.google.com/bigquery/docs/reference/storage
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-bigquery-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-bigquery-domain-security.yml
+  - type: Authentication
+    url: authentication/google-bigquery-authentication.yml
   - type: OAuthScopes
     url: scopes/google-bigquery-scopes.yml
   - type: GitHubOrganization
