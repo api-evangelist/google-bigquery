@@ -111,6 +111,8 @@ apis:
       - type: Documentation
         url: https://cloud.google.com/bigquery/docs/reference/storage
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-bigquery-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-bigquery-vulnerability-disclosure.yml
   - type: DomainSecurity
