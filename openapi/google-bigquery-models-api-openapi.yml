@@ -1,0 +1,208 @@
+openapi: 3.1.0
+info:
+  title: Google BigQuery Datasets Models API
+  description: The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.
+  version: '2'
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/bigquery/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://bigquery.googleapis.com/bigquery/v2
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: Models
+  description: Operations for managing BigQuery ML models
+paths:
+  /projects/{projectId}/datasets/{datasetId}/models:
+    get:
+      operationId: listModels
+      summary: Google BigQuery List models
+      description: Lists all models in the specified dataset.
+      tags:
+      - Models
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/datasetId'
+      - $ref: '#/components/parameters/maxResults'
+      - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelList'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dataset not found
+  /projects/{projectId}/datasets/{datasetId}/models/{modelId}:
+    get:
+      operationId: getModel
+      summary: Google BigQuery Get model
+      description: Gets the specified model resource by model ID.
+      tags:
+      - Models
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/datasetId'
+      - name: modelId
+        in: path
+        required: true
+        description: The ID of the model
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Model'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Model not found
+    patch:
+      operationId: patchModel
+      summary: Google BigQuery Update model
+      description: Patch specific fields in the specified model.
+      tags:
+      - Models
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/datasetId'
+      - name: modelId
+        in: path
+        required: true
+        description: The ID of the model
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Model'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Model'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Model not found
+    delete:
+      operationId: deleteModel
+      summary: Google BigQuery Delete model
+      description: Deletes the model specified by modelId from the dataset.
+      tags:
+      - Models
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/datasetId'
+      - name: modelId
+        in: path
+        required: true
+        description: The ID of the model
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Successfully deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Model not found
+components:
+  parameters:
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
+  schemas:
+    ModelList:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+          description: Models in the requested dataset
+        nextPageToken:
+          type: string
+          description: A token to request the next page of results
+    Model:
+      type: object
+      properties:
+        modelReference:
+          type: object
+          properties:
+            projectId:
+              type: string
+              description: The ID of the project
+            datasetId:
+              type: string
+              description: The ID of the dataset
+            modelId:
+              type: string
+              description: The ID of the model
+        modelType:
+          type: string
+          description: The type of the model
+        friendlyName:
+          type: string
+          description: A descriptive name for the model
+        description:
+          type: string
+          description: A user-friendly description of the model
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          description: Labels associated with this model
+        creationTime:
+          type: string
+          description: The time when this model was created
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/bigquery: Full access to BigQuery
+            https://www.googleapis.com/auth/bigquery.readonly: Read-only access to BigQuery
+externalDocs:
+  description: BigQuery API Documentation
+  url: https://cloud.google.com/bigquery/docs/reference/rest

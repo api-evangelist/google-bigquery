@@ -1,0 +1,268 @@
+openapi: 3.1.0
+info:
+  title: Google BigQuery Datasets API
+  description: The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.
+  version: '2'
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/bigquery/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://bigquery.googleapis.com/bigquery/v2
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: Datasets
+  description: Operations for managing BigQuery datasets
+paths:
+  /projects/{projectId}/datasets:
+    get:
+      operationId: listDatasets
+      summary: Google BigQuery List datasets
+      description: Lists all datasets in the specified project to which the user has been granted the READER dataset role.
+      tags:
+      - Datasets
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/maxResults'
+      - $ref: '#/components/parameters/pageToken'
+      - name: all
+        in: query
+        description: Whether to list all datasets, including hidden ones
+        schema:
+          type: boolean
+      - name: filter
+        in: query
+        description: Filter expression for filtering datasets by label
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetList'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Project not found
+    post:
+      operationId: insertDataset
+      summary: Google BigQuery Create a dataset
+      description: Creates a new empty dataset in the specified project.
+      tags:
+      - Datasets
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dataset'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '409':
+          description: Dataset already exists
+  /projects/{projectId}/datasets/{datasetId}:
+    get:
+      operationId: getDataset
+      summary: Google BigQuery Get dataset
+      description: Returns the dataset specified by datasetId.
+      tags:
+      - Datasets
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/datasetId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dataset not found
+    patch:
+      operationId: patchDataset
+      summary: Google BigQuery Partially update dataset
+      description: Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource.
+      tags:
+      - Datasets
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/datasetId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dataset'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dataset not found
+    put:
+      operationId: updateDataset
+      summary: Google BigQuery Update dataset
+      description: Updates information in an existing dataset by replacing the entire dataset resource.
+      tags:
+      - Datasets
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/datasetId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dataset'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dataset not found
+    delete:
+      operationId: deleteDataset
+      summary: Google BigQuery Delete dataset
+      description: Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables.
+      tags:
+      - Datasets
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/datasetId'
+      - name: deleteContents
+        in: query
+        description: If true, delete all the tables in the dataset
+        schema:
+          type: boolean
+      responses:
+        '204':
+          description: Successfully deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dataset not found
+components:
+  parameters:
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
+  schemas:
+    DatasetList:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type
+        datasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
+          description: An array of dataset resources
+        nextPageToken:
+          type: string
+          description: A token to request the next page of results
+    Dataset:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type, always bigquery#dataset
+        id:
+          type: string
+          description: The fully-qualified unique name of the dataset
+        datasetReference:
+          $ref: '#/components/schemas/DatasetReference'
+        friendlyName:
+          type: string
+          description: A descriptive name for the dataset
+        description:
+          type: string
+          description: A user-friendly description of the dataset
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          description: Labels associated with this dataset
+        location:
+          type: string
+          description: The geographic location where the dataset should reside
+        creationTime:
+          type: string
+          description: The time when this dataset was created in milliseconds since epoch
+        lastModifiedTime:
+          type: string
+          description: The date when this dataset was last modified in milliseconds since epoch
+    DatasetReference:
+      type: object
+      properties:
+        projectId:
+          type: string
+          description: The ID of the project containing the dataset
+        datasetId:
+          type: string
+          description: The ID of the dataset
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/bigquery: Full access to BigQuery
+            https://www.googleapis.com/auth/bigquery.readonly: Read-only access to BigQuery
+externalDocs:
+  description: BigQuery API Documentation
+  url: https://cloud.google.com/bigquery/docs/reference/rest

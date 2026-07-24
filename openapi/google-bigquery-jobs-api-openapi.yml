@@ -1,0 +1,470 @@
+openapi: 3.1.0
+info:
+  title: Google BigQuery Datasets Jobs API
+  description: The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.
+  version: '2'
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/bigquery/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://bigquery.googleapis.com/bigquery/v2
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: Jobs
+  description: Operations for managing query and load jobs
+paths:
+  /projects/{projectId}/jobs:
+    get:
+      operationId: listJobs
+      summary: Google BigQuery List jobs
+      description: Lists all jobs that you started in the specified project.
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/maxResults'
+      - $ref: '#/components/parameters/pageToken'
+      - name: projection
+        in: query
+        description: Restricts information returned to a set of selected fields
+        schema:
+          type: string
+          enum:
+          - full
+          - minimal
+      - name: stateFilter
+        in: query
+        description: Filter for job state
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - done
+            - pending
+            - running
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: insertJob
+      summary: Google BigQuery Submit a job
+      description: Starts a new asynchronous job such as a query, load, extract, or copy job.
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Job'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /projects/{projectId}/jobs/{jobId}:
+    get:
+      operationId: getJob
+      summary: Google BigQuery Get job
+      description: Returns information about a specific job.
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/jobId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Job not found
+    delete:
+      operationId: deleteJob
+      summary: Google BigQuery Delete job
+      description: Requests the deletion of the metadata of a job.
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/jobId'
+      responses:
+        '204':
+          description: Successfully deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Job not found
+  /projects/{projectId}/jobs/{jobId}/cancel:
+    post:
+      operationId: cancelJob
+      summary: Google BigQuery Cancel job
+      description: Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed successfully.
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/jobId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobCancelResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Job not found
+  /projects/{projectId}/queries:
+    post:
+      operationId: queryJobs
+      summary: Google BigQuery Execute query
+      description: Runs a BigQuery SQL query synchronously and returns query results if the query completes within a specified timeout.
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /projects/{projectId}/queries/{jobId}:
+    get:
+      operationId: getQueryResults
+      summary: Google BigQuery Get query results
+      description: Retrieves the results of a query job.
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/jobId'
+      - $ref: '#/components/parameters/maxResults'
+      - $ref: '#/components/parameters/pageToken'
+      - name: startIndex
+        in: query
+        description: Zero-based index of the starting row
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Job not found
+components:
+  schemas:
+    Job:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type, always bigquery#job
+        id:
+          type: string
+          description: The fully-qualified unique name of the job
+        jobReference:
+          $ref: '#/components/schemas/JobReference'
+        configuration:
+          $ref: '#/components/schemas/JobConfiguration'
+        status:
+          $ref: '#/components/schemas/JobStatus'
+        statistics:
+          type: object
+          description: Output only statistics about the job
+    JobCancelResponse:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type
+        job:
+          $ref: '#/components/schemas/Job'
+    JobReference:
+      type: object
+      properties:
+        projectId:
+          type: string
+          description: The ID of the project containing the job
+        jobId:
+          type: string
+          description: The ID of the job
+        location:
+          type: string
+          description: The geographic location of the job
+    TableFieldSchema:
+      type: object
+      required:
+      - name
+      - type
+      properties:
+        name:
+          type: string
+          description: The field name
+        type:
+          type: string
+          description: The field data type
+          enum:
+          - STRING
+          - BYTES
+          - INTEGER
+          - INT64
+          - FLOAT
+          - FLOAT64
+          - NUMERIC
+          - BIGNUMERIC
+          - BOOLEAN
+          - BOOL
+          - TIMESTAMP
+          - DATE
+          - TIME
+          - DATETIME
+          - GEOGRAPHY
+          - RECORD
+          - STRUCT
+          - JSON
+        mode:
+          type: string
+          description: The field mode
+          enum:
+          - NULLABLE
+          - REQUIRED
+          - REPEATED
+        description:
+          type: string
+          description: The field description
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableFieldSchema'
+          description: Nested fields for RECORD type
+    JobConfiguration:
+      type: object
+      properties:
+        jobType:
+          type: string
+          description: The type of the job
+        query:
+          type: object
+          description: Configuration for a query job
+          properties:
+            query:
+              type: string
+              description: SQL query text
+            destinationTable:
+              $ref: '#/components/schemas/TableReference'
+            useLegacySql:
+              type: boolean
+              description: Whether to use legacy SQL dialect
+        load:
+          type: object
+          description: Configuration for a load job
+        extract:
+          type: object
+          description: Configuration for an extract job
+        copy:
+          type: object
+          description: Configuration for a copy job
+    QueryRequest:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: string
+          description: A query string to execute using GoogleSQL or legacy SQL
+        maxResults:
+          type: integer
+          description: The maximum number of rows of data to return per page
+        defaultDataset:
+          $ref: '#/components/schemas/DatasetReference'
+        useLegacySql:
+          type: boolean
+          description: Whether to use legacy SQL dialect
+        timeoutMs:
+          type: integer
+          description: Timeout in milliseconds for the query to complete
+        dryRun:
+          type: boolean
+          description: If true, the query is not executed
+    JobList:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+          description: List of jobs
+        nextPageToken:
+          type: string
+          description: A token to request the next page of results
+    ErrorProto:
+      type: object
+      properties:
+        reason:
+          type: string
+          description: A short error code that summarizes the error
+        location:
+          type: string
+          description: Specifies where the error occurred
+        message:
+          type: string
+          description: A human-readable description of the error
+    TableSchema:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableFieldSchema'
+          description: Describes the fields in a table
+    JobStatus:
+      type: object
+      properties:
+        state:
+          type: string
+          description: Running state of the job
+          enum:
+          - PENDING
+          - RUNNING
+          - DONE
+        errorResult:
+          $ref: '#/components/schemas/ErrorProto'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorProto'
+          description: The first errors encountered during the running of the job
+    QueryResponse:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type
+        schema:
+          $ref: '#/components/schemas/TableSchema'
+        rows:
+          type: array
+          items:
+            type: object
+          description: Result rows
+        totalRows:
+          type: string
+          description: The total number of rows in the complete query result set
+        pageToken:
+          type: string
+          description: A token to request the next page of results
+        jobComplete:
+          type: boolean
+          description: Whether the query has completed
+        jobReference:
+          $ref: '#/components/schemas/JobReference'
+        totalBytesProcessed:
+          type: string
+          description: The total number of bytes processed by the query
+    DatasetReference:
+      type: object
+      properties:
+        projectId:
+          type: string
+          description: The ID of the project containing the dataset
+        datasetId:
+          type: string
+          description: The ID of the dataset
+    TableReference:
+      type: object
+      properties:
+        projectId:
+          type: string
+          description: The ID of the project containing the table
+        datasetId:
+          type: string
+          description: The ID of the dataset containing the table
+        tableId:
+          type: string
+          description: The ID of the table
+  parameters:
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
+      schema:
+        type: string
+    jobId:
+      name: jobId
+      in: path
+      required: true
+      description: The ID of the job
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/bigquery: Full access to BigQuery
+            https://www.googleapis.com/auth/bigquery.readonly: Read-only access to BigQuery
+externalDocs:
+  description: BigQuery API Documentation
+  url: https://cloud.google.com/bigquery/docs/reference/rest
