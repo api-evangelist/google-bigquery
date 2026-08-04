@@ -1,0 +1,1501 @@
+{
+  "info": {
+    "_postman_id": "c3a11044-47c8-4c6d-80e8-fba8ee9de6a5",
+    "name": "Google BigQuery Datasets API",
+    "description": "The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:45:10.000Z",
+    "updatedAt": "2026-07-28T01:45:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c3a11044-47c8-4c6d-80e8-fba8ee9de6a5"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "datasets",
+              "item": [
+                {
+                  "name": "{datasetId}",
+                  "item": [
+                    {
+                      "name": "Google BigQuery Get dataset",
+                      "id": "9641650a-ca2f-4d39-94ca-d16d9cc7c29d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "datasets",
+                            ":datasetId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "41281208-3c65-4ce9-8ba5-bbe1109da668",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the project"
+                            },
+                            {
+                              "id": "475d2d60-4a90-44c6-979d-f5ce0a6b2bf1",
+                              "key": "datasetId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the dataset"
+                            }
+                          ]
+                        },
+                        "description": "Returns the dataset specified by datasetId."
+                      },
+                      "response": [
+                        {
+                          "id": "ae1ffaf4-e05d-4caf-bc26-f7cf6e888647",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-ae1ffaf4-e05d-4caf-bc26-f7cf6e888647"
+                        },
+                        {
+                          "id": "cbe0d191-46cf-48b2-8a56-a216dd1bac13",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-cbe0d191-46cf-48b2-8a56-a216dd1bac13"
+                        },
+                        {
+                          "id": "099d99f6-6b81-4e1e-b710-5590252c755f",
+                          "name": "Dataset not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-099d99f6-6b81-4e1e-b710-5590252c755f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:45:11.000Z",
+                      "updatedAt": "2026-07-28T01:45:11.000Z",
+                      "uid": "35240-9641650a-ca2f-4d39-94ca-d16d9cc7c29d"
+                    },
+                    {
+                      "name": "Google BigQuery Partially update dataset",
+                      "id": "ce39767e-a40f-4525-ae65-4f055dd04eb3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "datasets",
+                            ":datasetId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1cf0bc3c-b95f-47eb-9eb6-1e50662d3496",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the project"
+                            },
+                            {
+                              "id": "23335720-fab3-4689-9d36-7f4bd713cb4f",
+                              "key": "datasetId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the dataset"
+                            }
+                          ]
+                        },
+                        "description": "Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource."
+                      },
+                      "response": [
+                        {
+                          "id": "24d42843-5f38-48e6-8b8d-b4793b690045",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-24d42843-5f38-48e6-8b8d-b4793b690045"
+                        },
+                        {
+                          "id": "9aa64e80-b481-4200-b86f-c128692269f6",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-9aa64e80-b481-4200-b86f-c128692269f6"
+                        },
+                        {
+                          "id": "1a83b50d-e87c-4eeb-b94e-97d57a7ea96e",
+                          "name": "Dataset not found",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-1a83b50d-e87c-4eeb-b94e-97d57a7ea96e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:45:11.000Z",
+                      "updatedAt": "2026-07-28T01:45:11.000Z",
+                      "uid": "35240-ce39767e-a40f-4525-ae65-4f055dd04eb3"
+                    },
+                    {
+                      "name": "Google BigQuery Update dataset",
+                      "id": "87ea1b25-d7d5-4f99-8620-70ba9d7e866d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "datasets",
+                            ":datasetId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ee485a54-b3d9-4745-9d79-c227ffa4a1f3",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the project"
+                            },
+                            {
+                              "id": "b508faca-aed1-4dd9-9746-37855389cd18",
+                              "key": "datasetId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the dataset"
+                            }
+                          ]
+                        },
+                        "description": "Updates information in an existing dataset by replacing the entire dataset resource."
+                      },
+                      "response": [
+                        {
+                          "id": "60969ac0-482e-4201-9334-318ba41b348c",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-60969ac0-482e-4201-9334-318ba41b348c"
+                        },
+                        {
+                          "id": "cd9c6103-1238-47fc-aea2-fb080bdca723",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-cd9c6103-1238-47fc-aea2-fb080bdca723"
+                        },
+                        {
+                          "id": "3bd35dd3-4899-4357-8a53-dbdd7a502c03",
+                          "name": "Dataset not found",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-3bd35dd3-4899-4357-8a53-dbdd7a502c03"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:45:11.000Z",
+                      "updatedAt": "2026-07-28T01:45:11.000Z",
+                      "uid": "35240-87ea1b25-d7d5-4f99-8620-70ba9d7e866d"
+                    },
+                    {
+                      "name": "Google BigQuery Delete dataset",
+                      "id": "28197d71-3048-436a-b06e-bff9d58753ae",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId?deleteContents=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "datasets",
+                            ":datasetId"
+                          ],
+                          "query": [
+                            {
+                              "description": "If true, delete all the tables in the dataset",
+                              "key": "deleteContents",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "4267d1fb-64f0-4606-bfb5-369bd1a21861",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the project"
+                            },
+                            {
+                              "id": "cc66ced3-9518-4dc1-a989-7b98a830b66f",
+                              "key": "datasetId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the dataset"
+                            }
+                          ]
+                        },
+                        "description": "Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables."
+                      },
+                      "response": [
+                        {
+                          "id": "e99de658-6c5e-4386-a5c7-b1b8b48af798",
+                          "name": "Successfully deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId?deleteContents=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If true, delete all the tables in the dataset",
+                                  "key": "deleteContents",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-e99de658-6c5e-4386-a5c7-b1b8b48af798"
+                        },
+                        {
+                          "id": "5ee6983b-7f58-41f1-9339-6ed62ed5dd34",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId?deleteContents=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If true, delete all the tables in the dataset",
+                                  "key": "deleteContents",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-5ee6983b-7f58-41f1-9339-6ed62ed5dd34"
+                        },
+                        {
+                          "id": "42f080fc-9a07-4904-9910-e3b51846f47a",
+                          "name": "Dataset not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId?deleteContents=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If true, delete all the tables in the dataset",
+                                  "key": "deleteContents",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:11.000Z",
+                          "updatedAt": "2026-07-28T01:45:11.000Z",
+                          "uid": "35240-42f080fc-9a07-4904-9910-e3b51846f47a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:45:11.000Z",
+                      "updatedAt": "2026-07-28T01:45:11.000Z",
+                      "uid": "35240-28197d71-3048-436a-b06e-bff9d58753ae"
+                    }
+                  ],
+                  "id": "fa5db2cd-7e82-4e12-b4e0-1d452919e07b",
+                  "createdAt": "2026-07-28T01:45:11.000Z",
+                  "updatedAt": "2026-07-28T01:45:11.000Z",
+                  "uid": "35240-fa5db2cd-7e82-4e12-b4e0-1d452919e07b"
+                },
+                {
+                  "name": "Google BigQuery List datasets",
+                  "id": "57ec5fdc-48a3-46fb-93ab-5dc61280f191",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/datasets?maxResults=<integer>&pageToken=<string>&all=<boolean>&filter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "datasets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Page token for pagination",
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Whether to list all datasets, including hidden ones",
+                          "key": "all",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter expression for filtering datasets by label",
+                          "key": "filter",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "58de9bfd-57c3-4ad6-ab65-5952982d2c4d",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the project"
+                        }
+                      ]
+                    },
+                    "description": "Lists all datasets in the specified project to which the user has been granted the READER dataset role."
+                  },
+                  "response": [
+                    {
+                      "id": "0601795a-503b-460e-9e2a-e85a5dd4ee71",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/datasets?maxResults=<integer>&pageToken=<string>&all=<boolean>&filter=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "datasets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Page token for pagination",
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Whether to list all datasets, including hidden ones",
+                              "key": "all",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Filter expression for filtering datasets by label",
+                              "key": "filter",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"kind\": \"<string>\",\n  \"datasets\": [\n    {\n      \"kind\": \"<string>\",\n      \"id\": \"<string>\",\n      \"datasetReference\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\"\n      },\n      \"friendlyName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"labels\": {\n        \"exe_6\": \"<string>\",\n        \"cupidatatd\": \"<string>\"\n      },\n      \"location\": \"<string>\",\n      \"creationTime\": \"<string>\",\n      \"lastModifiedTime\": \"<string>\"\n    },\n    {\n      \"kind\": \"<string>\",\n      \"id\": \"<string>\",\n      \"datasetReference\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\"\n      },\n      \"friendlyName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"labels\": {\n        \"veniam_6ac\": \"<string>\",\n        \"tempor7\": \"<string>\"\n      },\n      \"location\": \"<string>\",\n      \"creationTime\": \"<string>\",\n      \"lastModifiedTime\": \"<string>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:45:11.000Z",
+                      "updatedAt": "2026-07-28T01:45:11.000Z",
+                      "uid": "35240-0601795a-503b-460e-9e2a-e85a5dd4ee71"
+                    },
+                    {
+                      "id": "7776562e-fa49-408e-836f-d4a8a5c99e87",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/datasets?maxResults=<integer>&pageToken=<string>&all=<boolean>&filter=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "datasets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Page token for pagination",
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Whether to list all datasets, including hidden ones",
+                              "key": "all",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Filter expression for filtering datasets by label",
+                              "key": "filter",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:45:11.000Z",
+                      "updatedAt": "2026-07-28T01:45:11.000Z",
+                      "uid": "35240-7776562e-fa49-408e-836f-d4a8a5c99e87"
+                    },
+                    {
+                      "id": "4147c208-2f81-4ee7-985b-e727adde2213",
+                      "name": "Project not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/datasets?maxResults=<integer>&pageToken=<string>&all=<boolean>&filter=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "datasets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Page token for pagination",
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Whether to list all datasets, including hidden ones",
+                              "key": "all",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Filter expression for filtering datasets by label",
+                              "key": "filter",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:45:11.000Z",
+                      "updatedAt": "2026-07-28T01:45:11.000Z",
+                      "uid": "35240-4147c208-2f81-4ee7-985b-e727adde2213"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:45:11.000Z",
+                  "updatedAt": "2026-07-28T01:45:11.000Z",
+                  "uid": "35240-57ec5fdc-48a3-46fb-93ab-5dc61280f191"
+                },
+                {
+                  "name": "Google BigQuery Create a dataset",
+                  "id": "9ef6a16a-0346-48c0-90f8-d8946b725909",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/datasets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "datasets"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8c3177e1-edd4-4a5d-86b2-277bba3d6fe3",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the project"
+                        }
+                      ]
+                    },
+                    "description": "Creates a new empty dataset in the specified project."
+                  },
+                  "response": [
+                    {
+                      "id": "9a597e90-fc27-4014-aea6-f78ad21a259a",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/datasets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "datasets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:45:11.000Z",
+                      "updatedAt": "2026-07-28T01:45:11.000Z",
+                      "uid": "35240-9a597e90-fc27-4014-aea6-f78ad21a259a"
+                    },
+                    {
+                      "id": "2b43653e-a644-4ae3-ab31-9f1f5f1355f0",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/datasets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "datasets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:45:11.000Z",
+                      "updatedAt": "2026-07-28T01:45:11.000Z",
+                      "uid": "35240-2b43653e-a644-4ae3-ab31-9f1f5f1355f0"
+                    },
+                    {
+                      "id": "6f434a1c-52f8-4740-87a6-33757d7de065",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/datasets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "datasets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:45:11.000Z",
+                      "updatedAt": "2026-07-28T01:45:11.000Z",
+                      "uid": "35240-6f434a1c-52f8-4740-87a6-33757d7de065"
+                    },
+                    {
+                      "id": "3f4097cc-de18-43b3-acf4-306e028937d6",
+                      "name": "Dataset already exists",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"datasetReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"ina4_\": \"<string>\",\n    \"velit587\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"lastModifiedTime\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/datasets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "datasets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:45:11.000Z",
+                      "updatedAt": "2026-07-28T01:45:11.000Z",
+                      "uid": "35240-3f4097cc-de18-43b3-acf4-306e028937d6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:45:11.000Z",
+                  "updatedAt": "2026-07-28T01:45:11.000Z",
+                  "uid": "35240-9ef6a16a-0346-48c0-90f8-d8946b725909"
+                }
+              ],
+              "id": "729d0d6a-9808-472f-a468-4952e442a219",
+              "createdAt": "2026-07-28T01:45:11.000Z",
+              "updatedAt": "2026-07-28T01:45:11.000Z",
+              "uid": "35240-729d0d6a-9808-472f-a468-4952e442a219"
+            }
+          ],
+          "id": "1e21397a-4281-4176-aaec-7465995d2bfb",
+          "createdAt": "2026-07-28T01:45:11.000Z",
+          "updatedAt": "2026-07-28T01:45:11.000Z",
+          "uid": "35240-1e21397a-4281-4176-aaec-7465995d2bfb"
+        }
+      ],
+      "id": "d4c5ab6c-5ec4-400d-869a-c1297943b951",
+      "createdAt": "2026-07-28T01:45:11.000Z",
+      "updatedAt": "2026-07-28T01:45:11.000Z",
+      "uid": "35240-d4c5ab6c-5ec4-400d-869a-c1297943b951"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/bigquery.readonly",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bigquery.googleapis.com/bigquery/v2"
+    }
+  ]
+}

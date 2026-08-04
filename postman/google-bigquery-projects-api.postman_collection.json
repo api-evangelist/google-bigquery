@@ -1,0 +1,241 @@
+{
+  "info": {
+    "_postman_id": "275967e1-136d-4df8-9941-584e2e081434",
+    "name": "Google BigQuery Datasets Projects API",
+    "description": "The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:45:48.000Z",
+    "updatedAt": "2026-07-28T01:45:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-275967e1-136d-4df8-9941-584e2e081434"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "Google BigQuery List projects",
+          "id": "1e823ed5-b733-411c-be07-36d097d3fb4e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/projects?maxResults=<integer>&pageToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of results to return",
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Page token for pagination",
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Lists all projects to which the user has been granted any project role."
+          },
+          "response": [
+            {
+              "id": "63687424-9bc7-43ec-b53a-ff5f71f3365e",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/projects?maxResults=<integer>&pageToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "projects"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Page token for pagination",
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"kind\": \"<string>\",\n  \"projects\": [\n    {\n      \"id\": \"<string>\",\n      \"friendlyName\": \"<string>\",\n      \"projectReference\": {\n        \"projectId\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"friendlyName\": \"<string>\",\n      \"projectReference\": {\n        \"projectId\": \"<string>\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"<string>\",\n  \"totalItems\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:45:48.000Z",
+              "updatedAt": "2026-07-28T01:45:48.000Z",
+              "uid": "35240-63687424-9bc7-43ec-b53a-ff5f71f3365e"
+            },
+            {
+              "id": "ac6667c1-e830-4009-b963-03548f3fde5b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/projects?maxResults=<integer>&pageToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "projects"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Page token for pagination",
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:45:48.000Z",
+              "updatedAt": "2026-07-28T01:45:48.000Z",
+              "uid": "35240-ac6667c1-e830-4009-b963-03548f3fde5b"
+            },
+            {
+              "id": "b5cf43c5-4c2c-4e81-9c0d-ca59bdc1eb5f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/projects?maxResults=<integer>&pageToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "projects"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Page token for pagination",
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:45:48.000Z",
+              "updatedAt": "2026-07-28T01:45:48.000Z",
+              "uid": "35240-b5cf43c5-4c2c-4e81-9c0d-ca59bdc1eb5f"
+            }
+          ],
+          "createdAt": "2026-07-28T01:45:48.000Z",
+          "updatedAt": "2026-07-28T01:45:48.000Z",
+          "uid": "35240-1e823ed5-b733-411c-be07-36d097d3fb4e"
+        }
+      ],
+      "id": "02e202d1-09d1-4cbd-b78e-2fb8c67ea043",
+      "createdAt": "2026-07-28T01:45:48.000Z",
+      "updatedAt": "2026-07-28T01:45:48.000Z",
+      "uid": "35240-02e202d1-09d1-4cbd-b78e-2fb8c67ea043"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/bigquery.readonly",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bigquery.googleapis.com/bigquery/v2"
+    }
+  ]
+}

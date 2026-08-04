@@ -1,0 +1,673 @@
+{
+  "info": {
+    "_postman_id": "d0cb0a4f-d9c7-465a-bd4e-d15a282df582",
+    "name": "Google BigQuery Datasets Tabledata API",
+    "description": "The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:45:51.000Z",
+    "updatedAt": "2026-07-28T01:45:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d0cb0a4f-d9c7-465a-bd4e-d15a282df582"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "datasets",
+              "item": [
+                {
+                  "name": "{datasetId}",
+                  "item": [
+                    {
+                      "name": "tables",
+                      "item": [
+                        {
+                          "name": "{tableId}",
+                          "item": [
+                            {
+                              "name": "data",
+                              "item": [
+                                {
+                                  "name": "Google BigQuery List table rows",
+                                  "id": "dfb9a632-3593-4361-93af-10e8fd4833c8",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId/data?maxResults=<integer>&pageToken=<string>&startIndex=<long>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "tables",
+                                        ":tableId",
+                                        "data"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Maximum number of results to return",
+                                          "key": "maxResults",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "Page token for pagination",
+                                          "key": "pageToken",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Zero-based index of the starting row to read",
+                                          "key": "startIndex",
+                                          "value": "<long>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "8a6435fe-8398-40c9-b8ce-e7ef4518400c",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) The ID of the project"
+                                        },
+                                        {
+                                          "id": "9333bb77-e912-4479-b721-6842217ab62e",
+                                          "key": "datasetId",
+                                          "value": "<string>",
+                                          "description": "(Required) The ID of the dataset"
+                                        },
+                                        {
+                                          "id": "fbfa156c-b4de-41dc-a714-d6e1d1347713",
+                                          "key": "tableId",
+                                          "value": "<string>",
+                                          "description": "(Required) The ID of the table"
+                                        }
+                                      ]
+                                    },
+                                    "description": "Lists the rows of a table, returning rows in the response body."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "b0b0aa69-f5e1-406d-9aba-26ddb4401166",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId/data?maxResults=<integer>&pageToken=<string>&startIndex=<long>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "datasets",
+                                            ":datasetId",
+                                            "tables",
+                                            ":tableId",
+                                            "data"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Maximum number of results to return",
+                                              "key": "maxResults",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "description": "Page token for pagination",
+                                              "key": "pageToken",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Zero-based index of the starting row to read",
+                                              "key": "startIndex",
+                                              "value": "<long>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "datasetId"
+                                            },
+                                            {
+                                              "key": "tableId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"kind\": \"<string>\",\n  \"pageToken\": \"<string>\",\n  \"totalRows\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:45:51.000Z",
+                                      "updatedAt": "2026-07-28T01:45:51.000Z",
+                                      "uid": "35240-b0b0aa69-f5e1-406d-9aba-26ddb4401166"
+                                    },
+                                    {
+                                      "id": "8fd54e24-6669-4b8d-9436-aa259e42b7ad",
+                                      "name": "Unauthorized",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId/data?maxResults=<integer>&pageToken=<string>&startIndex=<long>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "datasets",
+                                            ":datasetId",
+                                            "tables",
+                                            ":tableId",
+                                            "data"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Maximum number of results to return",
+                                              "key": "maxResults",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "description": "Page token for pagination",
+                                              "key": "pageToken",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Zero-based index of the starting row to read",
+                                              "key": "startIndex",
+                                              "value": "<long>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "datasetId"
+                                            },
+                                            {
+                                              "key": "tableId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:45:51.000Z",
+                                      "updatedAt": "2026-07-28T01:45:51.000Z",
+                                      "uid": "35240-8fd54e24-6669-4b8d-9436-aa259e42b7ad"
+                                    },
+                                    {
+                                      "id": "516678bf-b8b2-447c-9aed-0ea0011a7f1b",
+                                      "name": "Table not found",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId/data?maxResults=<integer>&pageToken=<string>&startIndex=<long>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "datasets",
+                                            ":datasetId",
+                                            "tables",
+                                            ":tableId",
+                                            "data"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Maximum number of results to return",
+                                              "key": "maxResults",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "description": "Page token for pagination",
+                                              "key": "pageToken",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Zero-based index of the starting row to read",
+                                              "key": "startIndex",
+                                              "value": "<long>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "datasetId"
+                                            },
+                                            {
+                                              "key": "tableId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:45:51.000Z",
+                                      "updatedAt": "2026-07-28T01:45:51.000Z",
+                                      "uid": "35240-516678bf-b8b2-447c-9aed-0ea0011a7f1b"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:45:51.000Z",
+                                  "updatedAt": "2026-07-28T01:45:51.000Z",
+                                  "uid": "35240-dfb9a632-3593-4361-93af-10e8fd4833c8"
+                                }
+                              ],
+                              "id": "1a422167-d18b-4ec3-a57e-201805af181e",
+                              "createdAt": "2026-07-28T01:45:51.000Z",
+                              "updatedAt": "2026-07-28T01:45:51.000Z",
+                              "uid": "35240-1a422167-d18b-4ec3-a57e-201805af181e"
+                            },
+                            {
+                              "name": "insertAll",
+                              "item": [
+                                {
+                                  "name": "Google BigQuery Insert rows",
+                                  "id": "a4a2e6a9-fe7b-4165-9bef-d67673d29c31",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"kind\": \"<string>\",\n  \"skipInvalidRows\": \"<boolean>\",\n  \"ignoreUnknownValues\": \"<boolean>\",\n  \"rows\": [\n    {\n      \"insertId\": \"<string>\",\n      \"json\": {}\n    },\n    {\n      \"insertId\": \"<string>\",\n      \"json\": {}\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId/insertAll",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "tables",
+                                        ":tableId",
+                                        "insertAll"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "3a9073ad-f9b3-49e7-a9fc-354e64598dc2",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) The ID of the project"
+                                        },
+                                        {
+                                          "id": "90881625-bc11-4fcc-b289-be16c92f13fa",
+                                          "key": "datasetId",
+                                          "value": "<string>",
+                                          "description": "(Required) The ID of the dataset"
+                                        },
+                                        {
+                                          "id": "cfd9b022-a1ac-4461-92f1-b57177ae32aa",
+                                          "key": "tableId",
+                                          "value": "<string>",
+                                          "description": "(Required) The ID of the table"
+                                        }
+                                      ]
+                                    },
+                                    "description": "Streams data into BigQuery one record at a time without needing to run a load job."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "9846122b-fbf1-4a2c-9812-7e1a3d85c530",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"kind\": \"<string>\",\n  \"skipInvalidRows\": \"<boolean>\",\n  \"ignoreUnknownValues\": \"<boolean>\",\n  \"rows\": [\n    {\n      \"insertId\": \"<string>\",\n      \"json\": {}\n    },\n    {\n      \"insertId\": \"<string>\",\n      \"json\": {}\n    }\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId/insertAll",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "datasets",
+                                            ":datasetId",
+                                            "tables",
+                                            ":tableId",
+                                            "insertAll"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "datasetId"
+                                            },
+                                            {
+                                              "key": "tableId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"kind\": \"<string>\",\n  \"insertErrors\": [\n    {\n      \"index\": \"<integer>\",\n      \"errors\": [\n        {\n          \"reason\": \"<string>\",\n          \"location\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        {\n          \"reason\": \"<string>\",\n          \"location\": \"<string>\",\n          \"message\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"index\": \"<integer>\",\n      \"errors\": [\n        {\n          \"reason\": \"<string>\",\n          \"location\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        {\n          \"reason\": \"<string>\",\n          \"location\": \"<string>\",\n          \"message\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:45:51.000Z",
+                                      "updatedAt": "2026-07-28T01:45:51.000Z",
+                                      "uid": "35240-9846122b-fbf1-4a2c-9812-7e1a3d85c530"
+                                    },
+                                    {
+                                      "id": "dd1da163-cb38-41e8-aa7b-67ec53e2d92c",
+                                      "name": "Bad request",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"kind\": \"<string>\",\n  \"skipInvalidRows\": \"<boolean>\",\n  \"ignoreUnknownValues\": \"<boolean>\",\n  \"rows\": [\n    {\n      \"insertId\": \"<string>\",\n      \"json\": {}\n    },\n    {\n      \"insertId\": \"<string>\",\n      \"json\": {}\n    }\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId/insertAll",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "datasets",
+                                            ":datasetId",
+                                            "tables",
+                                            ":tableId",
+                                            "insertAll"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "datasetId"
+                                            },
+                                            {
+                                              "key": "tableId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Bad Request",
+                                      "code": 400,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:45:51.000Z",
+                                      "updatedAt": "2026-07-28T01:45:51.000Z",
+                                      "uid": "35240-dd1da163-cb38-41e8-aa7b-67ec53e2d92c"
+                                    },
+                                    {
+                                      "id": "45eb69ac-d14a-4b86-b757-0213d49dae39",
+                                      "name": "Unauthorized",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"kind\": \"<string>\",\n  \"skipInvalidRows\": \"<boolean>\",\n  \"ignoreUnknownValues\": \"<boolean>\",\n  \"rows\": [\n    {\n      \"insertId\": \"<string>\",\n      \"json\": {}\n    },\n    {\n      \"insertId\": \"<string>\",\n      \"json\": {}\n    }\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId/insertAll",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "datasets",
+                                            ":datasetId",
+                                            "tables",
+                                            ":tableId",
+                                            "insertAll"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "datasetId"
+                                            },
+                                            {
+                                              "key": "tableId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:45:51.000Z",
+                                      "updatedAt": "2026-07-28T01:45:51.000Z",
+                                      "uid": "35240-45eb69ac-d14a-4b86-b757-0213d49dae39"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:45:51.000Z",
+                                  "updatedAt": "2026-07-28T01:45:51.000Z",
+                                  "uid": "35240-a4a2e6a9-fe7b-4165-9bef-d67673d29c31"
+                                }
+                              ],
+                              "id": "cc6ff451-ff7a-492e-b5bc-f172ce1f437a",
+                              "createdAt": "2026-07-28T01:45:51.000Z",
+                              "updatedAt": "2026-07-28T01:45:51.000Z",
+                              "uid": "35240-cc6ff451-ff7a-492e-b5bc-f172ce1f437a"
+                            }
+                          ],
+                          "id": "e5cbceb3-87a1-4ebf-bb6c-6e25d3f41711",
+                          "createdAt": "2026-07-28T01:45:51.000Z",
+                          "updatedAt": "2026-07-28T01:45:51.000Z",
+                          "uid": "35240-e5cbceb3-87a1-4ebf-bb6c-6e25d3f41711"
+                        }
+                      ],
+                      "id": "27b9dfd3-7a2a-4202-a693-42ec55803042",
+                      "createdAt": "2026-07-28T01:45:51.000Z",
+                      "updatedAt": "2026-07-28T01:45:51.000Z",
+                      "uid": "35240-27b9dfd3-7a2a-4202-a693-42ec55803042"
+                    }
+                  ],
+                  "id": "cb94c766-7d14-4083-badf-c7ce477d517c",
+                  "createdAt": "2026-07-28T01:45:51.000Z",
+                  "updatedAt": "2026-07-28T01:45:51.000Z",
+                  "uid": "35240-cb94c766-7d14-4083-badf-c7ce477d517c"
+                }
+              ],
+              "id": "efd48849-9909-4789-92d8-0d73be60a7cd",
+              "createdAt": "2026-07-28T01:45:51.000Z",
+              "updatedAt": "2026-07-28T01:45:51.000Z",
+              "uid": "35240-efd48849-9909-4789-92d8-0d73be60a7cd"
+            }
+          ],
+          "id": "a571345f-9378-45e3-b505-ff5177dcdcf9",
+          "createdAt": "2026-07-28T01:45:51.000Z",
+          "updatedAt": "2026-07-28T01:45:51.000Z",
+          "uid": "35240-a571345f-9378-45e3-b505-ff5177dcdcf9"
+        }
+      ],
+      "id": "94e37a9f-e316-425b-8bdd-2f54c87c96a6",
+      "createdAt": "2026-07-28T01:45:51.000Z",
+      "updatedAt": "2026-07-28T01:45:51.000Z",
+      "uid": "35240-94e37a9f-e316-425b-8bdd-2f54c87c96a6"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/bigquery.readonly",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bigquery.googleapis.com/bigquery/v2"
+    }
+  ]
+}

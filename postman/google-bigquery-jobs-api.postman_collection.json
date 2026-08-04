@@ -1,0 +1,1575 @@
+{
+  "info": {
+    "_postman_id": "6492b2ba-7f8e-4015-b41c-bb89b1f3352f",
+    "name": "Google BigQuery Datasets Jobs API",
+    "description": "The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:45:12.000Z",
+    "updatedAt": "2026-07-28T01:45:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6492b2ba-7f8e-4015-b41c-bb89b1f3352f"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "jobs",
+              "item": [
+                {
+                  "name": "{jobId}",
+                  "item": [
+                    {
+                      "name": "cancel",
+                      "item": [
+                        {
+                          "name": "Google BigQuery Cancel job",
+                          "id": "c88fd754-f2ca-4cfd-a2d6-7a557fade86f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "jobs",
+                                ":jobId",
+                                "cancel"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "71552ed3-d2d1-4b8b-8ba4-67088c468f57",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the project"
+                                },
+                                {
+                                  "id": "087f28ed-08b2-4bea-a358-2ef8da75d6b1",
+                                  "key": "jobId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the job"
+                                }
+                              ]
+                            },
+                            "description": "Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed successfully."
+                          },
+                          "response": [
+                            {
+                              "id": "d4410291-ae32-42ee-9f07-aeaf815097bf",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "jobs",
+                                    ":jobId",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "jobId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"kind\": \"<string>\",\n  \"job\": {\n    \"kind\": \"<string>\",\n    \"id\": \"<string>\",\n    \"jobReference\": {\n      \"projectId\": \"<string>\",\n      \"jobId\": \"<string>\",\n      \"location\": \"<string>\"\n    },\n    \"configuration\": {\n      \"jobType\": \"<string>\",\n      \"query\": {\n        \"query\": \"<string>\",\n        \"destinationTable\": {\n          \"projectId\": \"<string>\",\n          \"datasetId\": \"<string>\",\n          \"tableId\": \"<string>\"\n        },\n        \"useLegacySql\": \"<boolean>\"\n      },\n      \"load\": {},\n      \"extract\": {},\n      \"copy\": {}\n    },\n    \"status\": {\n      \"state\": \"DONE\",\n      \"errorResult\": {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      \"errors\": [\n        {\n          \"reason\": \"<string>\",\n          \"location\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        {\n          \"reason\": \"<string>\",\n          \"location\": \"<string>\",\n          \"message\": \"<string>\"\n        }\n      ]\n    },\n    \"statistics\": {}\n  }\n}",
+                              "createdAt": "2026-07-28T01:45:12.000Z",
+                              "updatedAt": "2026-07-28T01:45:12.000Z",
+                              "uid": "35240-d4410291-ae32-42ee-9f07-aeaf815097bf"
+                            },
+                            {
+                              "id": "41124d6a-4eb0-48c8-b990-8d1a57646d34",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "jobs",
+                                    ":jobId",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "jobId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:45:12.000Z",
+                              "updatedAt": "2026-07-28T01:45:12.000Z",
+                              "uid": "35240-41124d6a-4eb0-48c8-b990-8d1a57646d34"
+                            },
+                            {
+                              "id": "4746aa63-a18f-4244-bfcf-4bcd8d77b693",
+                              "name": "Job not found",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "jobs",
+                                    ":jobId",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "jobId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:45:12.000Z",
+                              "updatedAt": "2026-07-28T01:45:12.000Z",
+                              "uid": "35240-4746aa63-a18f-4244-bfcf-4bcd8d77b693"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:45:12.000Z",
+                          "updatedAt": "2026-07-28T01:45:12.000Z",
+                          "uid": "35240-c88fd754-f2ca-4cfd-a2d6-7a557fade86f"
+                        }
+                      ],
+                      "id": "da6b85ad-827d-4bb6-bd43-b25a8e138e9b",
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-da6b85ad-827d-4bb6-bd43-b25a8e138e9b"
+                    },
+                    {
+                      "name": "Google BigQuery Get job",
+                      "id": "fc5184a5-8e73-4c1e-9224-74f7a25a18b0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "jobs",
+                            ":jobId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4fdf08a8-f56a-4b7b-afb1-2cbb20ce12ef",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the project"
+                            },
+                            {
+                              "id": "7b0c785c-ac16-4904-bea9-fe5b5af5c92f",
+                              "key": "jobId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the job"
+                            }
+                          ]
+                        },
+                        "description": "Returns information about a specific job."
+                      },
+                      "response": [
+                        {
+                          "id": "cfbcebe9-c894-486d-8853-f20ce05526da",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "jobs",
+                                ":jobId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"jobReference\": {\n    \"projectId\": \"<string>\",\n    \"jobId\": \"<string>\",\n    \"location\": \"<string>\"\n  },\n  \"configuration\": {\n    \"jobType\": \"<string>\",\n    \"query\": {\n      \"query\": \"<string>\",\n      \"destinationTable\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\",\n        \"tableId\": \"<string>\"\n      },\n      \"useLegacySql\": \"<boolean>\"\n    },\n    \"load\": {},\n    \"extract\": {},\n    \"copy\": {}\n  },\n  \"status\": {\n    \"state\": \"RUNNING\",\n    \"errorResult\": {\n      \"reason\": \"<string>\",\n      \"location\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    \"errors\": [\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ]\n  },\n  \"statistics\": {}\n}",
+                          "createdAt": "2026-07-28T01:45:12.000Z",
+                          "updatedAt": "2026-07-28T01:45:12.000Z",
+                          "uid": "35240-cfbcebe9-c894-486d-8853-f20ce05526da"
+                        },
+                        {
+                          "id": "2a5bfce9-20dd-497a-9181-3ae4b60c15fb",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "jobs",
+                                ":jobId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:12.000Z",
+                          "updatedAt": "2026-07-28T01:45:12.000Z",
+                          "uid": "35240-2a5bfce9-20dd-497a-9181-3ae4b60c15fb"
+                        },
+                        {
+                          "id": "3ceb7157-30d9-463e-9315-b0c40ee6ea2f",
+                          "name": "Job not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "jobs",
+                                ":jobId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:12.000Z",
+                          "updatedAt": "2026-07-28T01:45:12.000Z",
+                          "uid": "35240-3ceb7157-30d9-463e-9315-b0c40ee6ea2f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-fc5184a5-8e73-4c1e-9224-74f7a25a18b0"
+                    },
+                    {
+                      "name": "Google BigQuery Delete job",
+                      "id": "11b2bb6e-74b3-4713-9f7f-5e1e4fdac01d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "jobs",
+                            ":jobId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3f547434-8551-4bba-bed9-2d498e530dca",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the project"
+                            },
+                            {
+                              "id": "b68971de-0cb8-44bc-b0bb-61dd28008cfb",
+                              "key": "jobId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the job"
+                            }
+                          ]
+                        },
+                        "description": "Requests the deletion of the metadata of a job."
+                      },
+                      "response": [
+                        {
+                          "id": "2df7aa98-2c50-4020-b730-b7364f4e9295",
+                          "name": "Successfully deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "jobs",
+                                ":jobId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:12.000Z",
+                          "updatedAt": "2026-07-28T01:45:12.000Z",
+                          "uid": "35240-2df7aa98-2c50-4020-b730-b7364f4e9295"
+                        },
+                        {
+                          "id": "568c0310-4438-476e-9304-f301bbb14d97",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "jobs",
+                                ":jobId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:12.000Z",
+                          "updatedAt": "2026-07-28T01:45:12.000Z",
+                          "uid": "35240-568c0310-4438-476e-9304-f301bbb14d97"
+                        },
+                        {
+                          "id": "d3ef6dea-25c7-43df-a37b-089182b7a0cf",
+                          "name": "Job not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/jobs/:jobId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "jobs",
+                                ":jobId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:12.000Z",
+                          "updatedAt": "2026-07-28T01:45:12.000Z",
+                          "uid": "35240-d3ef6dea-25c7-43df-a37b-089182b7a0cf"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-11b2bb6e-74b3-4713-9f7f-5e1e4fdac01d"
+                    }
+                  ],
+                  "id": "45bfea87-ed41-4128-ad59-6da2234e61c9",
+                  "createdAt": "2026-07-28T01:45:12.000Z",
+                  "updatedAt": "2026-07-28T01:45:12.000Z",
+                  "uid": "35240-45bfea87-ed41-4128-ad59-6da2234e61c9"
+                },
+                {
+                  "name": "Google BigQuery List jobs",
+                  "id": "3a4cfa8b-c90b-423e-b51b-0dcc73e2cc12",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/jobs?maxResults=<integer>&pageToken=<string>&projection=full&stateFilter=running&stateFilter=done",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "jobs"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Page token for pagination",
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Restricts information returned to a set of selected fields",
+                          "key": "projection",
+                          "value": "full"
+                        },
+                        {
+                          "description": "Filter for job state",
+                          "key": "stateFilter",
+                          "value": "running"
+                        },
+                        {
+                          "description": "Filter for job state",
+                          "key": "stateFilter",
+                          "value": "done"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "cec9ee57-8f6a-485b-b4ad-b98c93b2a556",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the project"
+                        }
+                      ]
+                    },
+                    "description": "Lists all jobs that you started in the specified project."
+                  },
+                  "response": [
+                    {
+                      "id": "1fa72fbd-167c-4156-9a93-a0f0937ea23e",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/jobs?maxResults=<integer>&pageToken=<string>&projection=full&stateFilter=done",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "jobs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Page token for pagination",
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Restricts information returned to a set of selected fields",
+                              "key": "projection",
+                              "value": "full"
+                            },
+                            {
+                              "description": "Filter for job state",
+                              "key": "stateFilter",
+                              "value": "done"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"kind\": \"<string>\",\n  \"jobs\": [\n    {\n      \"kind\": \"<string>\",\n      \"id\": \"<string>\",\n      \"jobReference\": {\n        \"projectId\": \"<string>\",\n        \"jobId\": \"<string>\",\n        \"location\": \"<string>\"\n      },\n      \"configuration\": {\n        \"jobType\": \"<string>\",\n        \"query\": {\n          \"query\": \"<string>\",\n          \"destinationTable\": {\n            \"projectId\": \"<string>\",\n            \"datasetId\": \"<string>\",\n            \"tableId\": \"<string>\"\n          },\n          \"useLegacySql\": \"<boolean>\"\n        },\n        \"load\": {},\n        \"extract\": {},\n        \"copy\": {}\n      },\n      \"status\": {\n        \"state\": \"DONE\",\n        \"errorResult\": {\n          \"reason\": \"<string>\",\n          \"location\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        \"errors\": [\n          {\n            \"reason\": \"<string>\",\n            \"location\": \"<string>\",\n            \"message\": \"<string>\"\n          },\n          {\n            \"reason\": \"<string>\",\n            \"location\": \"<string>\",\n            \"message\": \"<string>\"\n          }\n        ]\n      },\n      \"statistics\": {}\n    },\n    {\n      \"kind\": \"<string>\",\n      \"id\": \"<string>\",\n      \"jobReference\": {\n        \"projectId\": \"<string>\",\n        \"jobId\": \"<string>\",\n        \"location\": \"<string>\"\n      },\n      \"configuration\": {\n        \"jobType\": \"<string>\",\n        \"query\": {\n          \"query\": \"<string>\",\n          \"destinationTable\": {\n            \"projectId\": \"<string>\",\n            \"datasetId\": \"<string>\",\n            \"tableId\": \"<string>\"\n          },\n          \"useLegacySql\": \"<boolean>\"\n        },\n        \"load\": {},\n        \"extract\": {},\n        \"copy\": {}\n      },\n      \"status\": {\n        \"state\": \"PENDING\",\n        \"errorResult\": {\n          \"reason\": \"<string>\",\n          \"location\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        \"errors\": [\n          {\n            \"reason\": \"<string>\",\n            \"location\": \"<string>\",\n            \"message\": \"<string>\"\n          },\n          {\n            \"reason\": \"<string>\",\n            \"location\": \"<string>\",\n            \"message\": \"<string>\"\n          }\n        ]\n      },\n      \"statistics\": {}\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-1fa72fbd-167c-4156-9a93-a0f0937ea23e"
+                    },
+                    {
+                      "id": "0f6ce841-6b2a-40fc-bb3f-c2908c977dcc",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/jobs?maxResults=<integer>&pageToken=<string>&projection=full&stateFilter=done",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "jobs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Page token for pagination",
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Restricts information returned to a set of selected fields",
+                              "key": "projection",
+                              "value": "full"
+                            },
+                            {
+                              "description": "Filter for job state",
+                              "key": "stateFilter",
+                              "value": "done"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-0f6ce841-6b2a-40fc-bb3f-c2908c977dcc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:45:12.000Z",
+                  "updatedAt": "2026-07-28T01:45:12.000Z",
+                  "uid": "35240-3a4cfa8b-c90b-423e-b51b-0dcc73e2cc12"
+                },
+                {
+                  "name": "Google BigQuery Submit a job",
+                  "id": "09a03cf6-cce3-4e0e-89a8-a1b889900874",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"jobReference\": {\n    \"projectId\": \"<string>\",\n    \"jobId\": \"<string>\",\n    \"location\": \"<string>\"\n  },\n  \"configuration\": {\n    \"jobType\": \"<string>\",\n    \"query\": {\n      \"query\": \"<string>\",\n      \"destinationTable\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\",\n        \"tableId\": \"<string>\"\n      },\n      \"useLegacySql\": \"<boolean>\"\n    },\n    \"load\": {},\n    \"extract\": {},\n    \"copy\": {}\n  },\n  \"status\": {\n    \"state\": \"RUNNING\",\n    \"errorResult\": {\n      \"reason\": \"<string>\",\n      \"location\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    \"errors\": [\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ]\n  },\n  \"statistics\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/jobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "jobs"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5f625142-c8ac-4cf9-8d85-1dbafd15e137",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the project"
+                        }
+                      ]
+                    },
+                    "description": "Starts a new asynchronous job such as a query, load, extract, or copy job."
+                  },
+                  "response": [
+                    {
+                      "id": "e28bbe24-eae5-4d25-8c2f-3b01b9e086b5",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"jobReference\": {\n    \"projectId\": \"<string>\",\n    \"jobId\": \"<string>\",\n    \"location\": \"<string>\"\n  },\n  \"configuration\": {\n    \"jobType\": \"<string>\",\n    \"query\": {\n      \"query\": \"<string>\",\n      \"destinationTable\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\",\n        \"tableId\": \"<string>\"\n      },\n      \"useLegacySql\": \"<boolean>\"\n    },\n    \"load\": {},\n    \"extract\": {},\n    \"copy\": {}\n  },\n  \"status\": {\n    \"state\": \"RUNNING\",\n    \"errorResult\": {\n      \"reason\": \"<string>\",\n      \"location\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    \"errors\": [\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ]\n  },\n  \"statistics\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/jobs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "jobs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"jobReference\": {\n    \"projectId\": \"<string>\",\n    \"jobId\": \"<string>\",\n    \"location\": \"<string>\"\n  },\n  \"configuration\": {\n    \"jobType\": \"<string>\",\n    \"query\": {\n      \"query\": \"<string>\",\n      \"destinationTable\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\",\n        \"tableId\": \"<string>\"\n      },\n      \"useLegacySql\": \"<boolean>\"\n    },\n    \"load\": {},\n    \"extract\": {},\n    \"copy\": {}\n  },\n  \"status\": {\n    \"state\": \"RUNNING\",\n    \"errorResult\": {\n      \"reason\": \"<string>\",\n      \"location\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    \"errors\": [\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ]\n  },\n  \"statistics\": {}\n}",
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-e28bbe24-eae5-4d25-8c2f-3b01b9e086b5"
+                    },
+                    {
+                      "id": "ae3b51da-c49b-4694-a1d3-f9cbc75a166b",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"jobReference\": {\n    \"projectId\": \"<string>\",\n    \"jobId\": \"<string>\",\n    \"location\": \"<string>\"\n  },\n  \"configuration\": {\n    \"jobType\": \"<string>\",\n    \"query\": {\n      \"query\": \"<string>\",\n      \"destinationTable\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\",\n        \"tableId\": \"<string>\"\n      },\n      \"useLegacySql\": \"<boolean>\"\n    },\n    \"load\": {},\n    \"extract\": {},\n    \"copy\": {}\n  },\n  \"status\": {\n    \"state\": \"RUNNING\",\n    \"errorResult\": {\n      \"reason\": \"<string>\",\n      \"location\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    \"errors\": [\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ]\n  },\n  \"statistics\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/jobs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "jobs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-ae3b51da-c49b-4694-a1d3-f9cbc75a166b"
+                    },
+                    {
+                      "id": "e1881afe-cdb3-4960-9196-4b53c18351e5",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"jobReference\": {\n    \"projectId\": \"<string>\",\n    \"jobId\": \"<string>\",\n    \"location\": \"<string>\"\n  },\n  \"configuration\": {\n    \"jobType\": \"<string>\",\n    \"query\": {\n      \"query\": \"<string>\",\n      \"destinationTable\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\",\n        \"tableId\": \"<string>\"\n      },\n      \"useLegacySql\": \"<boolean>\"\n    },\n    \"load\": {},\n    \"extract\": {},\n    \"copy\": {}\n  },\n  \"status\": {\n    \"state\": \"RUNNING\",\n    \"errorResult\": {\n      \"reason\": \"<string>\",\n      \"location\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    \"errors\": [\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      },\n      {\n        \"reason\": \"<string>\",\n        \"location\": \"<string>\",\n        \"message\": \"<string>\"\n      }\n    ]\n  },\n  \"statistics\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/jobs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "jobs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-e1881afe-cdb3-4960-9196-4b53c18351e5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:45:12.000Z",
+                  "updatedAt": "2026-07-28T01:45:12.000Z",
+                  "uid": "35240-09a03cf6-cce3-4e0e-89a8-a1b889900874"
+                }
+              ],
+              "id": "41ca1935-73cd-4d04-91fb-c83a60ebbdce",
+              "createdAt": "2026-07-28T01:45:12.000Z",
+              "updatedAt": "2026-07-28T01:45:12.000Z",
+              "uid": "35240-41ca1935-73cd-4d04-91fb-c83a60ebbdce"
+            },
+            {
+              "name": "queries",
+              "item": [
+                {
+                  "name": "{jobId}",
+                  "item": [
+                    {
+                      "name": "Google BigQuery Get query results",
+                      "id": "6a8240a1-080f-417f-a2b3-de9221942dc9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/:jobId?maxResults=<integer>&pageToken=<string>&startIndex=<long>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            ":jobId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Page token for pagination",
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Zero-based index of the starting row",
+                              "key": "startIndex",
+                              "value": "<long>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "f66c8fd5-2e85-483a-987c-97c2ab7a29e6",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the project"
+                            },
+                            {
+                              "id": "85473425-1516-4126-af47-b543159fcfd4",
+                              "key": "jobId",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the job"
+                            }
+                          ]
+                        },
+                        "description": "Retrieves the results of a query job."
+                      },
+                      "response": [
+                        {
+                          "id": "f66f37a1-4c4e-4f44-b5aa-1ab53506eaa8",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/:jobId?maxResults=<integer>&pageToken=<string>&startIndex=<long>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                ":jobId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return",
+                                  "key": "maxResults",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Page token for pagination",
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Zero-based index of the starting row",
+                                  "key": "startIndex",
+                                  "value": "<long>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kind\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"INT64\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"BYTES\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"totalRows\": \"<string>\",\n  \"pageToken\": \"<string>\",\n  \"jobComplete\": \"<boolean>\",\n  \"jobReference\": {\n    \"projectId\": \"<string>\",\n    \"jobId\": \"<string>\",\n    \"location\": \"<string>\"\n  },\n  \"totalBytesProcessed\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:45:12.000Z",
+                          "updatedAt": "2026-07-28T01:45:12.000Z",
+                          "uid": "35240-f66f37a1-4c4e-4f44-b5aa-1ab53506eaa8"
+                        },
+                        {
+                          "id": "8840c537-0324-49b8-b014-7b3bc55ef954",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/:jobId?maxResults=<integer>&pageToken=<string>&startIndex=<long>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                ":jobId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return",
+                                  "key": "maxResults",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Page token for pagination",
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Zero-based index of the starting row",
+                                  "key": "startIndex",
+                                  "value": "<long>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:12.000Z",
+                          "updatedAt": "2026-07-28T01:45:12.000Z",
+                          "uid": "35240-8840c537-0324-49b8-b014-7b3bc55ef954"
+                        },
+                        {
+                          "id": "d47be427-d848-441d-acde-63c89186bbdb",
+                          "name": "Job not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/:jobId?maxResults=<integer>&pageToken=<string>&startIndex=<long>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                ":jobId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return",
+                                  "key": "maxResults",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Page token for pagination",
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Zero-based index of the starting row",
+                                  "key": "startIndex",
+                                  "value": "<long>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:45:12.000Z",
+                          "updatedAt": "2026-07-28T01:45:12.000Z",
+                          "uid": "35240-d47be427-d848-441d-acde-63c89186bbdb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-6a8240a1-080f-417f-a2b3-de9221942dc9"
+                    }
+                  ],
+                  "id": "67e8a4f5-8d5a-4429-9c1c-5a81bc8a2972",
+                  "createdAt": "2026-07-28T01:45:12.000Z",
+                  "updatedAt": "2026-07-28T01:45:12.000Z",
+                  "uid": "35240-67e8a4f5-8d5a-4429-9c1c-5a81bc8a2972"
+                },
+                {
+                  "name": "Google BigQuery Execute query",
+                  "id": "4103b51a-a257-477e-858a-334d89515b28",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"query\": \"<string>\",\n  \"maxResults\": \"<integer>\",\n  \"defaultDataset\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"useLegacySql\": \"<boolean>\",\n  \"timeoutMs\": \"<integer>\",\n  \"dryRun\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/queries",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "queries"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7c86a572-20b8-4820-9872-65524d43556f",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the project"
+                        }
+                      ]
+                    },
+                    "description": "Runs a BigQuery SQL query synchronously and returns query results if the query completes within a specified timeout."
+                  },
+                  "response": [
+                    {
+                      "id": "0429580a-a343-40c3-a4f9-88476a984ff7",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"query\": \"<string>\",\n  \"maxResults\": \"<integer>\",\n  \"defaultDataset\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"useLegacySql\": \"<boolean>\",\n  \"timeoutMs\": \"<integer>\",\n  \"dryRun\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"kind\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"INT64\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"BYTES\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"totalRows\": \"<string>\",\n  \"pageToken\": \"<string>\",\n  \"jobComplete\": \"<boolean>\",\n  \"jobReference\": {\n    \"projectId\": \"<string>\",\n    \"jobId\": \"<string>\",\n    \"location\": \"<string>\"\n  },\n  \"totalBytesProcessed\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-0429580a-a343-40c3-a4f9-88476a984ff7"
+                    },
+                    {
+                      "id": "7ab16192-e5fc-43b5-a1f6-38c36e1a503a",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"query\": \"<string>\",\n  \"maxResults\": \"<integer>\",\n  \"defaultDataset\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"useLegacySql\": \"<boolean>\",\n  \"timeoutMs\": \"<integer>\",\n  \"dryRun\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-7ab16192-e5fc-43b5-a1f6-38c36e1a503a"
+                    },
+                    {
+                      "id": "0d45b9f7-c7a0-4787-806d-addb0f3042d3",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"query\": \"<string>\",\n  \"maxResults\": \"<integer>\",\n  \"defaultDataset\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\"\n  },\n  \"useLegacySql\": \"<boolean>\",\n  \"timeoutMs\": \"<integer>\",\n  \"dryRun\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:45:12.000Z",
+                      "updatedAt": "2026-07-28T01:45:12.000Z",
+                      "uid": "35240-0d45b9f7-c7a0-4787-806d-addb0f3042d3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:45:12.000Z",
+                  "updatedAt": "2026-07-28T01:45:12.000Z",
+                  "uid": "35240-4103b51a-a257-477e-858a-334d89515b28"
+                }
+              ],
+              "id": "0284477c-b28c-4777-9b66-2b6cb0a9431a",
+              "createdAt": "2026-07-28T01:45:12.000Z",
+              "updatedAt": "2026-07-28T01:45:12.000Z",
+              "uid": "35240-0284477c-b28c-4777-9b66-2b6cb0a9431a"
+            }
+          ],
+          "id": "a7399101-7863-4674-a4e8-8ec57fce9cac",
+          "createdAt": "2026-07-28T01:45:12.000Z",
+          "updatedAt": "2026-07-28T01:45:12.000Z",
+          "uid": "35240-a7399101-7863-4674-a4e8-8ec57fce9cac"
+        }
+      ],
+      "id": "446807f0-e51d-4ac1-940c-68089c0c0fc2",
+      "createdAt": "2026-07-28T01:45:12.000Z",
+      "updatedAt": "2026-07-28T01:45:12.000Z",
+      "uid": "35240-446807f0-e51d-4ac1-940c-68089c0c0fc2"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/bigquery.readonly",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bigquery.googleapis.com/bigquery/v2"
+    }
+  ]
+}

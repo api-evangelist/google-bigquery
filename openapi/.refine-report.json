@@ -1,0 +1,26 @@
+{
+  "provider": "google-bigquery",
+  "sources": [
+    "google-bigquery-datasets-api-openapi.yml",
+    "google-bigquery-jobs-api-openapi.yml",
+    "google-bigquery-models-api-openapi.yml",
+    "google-bigquery-projects-api-openapi.yml",
+    "google-bigquery-routines-api-openapi.yml",
+    "google-bigquery-tabledata-api-openapi.yml",
+    "google-bigquery-tables-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-bigquery-datasets-api-openapi.yml",
+    "google-bigquery-jobs-api-openapi.yml",
+    "google-bigquery-models-api-openapi.yml",
+    "google-bigquery-projects-api-openapi.yml",
+    "google-bigquery-routines-api-openapi.yml",
+    "google-bigquery-tabledata-api-openapi.yml",
+    "google-bigquery-tables-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

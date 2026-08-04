@@ -1,0 +1,1210 @@
+{
+  "info": {
+    "_postman_id": "e62d8f2c-5623-4d72-a16a-5ba2f0653e80",
+    "name": "Google BigQuery Datasets Routines API",
+    "description": "The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:45:49.000Z",
+    "updatedAt": "2026-07-28T01:45:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e62d8f2c-5623-4d72-a16a-5ba2f0653e80"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "datasets",
+              "item": [
+                {
+                  "name": "{datasetId}",
+                  "item": [
+                    {
+                      "name": "routines",
+                      "item": [
+                        {
+                          "name": "{routineId}",
+                          "item": [
+                            {
+                              "name": "Google BigQuery Get routine",
+                              "id": "afec7c5e-c45c-4a46-8d10-b6a51871908d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "routines",
+                                    ":routineId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "204039e2-5be6-440d-a0d4-3d7e664a8838",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the project"
+                                    },
+                                    {
+                                      "id": "dc023bf5-b95f-48ea-a2a6-323557bbc87f",
+                                      "key": "datasetId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the dataset"
+                                    },
+                                    {
+                                      "id": "66ccf1bc-924b-43a8-8c04-af55f4486ca1",
+                                      "key": "routineId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the routine"
+                                    }
+                                  ]
+                                },
+                                "description": "Gets the specified routine resource by routine ID."
+                              },
+                              "response": [
+                                {
+                                  "id": "6cb6176e-0ae2-4c75-84c2-997938f577fc",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "routines",
+                                        ":routineId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "routineId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"routineReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"routineId\": \"<string>\"\n  },\n  \"routineType\": \"PROCEDURE\",\n  \"language\": \"<string>\",\n  \"definitionBody\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creationTime\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:45:50.000Z",
+                                  "updatedAt": "2026-07-28T01:45:50.000Z",
+                                  "uid": "35240-6cb6176e-0ae2-4c75-84c2-997938f577fc"
+                                },
+                                {
+                                  "id": "3c66dbe6-9d09-49c2-8cba-515fa0ba197d",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "routines",
+                                        ":routineId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "routineId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:50.000Z",
+                                  "updatedAt": "2026-07-28T01:45:50.000Z",
+                                  "uid": "35240-3c66dbe6-9d09-49c2-8cba-515fa0ba197d"
+                                },
+                                {
+                                  "id": "de0c0498-43f4-4464-bd51-e9187df2b59f",
+                                  "name": "Routine not found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "routines",
+                                        ":routineId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "routineId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:50.000Z",
+                                  "updatedAt": "2026-07-28T01:45:50.000Z",
+                                  "uid": "35240-de0c0498-43f4-4464-bd51-e9187df2b59f"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:45:49.000Z",
+                              "updatedAt": "2026-07-28T01:45:49.000Z",
+                              "uid": "35240-afec7c5e-c45c-4a46-8d10-b6a51871908d"
+                            },
+                            {
+                              "name": "Google BigQuery Update routine",
+                              "id": "038dc4b9-be06-4844-820c-ab19f43b8284",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"routineReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"routineId\": \"<string>\"\n  },\n  \"routineType\": \"PROCEDURE\",\n  \"language\": \"<string>\",\n  \"definitionBody\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creationTime\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "routines",
+                                    ":routineId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b15e7f8e-d251-4bd3-8252-7651f02ff95c",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the project"
+                                    },
+                                    {
+                                      "id": "9d4b1368-a1cb-453d-8118-15a27c0a3755",
+                                      "key": "datasetId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the dataset"
+                                    },
+                                    {
+                                      "id": "19082ff1-b123-4f29-acc4-f368ba561eb4",
+                                      "key": "routineId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the routine"
+                                    }
+                                  ]
+                                },
+                                "description": "Updates information in an existing routine by replacing the entire routine resource."
+                              },
+                              "response": [
+                                {
+                                  "id": "f85ff35e-9924-40cd-9931-f818ce6a48f6",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"routineReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"routineId\": \"<string>\"\n  },\n  \"routineType\": \"PROCEDURE\",\n  \"language\": \"<string>\",\n  \"definitionBody\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creationTime\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "routines",
+                                        ":routineId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "routineId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"routineReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"routineId\": \"<string>\"\n  },\n  \"routineType\": \"PROCEDURE\",\n  \"language\": \"<string>\",\n  \"definitionBody\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creationTime\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:45:50.000Z",
+                                  "updatedAt": "2026-07-28T01:45:50.000Z",
+                                  "uid": "35240-f85ff35e-9924-40cd-9931-f818ce6a48f6"
+                                },
+                                {
+                                  "id": "0e25723a-f195-475d-a9c3-9bba8ddd9677",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"routineReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"routineId\": \"<string>\"\n  },\n  \"routineType\": \"PROCEDURE\",\n  \"language\": \"<string>\",\n  \"definitionBody\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creationTime\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "routines",
+                                        ":routineId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "routineId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:50.000Z",
+                                  "updatedAt": "2026-07-28T01:45:50.000Z",
+                                  "uid": "35240-0e25723a-f195-475d-a9c3-9bba8ddd9677"
+                                },
+                                {
+                                  "id": "25e8131e-af87-472e-bc9d-666d1454b482",
+                                  "name": "Routine not found",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"routineReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"routineId\": \"<string>\"\n  },\n  \"routineType\": \"PROCEDURE\",\n  \"language\": \"<string>\",\n  \"definitionBody\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creationTime\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "routines",
+                                        ":routineId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "routineId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:50.000Z",
+                                  "updatedAt": "2026-07-28T01:45:50.000Z",
+                                  "uid": "35240-25e8131e-af87-472e-bc9d-666d1454b482"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:45:49.000Z",
+                              "updatedAt": "2026-07-28T01:45:49.000Z",
+                              "uid": "35240-038dc4b9-be06-4844-820c-ab19f43b8284"
+                            },
+                            {
+                              "name": "Google BigQuery Delete routine",
+                              "id": "e5e5293a-f23c-4b37-8a5c-5e220aa87d96",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "routines",
+                                    ":routineId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "9fb68320-9dce-4ed3-80d9-d922d03b9528",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the project"
+                                    },
+                                    {
+                                      "id": "31779158-005a-42b5-bb77-f3ae61b90539",
+                                      "key": "datasetId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the dataset"
+                                    },
+                                    {
+                                      "id": "306dd49d-a8fa-4bf0-b23a-c859cb9b0592",
+                                      "key": "routineId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the routine"
+                                    }
+                                  ]
+                                },
+                                "description": "Deletes the routine specified by routineId from the dataset."
+                              },
+                              "response": [
+                                {
+                                  "id": "242b253a-c022-4ba2-a536-4fdbaace8a65",
+                                  "name": "Successfully deleted",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "routines",
+                                        ":routineId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "routineId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:50.000Z",
+                                  "updatedAt": "2026-07-28T01:45:50.000Z",
+                                  "uid": "35240-242b253a-c022-4ba2-a536-4fdbaace8a65"
+                                },
+                                {
+                                  "id": "5064dab8-a975-4497-81d8-343e75cde2b5",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "routines",
+                                        ":routineId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "routineId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:50.000Z",
+                                  "updatedAt": "2026-07-28T01:45:50.000Z",
+                                  "uid": "35240-5064dab8-a975-4497-81d8-343e75cde2b5"
+                                },
+                                {
+                                  "id": "0fd737dd-65f7-4684-a75a-2afaf735bb4e",
+                                  "name": "Routine not found",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines/:routineId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "routines",
+                                        ":routineId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "routineId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:50.000Z",
+                                  "updatedAt": "2026-07-28T01:45:50.000Z",
+                                  "uid": "35240-0fd737dd-65f7-4684-a75a-2afaf735bb4e"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:45:49.000Z",
+                              "updatedAt": "2026-07-28T01:45:49.000Z",
+                              "uid": "35240-e5e5293a-f23c-4b37-8a5c-5e220aa87d96"
+                            }
+                          ],
+                          "id": "27e0ca67-a346-4d12-9d39-b14f3ea23ecf",
+                          "createdAt": "2026-07-28T01:45:49.000Z",
+                          "updatedAt": "2026-07-28T01:45:49.000Z",
+                          "uid": "35240-27e0ca67-a346-4d12-9d39-b14f3ea23ecf"
+                        },
+                        {
+                          "name": "Google BigQuery List routines",
+                          "id": "0e3bddbf-fa4e-40d5-a079-b9a8fcaf7df6",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines?maxResults=<integer>&pageToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId",
+                                "routines"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return",
+                                  "key": "maxResults",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Page token for pagination",
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0d3656a3-cd94-40fb-a26f-e30ec3e5d07b",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the project"
+                                },
+                                {
+                                  "id": "0fa63f4d-14c2-4a34-bb44-f70bdbefaa2f",
+                                  "key": "datasetId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the dataset"
+                                }
+                              ]
+                            },
+                            "description": "Lists all routines in the specified dataset."
+                          },
+                          "response": [
+                            {
+                              "id": "0ce2fab1-2e78-47e7-bdf9-6ec98b0190d6",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines?maxResults=<integer>&pageToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "routines"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum number of results to return",
+                                      "key": "maxResults",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Page token for pagination",
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"routines\": [\n    {\n      \"routineReference\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\",\n        \"routineId\": \"<string>\"\n      },\n      \"routineType\": \"SCALAR_FUNCTION\",\n      \"language\": \"<string>\",\n      \"definitionBody\": \"<string>\",\n      \"description\": \"<string>\",\n      \"creationTime\": \"<string>\"\n    },\n    {\n      \"routineReference\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\",\n        \"routineId\": \"<string>\"\n      },\n      \"routineType\": \"SCALAR_FUNCTION\",\n      \"language\": \"<string>\",\n      \"definitionBody\": \"<string>\",\n      \"description\": \"<string>\",\n      \"creationTime\": \"<string>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:45:50.000Z",
+                              "updatedAt": "2026-07-28T01:45:50.000Z",
+                              "uid": "35240-0ce2fab1-2e78-47e7-bdf9-6ec98b0190d6"
+                            },
+                            {
+                              "id": "f9c6e212-9d08-49ec-bd7b-816d7ec1b5b6",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines?maxResults=<integer>&pageToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "routines"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum number of results to return",
+                                      "key": "maxResults",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Page token for pagination",
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:45:50.000Z",
+                              "updatedAt": "2026-07-28T01:45:50.000Z",
+                              "uid": "35240-f9c6e212-9d08-49ec-bd7b-816d7ec1b5b6"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:45:49.000Z",
+                          "updatedAt": "2026-07-28T01:45:49.000Z",
+                          "uid": "35240-0e3bddbf-fa4e-40d5-a079-b9a8fcaf7df6"
+                        },
+                        {
+                          "name": "Google BigQuery Create a routine",
+                          "id": "7af8aa3d-9366-4648-bebb-75cfd4c098f9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"routineReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"routineId\": \"<string>\"\n  },\n  \"routineType\": \"PROCEDURE\",\n  \"language\": \"<string>\",\n  \"definitionBody\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creationTime\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId",
+                                "routines"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "3fc80e77-038d-4ca5-9b21-87a7c808fbca",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the project"
+                                },
+                                {
+                                  "id": "79183b59-21b2-4db3-a6d6-94dcd6f8e29a",
+                                  "key": "datasetId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the dataset"
+                                }
+                              ]
+                            },
+                            "description": "Creates a new routine in the specified dataset."
+                          },
+                          "response": [
+                            {
+                              "id": "55458944-865a-4402-9954-9e62b03db4db",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"routineReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"routineId\": \"<string>\"\n  },\n  \"routineType\": \"PROCEDURE\",\n  \"language\": \"<string>\",\n  \"definitionBody\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creationTime\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "routines"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"routineReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"routineId\": \"<string>\"\n  },\n  \"routineType\": \"PROCEDURE\",\n  \"language\": \"<string>\",\n  \"definitionBody\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creationTime\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:45:50.000Z",
+                              "updatedAt": "2026-07-28T01:45:50.000Z",
+                              "uid": "35240-55458944-865a-4402-9954-9e62b03db4db"
+                            },
+                            {
+                              "id": "07c9ae8a-dc23-46cf-b395-ef96657c6b10",
+                              "name": "Bad request",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"routineReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"routineId\": \"<string>\"\n  },\n  \"routineType\": \"PROCEDURE\",\n  \"language\": \"<string>\",\n  \"definitionBody\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creationTime\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "routines"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:45:50.000Z",
+                              "updatedAt": "2026-07-28T01:45:50.000Z",
+                              "uid": "35240-07c9ae8a-dc23-46cf-b395-ef96657c6b10"
+                            },
+                            {
+                              "id": "ced722fd-0638-4913-8c70-4ac0fcdf625f",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"routineReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"routineId\": \"<string>\"\n  },\n  \"routineType\": \"PROCEDURE\",\n  \"language\": \"<string>\",\n  \"definitionBody\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creationTime\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/routines",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "routines"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:45:50.000Z",
+                              "updatedAt": "2026-07-28T01:45:50.000Z",
+                              "uid": "35240-ced722fd-0638-4913-8c70-4ac0fcdf625f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:45:49.000Z",
+                          "updatedAt": "2026-07-28T01:45:49.000Z",
+                          "uid": "35240-7af8aa3d-9366-4648-bebb-75cfd4c098f9"
+                        }
+                      ],
+                      "id": "bb6b6c96-0e04-468d-9fe9-3d0c4cc164d3",
+                      "createdAt": "2026-07-28T01:45:49.000Z",
+                      "updatedAt": "2026-07-28T01:45:49.000Z",
+                      "uid": "35240-bb6b6c96-0e04-468d-9fe9-3d0c4cc164d3"
+                    }
+                  ],
+                  "id": "5418e6e9-6a6d-4eb2-811c-e8e1787ac195",
+                  "createdAt": "2026-07-28T01:45:49.000Z",
+                  "updatedAt": "2026-07-28T01:45:49.000Z",
+                  "uid": "35240-5418e6e9-6a6d-4eb2-811c-e8e1787ac195"
+                }
+              ],
+              "id": "a4e4dfd1-04b1-4ed9-86ec-29d040ed53f3",
+              "createdAt": "2026-07-28T01:45:49.000Z",
+              "updatedAt": "2026-07-28T01:45:49.000Z",
+              "uid": "35240-a4e4dfd1-04b1-4ed9-86ec-29d040ed53f3"
+            }
+          ],
+          "id": "d90f59e8-c751-4119-8e73-4902e14ffe34",
+          "createdAt": "2026-07-28T01:45:49.000Z",
+          "updatedAt": "2026-07-28T01:45:49.000Z",
+          "uid": "35240-d90f59e8-c751-4119-8e73-4902e14ffe34"
+        }
+      ],
+      "id": "21ac0228-e41a-44c3-bf89-9ec61ef88006",
+      "createdAt": "2026-07-28T01:45:49.000Z",
+      "updatedAt": "2026-07-28T01:45:49.000Z",
+      "uid": "35240-21ac0228-e41a-44c3-bf89-9ec61ef88006"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/bigquery.readonly",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bigquery.googleapis.com/bigquery/v2"
+    }
+  ]
+}

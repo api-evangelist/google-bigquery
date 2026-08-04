@@ -1,0 +1,1326 @@
+{
+  "info": {
+    "_postman_id": "d03d2f76-40da-4ac1-93b9-41805f4e3cb5",
+    "name": "Google BigQuery Datasets Tables API",
+    "description": "The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:45:52.000Z",
+    "updatedAt": "2026-07-28T01:45:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d03d2f76-40da-4ac1-93b9-41805f4e3cb5"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "datasets",
+              "item": [
+                {
+                  "name": "{datasetId}",
+                  "item": [
+                    {
+                      "name": "tables",
+                      "item": [
+                        {
+                          "name": "{tableId}",
+                          "item": [
+                            {
+                              "name": "Google BigQuery Get table",
+                              "id": "bee1c664-24eb-4ba0-a954-4b6b6a104329",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "tables",
+                                    ":tableId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "3cde3dca-0273-43df-b90a-97b940890244",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the project"
+                                    },
+                                    {
+                                      "id": "f2034e43-ea98-48da-b4c8-1aa8dff0f287",
+                                      "key": "datasetId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the dataset"
+                                    },
+                                    {
+                                      "id": "7bbe4720-26a6-4495-b8dd-15c9a0f54a27",
+                                      "key": "tableId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the table"
+                                    }
+                                  ]
+                                },
+                                "description": "Gets the specified table resource by table ID."
+                              },
+                              "response": [
+                                {
+                                  "id": "7397fc5b-7645-4d53-9f09-7e86d3abea85",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "tables",
+                                        ":tableId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "tableId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:45:52.000Z",
+                                  "updatedAt": "2026-07-28T01:45:52.000Z",
+                                  "uid": "35240-7397fc5b-7645-4d53-9f09-7e86d3abea85"
+                                },
+                                {
+                                  "id": "ccbda528-0d94-449f-9bb3-06cffd4da97a",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "tables",
+                                        ":tableId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "tableId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:52.000Z",
+                                  "updatedAt": "2026-07-28T01:45:52.000Z",
+                                  "uid": "35240-ccbda528-0d94-449f-9bb3-06cffd4da97a"
+                                },
+                                {
+                                  "id": "35477d31-0f9c-40ab-a708-e5f5841d2aab",
+                                  "name": "Table not found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "tables",
+                                        ":tableId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "tableId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:52.000Z",
+                                  "updatedAt": "2026-07-28T01:45:52.000Z",
+                                  "uid": "35240-35477d31-0f9c-40ab-a708-e5f5841d2aab"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:45:52.000Z",
+                              "updatedAt": "2026-07-28T01:45:52.000Z",
+                              "uid": "35240-bee1c664-24eb-4ba0-a954-4b6b6a104329"
+                            },
+                            {
+                              "name": "Google BigQuery Partially update table",
+                              "id": "245811e6-ffc1-424b-bf6d-4e6cca528faa",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "tables",
+                                    ":tableId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "3bba40ca-ab53-4f3d-89ba-9920f0e2ad6f",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the project"
+                                    },
+                                    {
+                                      "id": "074beb83-9ad9-4137-a647-eefaab970d06",
+                                      "key": "datasetId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the dataset"
+                                    },
+                                    {
+                                      "id": "4572c02c-b300-4ce1-86a3-2d1bf51c815c",
+                                      "key": "tableId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the table"
+                                    }
+                                  ]
+                                },
+                                "description": "Updates information in an existing table, replacing only the fields provided in the submitted table resource."
+                              },
+                              "response": [
+                                {
+                                  "id": "540b5bf9-38f5-4f99-9461-84778cb99098",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "tables",
+                                        ":tableId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "tableId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:45:52.000Z",
+                                  "updatedAt": "2026-07-28T01:45:52.000Z",
+                                  "uid": "35240-540b5bf9-38f5-4f99-9461-84778cb99098"
+                                },
+                                {
+                                  "id": "e11208b7-ba39-4412-b5ae-e77327af8033",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "tables",
+                                        ":tableId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "tableId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:52.000Z",
+                                  "updatedAt": "2026-07-28T01:45:52.000Z",
+                                  "uid": "35240-e11208b7-ba39-4412-b5ae-e77327af8033"
+                                },
+                                {
+                                  "id": "2f92e2b3-591b-4b13-bd2d-465e3285b3bb",
+                                  "name": "Table not found",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "tables",
+                                        ":tableId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "tableId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:52.000Z",
+                                  "updatedAt": "2026-07-28T01:45:52.000Z",
+                                  "uid": "35240-2f92e2b3-591b-4b13-bd2d-465e3285b3bb"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:45:52.000Z",
+                              "updatedAt": "2026-07-28T01:45:52.000Z",
+                              "uid": "35240-245811e6-ffc1-424b-bf6d-4e6cca528faa"
+                            },
+                            {
+                              "name": "Google BigQuery Delete table",
+                              "id": "6aa393ba-8fcd-4685-ba6c-8654c3234dff",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "tables",
+                                    ":tableId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "23205917-3f20-4d99-ad32-73fc119b6ee0",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the project"
+                                    },
+                                    {
+                                      "id": "b5dbad6d-7745-4ce3-8df7-5ccfc43fbee3",
+                                      "key": "datasetId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the dataset"
+                                    },
+                                    {
+                                      "id": "8a75c583-2fd9-401e-9d4d-dd3b3abf844b",
+                                      "key": "tableId",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the table"
+                                    }
+                                  ]
+                                },
+                                "description": "Deletes the table specified by tableId from the dataset."
+                              },
+                              "response": [
+                                {
+                                  "id": "989b169a-d2b3-48b3-b6ec-4bfea7465dca",
+                                  "name": "Successfully deleted",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "tables",
+                                        ":tableId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "tableId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:52.000Z",
+                                  "updatedAt": "2026-07-28T01:45:52.000Z",
+                                  "uid": "35240-989b169a-d2b3-48b3-b6ec-4bfea7465dca"
+                                },
+                                {
+                                  "id": "fa5c31da-1775-4d32-b125-d64e361a767f",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "tables",
+                                        ":tableId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "tableId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:52.000Z",
+                                  "updatedAt": "2026-07-28T01:45:52.000Z",
+                                  "uid": "35240-fa5c31da-1775-4d32-b125-d64e361a767f"
+                                },
+                                {
+                                  "id": "88813400-a44e-427e-8756-7e4969fecad2",
+                                  "name": "Table not found",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables/:tableId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "datasets",
+                                        ":datasetId",
+                                        "tables",
+                                        ":tableId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "datasetId"
+                                        },
+                                        {
+                                          "key": "tableId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:45:52.000Z",
+                                  "updatedAt": "2026-07-28T01:45:52.000Z",
+                                  "uid": "35240-88813400-a44e-427e-8756-7e4969fecad2"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:45:52.000Z",
+                              "updatedAt": "2026-07-28T01:45:52.000Z",
+                              "uid": "35240-6aa393ba-8fcd-4685-ba6c-8654c3234dff"
+                            }
+                          ],
+                          "id": "b3835c5e-a473-4e74-abf1-caadeb1066d8",
+                          "createdAt": "2026-07-28T01:45:52.000Z",
+                          "updatedAt": "2026-07-28T01:45:52.000Z",
+                          "uid": "35240-b3835c5e-a473-4e74-abf1-caadeb1066d8"
+                        },
+                        {
+                          "name": "Google BigQuery List tables",
+                          "id": "85966b97-50fe-473b-879f-4d7da091f105",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables?maxResults=<integer>&pageToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId",
+                                "tables"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return",
+                                  "key": "maxResults",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Page token for pagination",
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c79c6892-778c-4e77-b77c-ff50f17bb455",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the project"
+                                },
+                                {
+                                  "id": "e460611f-4cab-4493-9c2b-73e26ea9af75",
+                                  "key": "datasetId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the dataset"
+                                }
+                              ]
+                            },
+                            "description": "Lists all tables in the specified dataset."
+                          },
+                          "response": [
+                            {
+                              "id": "d7279d5a-7ae3-47b4-b2b4-cee4acfb57d9",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables?maxResults=<integer>&pageToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "tables"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum number of results to return",
+                                      "key": "maxResults",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Page token for pagination",
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"kind\": \"<string>\",\n  \"tables\": [\n    {\n      \"kind\": \"<string>\",\n      \"id\": \"<string>\",\n      \"tableReference\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\",\n        \"tableId\": \"<string>\"\n      },\n      \"friendlyName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"schema\": {\n        \"fields\": [\n          {\n            \"name\": \"<string>\",\n            \"type\": \"TIMESTAMP\",\n            \"mode\": \"REPEATED\",\n            \"description\": \"<string>\",\n            \"fields\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"type\": \"BOOLEAN\",\n            \"mode\": \"REPEATED\",\n            \"description\": \"<string>\",\n            \"fields\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"numRows\": \"<string>\",\n      \"numBytes\": \"<string>\",\n      \"type\": \"SNAPSHOT\",\n      \"creationTime\": \"<string>\",\n      \"expirationTime\": \"<string>\",\n      \"labels\": {\n        \"cupidatat_166\": \"<string>\",\n        \"quis_79e\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"<string>\",\n      \"id\": \"<string>\",\n      \"tableReference\": {\n        \"projectId\": \"<string>\",\n        \"datasetId\": \"<string>\",\n        \"tableId\": \"<string>\"\n      },\n      \"friendlyName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"schema\": {\n        \"fields\": [\n          {\n            \"name\": \"<string>\",\n            \"type\": \"BYTES\",\n            \"mode\": \"NULLABLE\",\n            \"description\": \"<string>\",\n            \"fields\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"type\": \"BIGNUMERIC\",\n            \"mode\": \"REPEATED\",\n            \"description\": \"<string>\",\n            \"fields\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"numRows\": \"<string>\",\n      \"numBytes\": \"<string>\",\n      \"type\": \"SNAPSHOT\",\n      \"creationTime\": \"<string>\",\n      \"expirationTime\": \"<string>\",\n      \"labels\": {\n        \"nulla5\": \"<string>\",\n        \"eiusmod_67\": \"<string>\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"<string>\",\n  \"totalItems\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:45:52.000Z",
+                              "updatedAt": "2026-07-28T01:45:52.000Z",
+                              "uid": "35240-d7279d5a-7ae3-47b4-b2b4-cee4acfb57d9"
+                            },
+                            {
+                              "id": "d17d5f27-f794-48ec-8b63-4516cea73b44",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables?maxResults=<integer>&pageToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "tables"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum number of results to return",
+                                      "key": "maxResults",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Page token for pagination",
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:45:52.000Z",
+                              "updatedAt": "2026-07-28T01:45:52.000Z",
+                              "uid": "35240-d17d5f27-f794-48ec-8b63-4516cea73b44"
+                            },
+                            {
+                              "id": "382c1ed2-b1aa-4d04-bfdf-5ef34d664faa",
+                              "name": "Dataset not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables?maxResults=<integer>&pageToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "tables"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Maximum number of results to return",
+                                      "key": "maxResults",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Page token for pagination",
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:45:52.000Z",
+                              "updatedAt": "2026-07-28T01:45:52.000Z",
+                              "uid": "35240-382c1ed2-b1aa-4d04-bfdf-5ef34d664faa"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:45:52.000Z",
+                          "updatedAt": "2026-07-28T01:45:52.000Z",
+                          "uid": "35240-85966b97-50fe-473b-879f-4d7da091f105"
+                        },
+                        {
+                          "name": "Google BigQuery Create a table",
+                          "id": "d908fe63-ed53-4471-87a2-e9864d010cd7",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "datasets",
+                                ":datasetId",
+                                "tables"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ae47bf3f-22ea-4235-9105-b4c090c80ac0",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the project"
+                                },
+                                {
+                                  "id": "6e128ed2-7668-4d5c-aabf-88337eef5f97",
+                                  "key": "datasetId",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the dataset"
+                                }
+                              ]
+                            },
+                            "description": "Creates a new empty table in the specified dataset."
+                          },
+                          "response": [
+                            {
+                              "id": "d5d4672c-035d-486a-b527-c4b3fe607100",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "tables"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:45:52.000Z",
+                              "updatedAt": "2026-07-28T01:45:52.000Z",
+                              "uid": "35240-d5d4672c-035d-486a-b527-c4b3fe607100"
+                            },
+                            {
+                              "id": "2eaec3c3-2594-4bd2-8132-03474f80ebe8",
+                              "name": "Bad request",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "tables"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:45:52.000Z",
+                              "updatedAt": "2026-07-28T01:45:52.000Z",
+                              "uid": "35240-2eaec3c3-2594-4bd2-8132-03474f80ebe8"
+                            },
+                            {
+                              "id": "fc8e2feb-044d-4e46-bf2a-49630cb0fb5c",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "tables"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:45:52.000Z",
+                              "updatedAt": "2026-07-28T01:45:52.000Z",
+                              "uid": "35240-fc8e2feb-044d-4e46-bf2a-49630cb0fb5c"
+                            },
+                            {
+                              "id": "5d682631-630a-466a-843a-f5ef73b83103",
+                              "name": "Table already exists",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"TIME\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"RECORD\",\n        \"mode\": \"REQUIRED\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"TABLE\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"dolore_b\": \"<string>\",\n    \"ex8\": \"<string>\",\n    \"sint_3f7\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/datasets/:datasetId/tables",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "datasets",
+                                    ":datasetId",
+                                    "tables"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "datasetId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:45:52.000Z",
+                              "updatedAt": "2026-07-28T01:45:52.000Z",
+                              "uid": "35240-5d682631-630a-466a-843a-f5ef73b83103"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:45:52.000Z",
+                          "updatedAt": "2026-07-28T01:45:52.000Z",
+                          "uid": "35240-d908fe63-ed53-4471-87a2-e9864d010cd7"
+                        }
+                      ],
+                      "id": "b086d200-9137-4847-a284-7f7d8d2928aa",
+                      "createdAt": "2026-07-28T01:45:52.000Z",
+                      "updatedAt": "2026-07-28T01:45:52.000Z",
+                      "uid": "35240-b086d200-9137-4847-a284-7f7d8d2928aa"
+                    }
+                  ],
+                  "id": "3fff9aea-76f3-4efd-8ba7-da645beea9e7",
+                  "createdAt": "2026-07-28T01:45:52.000Z",
+                  "updatedAt": "2026-07-28T01:45:52.000Z",
+                  "uid": "35240-3fff9aea-76f3-4efd-8ba7-da645beea9e7"
+                }
+              ],
+              "id": "86d04981-021e-4853-b0f6-c6c32115e01d",
+              "createdAt": "2026-07-28T01:45:52.000Z",
+              "updatedAt": "2026-07-28T01:45:52.000Z",
+              "uid": "35240-86d04981-021e-4853-b0f6-c6c32115e01d"
+            }
+          ],
+          "id": "d46718d0-71f1-4889-b9fd-fe07dccf4175",
+          "createdAt": "2026-07-28T01:45:52.000Z",
+          "updatedAt": "2026-07-28T01:45:52.000Z",
+          "uid": "35240-d46718d0-71f1-4889-b9fd-fe07dccf4175"
+        }
+      ],
+      "id": "aa34dd21-0cfd-4fb8-8571-812426e2fb09",
+      "createdAt": "2026-07-28T01:45:52.000Z",
+      "updatedAt": "2026-07-28T01:45:52.000Z",
+      "uid": "35240-aa34dd21-0cfd-4fb8-8571-812426e2fb09"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/bigquery.readonly",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bigquery.googleapis.com/bigquery/v2"
+    }
+  ]
+}
