@@ -1,0 +1,164 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google BigQuery Datasets Models API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/models",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              }
+            ]
+          },
+          "docs": "Lists all models in the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get model",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/models/:modelId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the model"
+              }
+            ]
+          },
+          "docs": "Gets the specified model resource by model ID."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Update model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/models/:modelId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the model"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch specific fields in the specified model."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Delete model",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/models/:modelId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the model"
+              }
+            ]
+          },
+          "docs": "Deletes the model specified by modelId from the dataset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

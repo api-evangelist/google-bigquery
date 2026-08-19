@@ -1,0 +1,193 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google BigQuery Datasets Tables API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              }
+            ]
+          },
+          "docs": "Lists all tables in the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Create a table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new empty table in the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables/:tableId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the table"
+              }
+            ]
+          },
+          "docs": "Gets the specified table resource by table ID."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Partially update table",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables/:tableId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the table"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates information in an existing table, replacing only the fields provided in the submitted table resource."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Delete table",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/tables/:tableId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "tableId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the table"
+              }
+            ]
+          },
+          "docs": "Deletes the table specified by tableId from the dataset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

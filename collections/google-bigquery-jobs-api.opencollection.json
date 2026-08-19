@@ -1,0 +1,237 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google BigQuery Datasets Jobs API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/jobs",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              },
+              {
+                "name": "projection",
+                "value": "",
+                "type": "query",
+                "description": "Restricts information returned to a set of selected fields"
+              },
+              {
+                "name": "stateFilter",
+                "value": "",
+                "type": "query",
+                "description": "Filter for job state"
+              }
+            ]
+          },
+          "docs": "Lists all jobs that you started in the specified project."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Submit a job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/jobs",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts a new asynchronous job such as a query, load, extract, or copy job."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/jobs/:jobId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the job"
+              }
+            ]
+          },
+          "docs": "Returns information about a specific job."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Delete job",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/jobs/:jobId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the job"
+              }
+            ]
+          },
+          "docs": "Requests the deletion of the metadata of a job."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Cancel job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/jobs/:jobId/cancel",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the job"
+              }
+            ]
+          },
+          "docs": "Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed successfully."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Execute query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/queries",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Runs a BigQuery SQL query synchronously and returns query results if the query completes within a specified timeout."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get query results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/queries/:jobId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the job"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              },
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based index of the starting row"
+              }
+            ]
+          },
+          "docs": "Retrieves the results of a query job."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

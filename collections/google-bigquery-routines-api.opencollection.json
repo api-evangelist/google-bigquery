@@ -1,0 +1,193 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google BigQuery Datasets Routines API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Routines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List routines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/routines",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              }
+            ]
+          },
+          "docs": "Lists all routines in the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Create a routine",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/routines",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new routine in the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get routine",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/routines/:routineId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "routineId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the routine"
+              }
+            ]
+          },
+          "docs": "Gets the specified routine resource by routine ID."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Update routine",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/routines/:routineId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "routineId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the routine"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates information in an existing routine by replacing the entire routine resource."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Delete routine",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId/routines/:routineId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "routineId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the routine"
+              }
+            ]
+          },
+          "docs": "Deletes the routine specified by routineId from the dataset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

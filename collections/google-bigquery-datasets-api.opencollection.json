@@ -1,0 +1,210 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google BigQuery Datasets API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google BigQuery List datasets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination"
+              },
+              {
+                "name": "all",
+                "value": "",
+                "type": "query",
+                "description": "Whether to list all datasets, including hidden ones"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter expression for filtering datasets by label"
+              }
+            ]
+          },
+          "docs": "Lists all datasets in the specified project to which the user has been granted the READER dataset role."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Create a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new empty dataset in the specified project."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Get dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              }
+            ]
+          },
+          "docs": "Returns the dataset specified by datasetId."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Update dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates information in an existing dataset by replacing the entire dataset resource."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Partially update dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource."
+        },
+        {
+          "info": {
+            "name": "Google BigQuery Delete dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bigquery.googleapis.com/bigquery/v2/projects/:projectId/datasets/:datasetId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the project"
+              },
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dataset"
+              },
+              {
+                "name": "deleteContents",
+                "value": "",
+                "type": "query",
+                "description": "If true, delete all the tables in the dataset"
+              }
+            ]
+          },
+          "docs": "Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

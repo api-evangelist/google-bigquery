@@ -1,0 +1,1479 @@
+{
+  "item": [
+    {
+      "id": "bf509897-9be5-4d57-a31b-1f49fa2b5990",
+      "name": "Tables",
+      "description": {
+        "content": "Operations for managing tables within datasets",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "961d480a-f065-4209-a1e1-55043ebd3eeb",
+          "name": "Google BigQuery List tables",
+          "request": {
+            "name": "Google BigQuery List tables",
+            "description": {
+              "content": "Lists all tables in the specified dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "datasets",
+                ":datasetId",
+                "tables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Page token for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) The ID of the project"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) The ID of the dataset"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "05400f4a-3eb5-43ef-9e72-2282b402e1e7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"string\",\n  \"tables\": [\n    {\n      \"kind\": \"string\",\n      \"id\": \"string\",\n      \"tableReference\": {\n        \"projectId\": \"string\",\n        \"datasetId\": \"string\",\n        \"tableId\": \"string\"\n      },\n      \"friendlyName\": \"string\",\n      \"description\": \"string\",\n      \"schema\": {\n        \"fields\": [\n          {\n            \"name\": \"string\",\n            \"type\": \"FLOAT\",\n            \"mode\": \"REQUIRED\",\n            \"description\": \"string\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"type\": \"INTEGER\",\n            \"mode\": \"REPEATED\",\n            \"description\": \"string\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"numRows\": \"string\",\n      \"numBytes\": \"string\",\n      \"type\": \"EXTERNAL\",\n      \"creationTime\": \"string\",\n      \"expirationTime\": \"string\",\n      \"labels\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"kind\": \"string\",\n      \"id\": \"string\",\n      \"tableReference\": {\n        \"projectId\": \"string\",\n        \"datasetId\": \"string\",\n        \"tableId\": \"string\"\n      },\n      \"friendlyName\": \"string\",\n      \"description\": \"string\",\n      \"schema\": {\n        \"fields\": [\n          {\n            \"name\": \"string\",\n            \"type\": \"TIME\",\n            \"mode\": \"REQUIRED\",\n            \"description\": \"string\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"type\": \"INT64\",\n            \"mode\": \"NULLABLE\",\n            \"description\": \"string\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"numRows\": \"string\",\n      \"numBytes\": \"string\",\n      \"type\": \"TABLE\",\n      \"creationTime\": \"string\",\n      \"expirationTime\": \"string\",\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  ],\n  \"nextPageToken\": \"string\",\n  \"totalItems\": 7350\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7c7c5c2-1f2f-4696-8b8d-f8da2f17c169",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8262907f-f1eb-48d0-9625-23571aeac9bd",
+              "name": "Dataset not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f838f5c7-ae10-4a1e-bc2d-35ee6a88db7c",
+          "name": "Google BigQuery Create a table",
+          "request": {
+            "name": "Google BigQuery Create a table",
+            "description": {
+              "content": "Creates a new empty table in the specified dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "datasets",
+                ":datasetId",
+                "tables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) The ID of the project"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) The ID of the dataset"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"mode\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"mode\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ef5676ca-2069-48b3-bd41-237f4ebb859f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"string\",\n    \"datasetId\": \"string\",\n    \"tableId\": \"string\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"JSON\",\n        \"mode\": \"REPEATED\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"BOOL\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"string\",\n  \"id\": \"string\",\n  \"tableReference\": {\n    \"projectId\": \"string\",\n    \"datasetId\": \"string\",\n    \"tableId\": \"string\"\n  },\n  \"friendlyName\": \"string\",\n  \"description\": \"string\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"NUMERIC\",\n        \"mode\": \"REPEATED\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"BOOL\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"string\",\n  \"numBytes\": \"string\",\n  \"type\": \"VIEW\",\n  \"creationTime\": \"string\",\n  \"expirationTime\": \"string\",\n  \"labels\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91fe2e3d-aa9a-4a3c-aaac-ddf855a6fa85",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"string\",\n    \"datasetId\": \"string\",\n    \"tableId\": \"string\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"JSON\",\n        \"mode\": \"REPEATED\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"BOOL\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2bb0463b-e4c0-45a1-a7dc-0a1f6a7c5f13",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"string\",\n    \"datasetId\": \"string\",\n    \"tableId\": \"string\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"JSON\",\n        \"mode\": \"REPEATED\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"BOOL\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c34f4c4-defc-4ec9-bcbe-1e5fbbdc6efb",
+              "name": "Table already exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"string\",\n    \"datasetId\": \"string\",\n    \"tableId\": \"string\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"JSON\",\n        \"mode\": \"REPEATED\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"BOOL\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af6bf4a3-a758-4885-9a87-3a665fc42e1f",
+          "name": "Google BigQuery Get table",
+          "request": {
+            "name": "Google BigQuery Get table",
+            "description": {
+              "content": "Gets the specified table resource by table ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "datasets",
+                ":datasetId",
+                "tables",
+                ":tableId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) The ID of the project"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) The ID of the dataset"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableId",
+                  "description": "(Required) The ID of the table"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d66a88af-4ddf-4953-a60f-f82b4291716e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) The ID of the table"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"string\",\n  \"id\": \"string\",\n  \"tableReference\": {\n    \"projectId\": \"string\",\n    \"datasetId\": \"string\",\n    \"tableId\": \"string\"\n  },\n  \"friendlyName\": \"string\",\n  \"description\": \"string\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"NUMERIC\",\n        \"mode\": \"REPEATED\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"BOOL\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"string\",\n  \"numBytes\": \"string\",\n  \"type\": \"VIEW\",\n  \"creationTime\": \"string\",\n  \"expirationTime\": \"string\",\n  \"labels\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6742286-67a4-4781-8b54-10495ffc4a2e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) The ID of the table"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "66812794-dee3-4602-b659-b86607a1d548",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) The ID of the table"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5591f85b-3f22-410e-adcd-fd16776146c9",
+          "name": "Google BigQuery Partially update table",
+          "request": {
+            "name": "Google BigQuery Partially update table",
+            "description": {
+              "content": "Updates information in an existing table, replacing only the fields provided in the submitted table resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "datasets",
+                ":datasetId",
+                "tables",
+                ":tableId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) The ID of the project"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) The ID of the dataset"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableId",
+                  "description": "(Required) The ID of the table"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"tableId\": \"<string>\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"mode\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"mode\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79d6c5b3-8650-456b-94e0-6b900977792c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) The ID of the table"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"string\",\n    \"datasetId\": \"string\",\n    \"tableId\": \"string\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"JSON\",\n        \"mode\": \"REPEATED\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"BOOL\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"string\",\n  \"id\": \"string\",\n  \"tableReference\": {\n    \"projectId\": \"string\",\n    \"datasetId\": \"string\",\n    \"tableId\": \"string\"\n  },\n  \"friendlyName\": \"string\",\n  \"description\": \"string\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"NUMERIC\",\n        \"mode\": \"REPEATED\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"BOOL\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"string\",\n  \"numBytes\": \"string\",\n  \"type\": \"VIEW\",\n  \"creationTime\": \"string\",\n  \"expirationTime\": \"string\",\n  \"labels\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "acce5887-0f69-476b-8ef3-2220892af1e9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) The ID of the table"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"string\",\n    \"datasetId\": \"string\",\n    \"tableId\": \"string\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"JSON\",\n        \"mode\": \"REPEATED\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"BOOL\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b47538aa-de3e-478d-a9ad-c6d88c5cf989",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) The ID of the table"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"id\": \"<string>\",\n  \"tableReference\": {\n    \"projectId\": \"string\",\n    \"datasetId\": \"string\",\n    \"tableId\": \"string\"\n  },\n  \"friendlyName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"JSON\",\n        \"mode\": \"REPEATED\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"BOOL\",\n        \"mode\": \"NULLABLE\",\n        \"description\": \"string\",\n        \"fields\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/TableFieldSchema detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"numRows\": \"<string>\",\n  \"numBytes\": \"<string>\",\n  \"type\": \"<string>\",\n  \"creationTime\": \"<string>\",\n  \"expirationTime\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2d17a23-5158-4314-8386-6c4835184d4b",
+          "name": "Google BigQuery Delete table",
+          "request": {
+            "name": "Google BigQuery Delete table",
+            "description": {
+              "content": "Deletes the table specified by tableId from the dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "datasets",
+                ":datasetId",
+                "tables",
+                ":tableId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) The ID of the project"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) The ID of the dataset"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableId",
+                  "description": "(Required) The ID of the table"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e99b7de7-29f3-4c21-b54f-e2cc6fd4a6cc",
+              "name": "Successfully deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) The ID of the table"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6293dda5-5d61-404a-8ff0-8bbf5cac61e4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) The ID of the table"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d4126505-0858-4925-b6a7-f26564172ff4",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "datasets",
+                    ":datasetId",
+                    "tables",
+                    ":tableId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) The ID of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) The ID of the dataset"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableId",
+                      "description": "(Required) The ID of the table"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bigquery.googleapis.com/bigquery/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/bigquery.readonly"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1cfed4a1-2642-4176-a6ad-1b43281f9778",
+    "name": "Google BigQuery Datasets Tables API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.\n\nContact Support:\n Name: Google Cloud Support",
+      "type": "text/plain"
+    }
+  }
+}
