@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google BigQuery Datasets Tabledata API
   description: The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.
@@ -75,7 +75,73 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
+    tableId:
+      name: tableId
+      in: path
+      required: true
+      description: The ID of the table
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
   schemas:
+    TableDataInsertAllResponse:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type
+        insertErrors:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+                description: The index of the row with the error
+              errors:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ErrorProto'
+          description: Insert errors for individual rows
+    ErrorProto:
+      type: object
+      properties:
+        reason:
+          type: string
+          description: A short error code that summarizes the error
+        location:
+          type: string
+          description: Specifies where the error occurred
+        message:
+          type: string
+          description: A human-readable description of the error
     TableDataInsertAllRequest:
       type: object
       properties:
@@ -100,37 +166,6 @@ components:
                 type: object
                 description: A JSON object with a row of data
           description: The rows to insert
-    ErrorProto:
-      type: object
-      properties:
-        reason:
-          type: string
-          description: A short error code that summarizes the error
-        location:
-          type: string
-          description: Specifies where the error occurred
-        message:
-          type: string
-          description: A human-readable description of the error
-    TableDataInsertAllResponse:
-      type: object
-      properties:
-        kind:
-          type: string
-          description: The resource type
-        insertErrors:
-          type: array
-          items:
-            type: object
-            properties:
-              index:
-                type: integer
-                description: The index of the row with the error
-              errors:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ErrorProto'
-          description: Insert errors for individual rows
     TableDataList:
       type: object
       properties:
@@ -148,41 +183,6 @@ components:
         totalRows:
           type: string
           description: The total number of rows in the table
-  parameters:
-    datasetId:
-      name: datasetId
-      in: path
-      required: true
-      description: The ID of the dataset
-      schema:
-        type: string
-    tableId:
-      name: tableId
-      in: path
-      required: true
-      description: The ID of the table
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The ID of the project
-      schema:
-        type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
   securitySchemes:
     oauth2:
       type: oauth2

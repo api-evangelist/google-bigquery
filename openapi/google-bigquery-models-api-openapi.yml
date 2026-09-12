@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google BigQuery Datasets Models API
   description: The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.
@@ -122,19 +122,6 @@ paths:
           description: Model not found
 components:
   parameters:
-    datasetId:
-      name: datasetId
-      in: path
-      required: true
-      description: The ID of the dataset
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
     projectId:
       name: projectId
       in: path
@@ -149,18 +136,20 @@ components:
       schema:
         type: integer
         format: int32
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
   schemas:
-    ModelList:
-      type: object
-      properties:
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/Model'
-          description: Models in the requested dataset
-        nextPageToken:
-          type: string
-          description: A token to request the next page of results
     Model:
       type: object
       properties:
@@ -193,6 +182,17 @@ components:
         creationTime:
           type: string
           description: The time when this model was created
+    ModelList:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+          description: Models in the requested dataset
+        nextPageToken:
+          type: string
+          description: A token to request the next page of results
   securitySchemes:
     oauth2:
       type: oauth2

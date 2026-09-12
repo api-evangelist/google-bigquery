@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google BigQuery Datasets Tables API
   description: The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.
@@ -135,26 +135,6 @@ paths:
           description: Table not found
 components:
   parameters:
-    datasetId:
-      name: datasetId
-      in: path
-      required: true
-      description: The ID of the dataset
-      schema:
-        type: string
-    tableId:
-      name: tableId
-      in: path
-      required: true
-      description: The ID of the table
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
     projectId:
       name: projectId
       in: path
@@ -169,6 +149,26 @@ components:
       schema:
         type: integer
         format: int32
+    tableId:
+      name: tableId
+      in: path
+      required: true
+      description: The ID of the table
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
   schemas:
     TableFieldSchema:
       type: object
@@ -216,6 +216,43 @@ components:
           items:
             $ref: '#/components/schemas/TableFieldSchema'
           description: Nested fields for RECORD type
+    TableList:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Table'
+          description: Tables in the requested dataset
+        nextPageToken:
+          type: string
+          description: A token to request the next page of results
+        totalItems:
+          type: integer
+          description: The total number of tables in the dataset
+    TableReference:
+      type: object
+      properties:
+        projectId:
+          type: string
+          description: The ID of the project containing the table
+        datasetId:
+          type: string
+          description: The ID of the dataset containing the table
+        tableId:
+          type: string
+          description: The ID of the table
+    TableSchema:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableFieldSchema'
+          description: Describes the fields in a table
     Table:
       type: object
       properties:
@@ -261,43 +298,6 @@ components:
           additionalProperties:
             type: string
           description: Labels associated with this table
-    TableSchema:
-      type: object
-      properties:
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableFieldSchema'
-          description: Describes the fields in a table
-    TableList:
-      type: object
-      properties:
-        kind:
-          type: string
-          description: The resource type
-        tables:
-          type: array
-          items:
-            $ref: '#/components/schemas/Table'
-          description: Tables in the requested dataset
-        nextPageToken:
-          type: string
-          description: A token to request the next page of results
-        totalItems:
-          type: integer
-          description: The total number of tables in the dataset
-    TableReference:
-      type: object
-      properties:
-        projectId:
-          type: string
-          description: The ID of the project containing the table
-        datasetId:
-          type: string
-          description: The ID of the dataset containing the table
-        tableId:
-          type: string
-          description: The ID of the table
   securitySchemes:
     oauth2:
       type: oauth2
