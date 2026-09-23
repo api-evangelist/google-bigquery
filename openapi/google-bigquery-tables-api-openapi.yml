@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google BigQuery Datasets Tables API
+  title: Google BigQuery Tables API
   description: The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.
   version: '2'
   contact:
@@ -134,42 +134,72 @@ paths:
         '404':
           description: Table not found
 components:
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The ID of the project
-      schema:
-        type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
-    tableId:
-      name: tableId
-      in: path
-      required: true
-      description: The ID of the table
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
-    datasetId:
-      name: datasetId
-      in: path
-      required: true
-      description: The ID of the dataset
-      schema:
-        type: string
   schemas:
+    TableSchema:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableFieldSchema'
+          description: Describes the fields in a table
+    TableReference:
+      type: object
+      properties:
+        projectId:
+          type: string
+          description: The ID of the project containing the table
+        datasetId:
+          type: string
+          description: The ID of the dataset containing the table
+        tableId:
+          type: string
+          description: The ID of the table
+    Table:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type, always bigquery#table
+        id:
+          type: string
+          description: The fully-qualified unique name of the table
+        tableReference:
+          $ref: '#/components/schemas/TableReference'
+        friendlyName:
+          type: string
+          description: A descriptive name for the table
+        description:
+          type: string
+          description: A user-friendly description of the table
+        schema:
+          $ref: '#/components/schemas/TableSchema'
+        numRows:
+          type: string
+          description: The number of rows in the table
+        numBytes:
+          type: string
+          description: The size of the table in bytes
+        type:
+          type: string
+          description: The type of the table
+          enum:
+          - TABLE
+          - VIEW
+          - MATERIALIZED_VIEW
+          - EXTERNAL
+          - SNAPSHOT
+        creationTime:
+          type: string
+          description: The time when this table was created
+        expirationTime:
+          type: string
+          description: The time when this table expires
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          description: Labels associated with this table
     TableFieldSchema:
       type: object
       required:
@@ -233,71 +263,41 @@ components:
         totalItems:
           type: integer
           description: The total number of tables in the dataset
-    TableReference:
-      type: object
-      properties:
-        projectId:
-          type: string
-          description: The ID of the project containing the table
-        datasetId:
-          type: string
-          description: The ID of the dataset containing the table
-        tableId:
-          type: string
-          description: The ID of the table
-    TableSchema:
-      type: object
-      properties:
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableFieldSchema'
-          description: Describes the fields in a table
-    Table:
-      type: object
-      properties:
-        kind:
-          type: string
-          description: The resource type, always bigquery#table
-        id:
-          type: string
-          description: The fully-qualified unique name of the table
-        tableReference:
-          $ref: '#/components/schemas/TableReference'
-        friendlyName:
-          type: string
-          description: A descriptive name for the table
-        description:
-          type: string
-          description: A user-friendly description of the table
-        schema:
-          $ref: '#/components/schemas/TableSchema'
-        numRows:
-          type: string
-          description: The number of rows in the table
-        numBytes:
-          type: string
-          description: The size of the table in bytes
-        type:
-          type: string
-          description: The type of the table
-          enum:
-          - TABLE
-          - VIEW
-          - MATERIALIZED_VIEW
-          - EXTERNAL
-          - SNAPSHOT
-        creationTime:
-          type: string
-          description: The time when this table was created
-        expirationTime:
-          type: string
-          description: The time when this table expires
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-          description: Labels associated with this table
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
+    tableId:
+      name: tableId
+      in: path
+      required: true
+      description: The ID of the table
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

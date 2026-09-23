@@ -1,13 +1,7 @@
 {
   "provider": "google-bigquery",
   "sources": [
-    "google-bigquery-datasets-api-openapi.yml",
-    "google-bigquery-jobs-api-openapi.yml",
-    "google-bigquery-models-api-openapi.yml",
-    "google-bigquery-projects-api-openapi.yml",
-    "google-bigquery-routines-api-openapi.yml",
-    "google-bigquery-tabledata-api-openapi.yml",
-    "google-bigquery-tables-api-openapi.yml"
+    "_original/bigquery-api-openapi.yml"
   ],
   "outputs": [
     "google-bigquery-datasets-api-openapi.yml",
@@ -22,14 +16,17 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "google-bigquery-datasets-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-bigquery-jobs-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-bigquery-models-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-bigquery-projects-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-bigquery-routines-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-bigquery-tabledata-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-bigquery-tables-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bigquery-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "google-bigquery-datasets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-bigquery-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-bigquery-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-bigquery-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-bigquery-routines-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-bigquery-tabledata-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-bigquery-tables-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

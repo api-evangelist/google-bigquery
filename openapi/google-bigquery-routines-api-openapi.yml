@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google BigQuery Datasets Routines API
+  title: Google BigQuery Routines API
   description: The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.
   version: '2'
   contact:
@@ -145,46 +145,7 @@ paths:
         '404':
           description: Routine not found
 components:
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The ID of the project
-      schema:
-        type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
-    datasetId:
-      name: datasetId
-      in: path
-      required: true
-      description: The ID of the dataset
-      schema:
-        type: string
   schemas:
-    RoutineList:
-      type: object
-      properties:
-        routines:
-          type: array
-          items:
-            $ref: '#/components/schemas/Routine'
-          description: Routines in the requested dataset
-        nextPageToken:
-          type: string
-          description: A token to request the next page of results
     Routine:
       type: object
       properties:
@@ -219,6 +180,45 @@ components:
         creationTime:
           type: string
           description: The time when this routine was created
+    RoutineList:
+      type: object
+      properties:
+        routines:
+          type: array
+          items:
+            $ref: '#/components/schemas/Routine'
+          description: Routines in the requested dataset
+        nextPageToken:
+          type: string
+          description: A token to request the next page of results
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
+      schema:
+        type: string
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
   securitySchemes:
     oauth2:
       type: oauth2

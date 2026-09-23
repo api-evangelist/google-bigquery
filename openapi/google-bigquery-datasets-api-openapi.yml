@@ -171,6 +171,20 @@ paths:
           description: Dataset not found
 components:
   schemas:
+    DatasetList:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type
+        datasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
+          description: An array of dataset resources
+        nextPageToken:
+          type: string
+          description: A token to request the next page of results
     Dataset:
       type: object
       properties:
@@ -211,39 +225,12 @@ components:
         datasetId:
           type: string
           description: The ID of the dataset
-    DatasetList:
-      type: object
-      properties:
-        kind:
-          type: string
-          description: The resource type
-        datasets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Dataset'
-          description: An array of dataset resources
-        nextPageToken:
-          type: string
-          description: A token to request the next page of results
   parameters:
     projectId:
       name: projectId
       in: path
       required: true
       description: The ID of the project
-      schema:
-        type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
       schema:
         type: string
     datasetId:
@@ -253,6 +240,19 @@ components:
       description: The ID of the dataset
       schema:
         type: string
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
   securitySchemes:
     oauth2:
       type: oauth2

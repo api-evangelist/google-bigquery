@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google BigQuery Datasets Projects API
+  title: Google BigQuery Projects API
   description: The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.
   version: '2'
   contact:
@@ -39,6 +39,12 @@ paths:
           description: Forbidden
 components:
   parameters:
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
     maxResults:
       name: maxResults
       in: query
@@ -46,12 +52,6 @@ components:
       schema:
         type: integer
         format: int32
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
   schemas:
     ProjectList:
       type: object

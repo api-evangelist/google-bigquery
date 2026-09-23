@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google BigQuery Datasets Tabledata API
+  title: Google BigQuery Tabledata API
   description: The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.
   version: '2'
   contact:
@@ -83,13 +83,13 @@ components:
       description: The ID of the project
       schema:
         type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
       schema:
-        type: integer
-        format: int32
+        type: string
     tableId:
       name: tableId
       in: path
@@ -103,45 +103,31 @@ components:
       description: Page token for pagination
       schema:
         type: string
-    datasetId:
-      name: datasetId
-      in: path
-      required: true
-      description: The ID of the dataset
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
       schema:
-        type: string
+        type: integer
+        format: int32
   schemas:
-    TableDataInsertAllResponse:
+    TableDataList:
       type: object
       properties:
         kind:
           type: string
           description: The resource type
-        insertErrors:
+        rows:
           type: array
           items:
             type: object
-            properties:
-              index:
-                type: integer
-                description: The index of the row with the error
-              errors:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ErrorProto'
-          description: Insert errors for individual rows
-    ErrorProto:
-      type: object
-      properties:
-        reason:
+          description: Rows of results
+        pageToken:
           type: string
-          description: A short error code that summarizes the error
-        location:
+          description: A token to request the next page of results
+        totalRows:
           type: string
-          description: Specifies where the error occurred
-        message:
-          type: string
-          description: A human-readable description of the error
+          description: The total number of rows in the table
     TableDataInsertAllRequest:
       type: object
       properties:
@@ -166,23 +152,37 @@ components:
                 type: object
                 description: A JSON object with a row of data
           description: The rows to insert
-    TableDataList:
+    ErrorProto:
+      type: object
+      properties:
+        reason:
+          type: string
+          description: A short error code that summarizes the error
+        location:
+          type: string
+          description: Specifies where the error occurred
+        message:
+          type: string
+          description: A human-readable description of the error
+    TableDataInsertAllResponse:
       type: object
       properties:
         kind:
           type: string
           description: The resource type
-        rows:
+        insertErrors:
           type: array
           items:
             type: object
-          description: Rows of results
-        pageToken:
-          type: string
-          description: A token to request the next page of results
-        totalRows:
-          type: string
-          description: The total number of rows in the table
+            properties:
+              index:
+                type: integer
+                description: The index of the row with the error
+              errors:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ErrorProto'
+          description: Insert errors for individual rows
   securitySchemes:
     oauth2:
       type: oauth2

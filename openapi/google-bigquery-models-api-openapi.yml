@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google BigQuery Datasets Models API
+  title: Google BigQuery Models API
   description: The BigQuery API provides programmatic access to Google BigQuery for creating, managing, and querying datasets, tables, jobs, models, and routines. It enables developers to run SQL queries over petabytes of data, load and export data, manage access control, and orchestrate analytics workloads using serverless infrastructure.
   version: '2'
   contact:
@@ -129,19 +129,6 @@ components:
       description: The ID of the project
       schema:
         type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
     datasetId:
       name: datasetId
       in: path
@@ -149,6 +136,19 @@ components:
       description: The ID of the dataset
       schema:
         type: string
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
   schemas:
     Model:
       type: object
