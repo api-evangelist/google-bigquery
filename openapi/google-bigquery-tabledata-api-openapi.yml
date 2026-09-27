@@ -75,59 +75,7 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The ID of the project
-      schema:
-        type: string
-    datasetId:
-      name: datasetId
-      in: path
-      required: true
-      description: The ID of the dataset
-      schema:
-        type: string
-    tableId:
-      name: tableId
-      in: path
-      required: true
-      description: The ID of the table
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
   schemas:
-    TableDataList:
-      type: object
-      properties:
-        kind:
-          type: string
-          description: The resource type
-        rows:
-          type: array
-          items:
-            type: object
-          description: Rows of results
-        pageToken:
-          type: string
-          description: A token to request the next page of results
-        totalRows:
-          type: string
-          description: The total number of rows in the table
     TableDataInsertAllRequest:
       type: object
       properties:
@@ -152,18 +100,6 @@ components:
                 type: object
                 description: A JSON object with a row of data
           description: The rows to insert
-    ErrorProto:
-      type: object
-      properties:
-        reason:
-          type: string
-          description: A short error code that summarizes the error
-        location:
-          type: string
-          description: Specifies where the error occurred
-        message:
-          type: string
-          description: A human-readable description of the error
     TableDataInsertAllResponse:
       type: object
       properties:
@@ -183,6 +119,70 @@ components:
                 items:
                   $ref: '#/components/schemas/ErrorProto'
           description: Insert errors for individual rows
+    TableDataList:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type
+        rows:
+          type: array
+          items:
+            type: object
+          description: Rows of results
+        pageToken:
+          type: string
+          description: A token to request the next page of results
+        totalRows:
+          type: string
+          description: The total number of rows in the table
+    ErrorProto:
+      type: object
+      properties:
+        reason:
+          type: string
+          description: A short error code that summarizes the error
+        location:
+          type: string
+          description: Specifies where the error occurred
+        message:
+          type: string
+          description: A human-readable description of the error
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
+      schema:
+        type: string
+    tableId:
+      name: tableId
+      in: path
+      required: true
+      description: The ID of the table
+      schema:
+        type: string
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
   securitySchemes:
     oauth2:
       type: oauth2

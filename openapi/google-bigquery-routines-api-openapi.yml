@@ -146,6 +146,17 @@ paths:
           description: Routine not found
 components:
   schemas:
+    RoutineList:
+      type: object
+      properties:
+        routines:
+          type: array
+          items:
+            $ref: '#/components/schemas/Routine'
+          description: Routines in the requested dataset
+        nextPageToken:
+          type: string
+          description: A token to request the next page of results
     Routine:
       type: object
       properties:
@@ -180,25 +191,7 @@ components:
         creationTime:
           type: string
           description: The time when this routine was created
-    RoutineList:
-      type: object
-      properties:
-        routines:
-          type: array
-          items:
-            $ref: '#/components/schemas/Routine'
-          description: Routines in the requested dataset
-        nextPageToken:
-          type: string
-          description: A token to request the next page of results
   parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The ID of the project
-      schema:
-        type: string
     datasetId:
       name: datasetId
       in: path
@@ -210,6 +203,13 @@ components:
       name: pageToken
       in: query
       description: Page token for pagination
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
       schema:
         type: string
     maxResults:

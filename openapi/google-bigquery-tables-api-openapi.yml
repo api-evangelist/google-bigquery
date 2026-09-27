@@ -135,6 +135,69 @@ paths:
           description: Table not found
 components:
   schemas:
+    TableFieldSchema:
+      type: object
+      required:
+      - name
+      - type
+      properties:
+        name:
+          type: string
+          description: The field name
+        type:
+          type: string
+          description: The field data type
+          enum:
+          - STRING
+          - BYTES
+          - INTEGER
+          - INT64
+          - FLOAT
+          - FLOAT64
+          - NUMERIC
+          - BIGNUMERIC
+          - BOOLEAN
+          - BOOL
+          - TIMESTAMP
+          - DATE
+          - TIME
+          - DATETIME
+          - GEOGRAPHY
+          - RECORD
+          - STRUCT
+          - JSON
+        mode:
+          type: string
+          description: The field mode
+          enum:
+          - NULLABLE
+          - REQUIRED
+          - REPEATED
+        description:
+          type: string
+          description: The field description
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableFieldSchema'
+          description: Nested fields for RECORD type
+    TableList:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Table'
+          description: Tables in the requested dataset
+        nextPageToken:
+          type: string
+          description: A token to request the next page of results
+        totalItems:
+          type: integer
+          description: The total number of tables in the dataset
     TableSchema:
       type: object
       properties:
@@ -200,89 +263,12 @@ components:
           additionalProperties:
             type: string
           description: Labels associated with this table
-    TableFieldSchema:
-      type: object
-      required:
-      - name
-      - type
-      properties:
-        name:
-          type: string
-          description: The field name
-        type:
-          type: string
-          description: The field data type
-          enum:
-          - STRING
-          - BYTES
-          - INTEGER
-          - INT64
-          - FLOAT
-          - FLOAT64
-          - NUMERIC
-          - BIGNUMERIC
-          - BOOLEAN
-          - BOOL
-          - TIMESTAMP
-          - DATE
-          - TIME
-          - DATETIME
-          - GEOGRAPHY
-          - RECORD
-          - STRUCT
-          - JSON
-        mode:
-          type: string
-          description: The field mode
-          enum:
-          - NULLABLE
-          - REQUIRED
-          - REPEATED
-        description:
-          type: string
-          description: The field description
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableFieldSchema'
-          description: Nested fields for RECORD type
-    TableList:
-      type: object
-      properties:
-        kind:
-          type: string
-          description: The resource type
-        tables:
-          type: array
-          items:
-            $ref: '#/components/schemas/Table'
-          description: Tables in the requested dataset
-        nextPageToken:
-          type: string
-          description: A token to request the next page of results
-        totalItems:
-          type: integer
-          description: The total number of tables in the dataset
   parameters:
     projectId:
       name: projectId
       in: path
       required: true
       description: The ID of the project
-      schema:
-        type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
-    datasetId:
-      name: datasetId
-      in: path
-      required: true
-      description: The ID of the dataset
       schema:
         type: string
     tableId:
@@ -292,12 +278,26 @@ components:
       description: The ID of the table
       schema:
         type: string
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
     pageToken:
       name: pageToken
       in: query
       description: Page token for pagination
       schema:
         type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
   securitySchemes:
     oauth2:
       type: oauth2
