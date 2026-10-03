@@ -38,20 +38,6 @@ paths:
         '403':
           description: Forbidden
 components:
-  parameters:
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
   schemas:
     ProjectList:
       type: object
@@ -83,6 +69,20 @@ components:
         totalItems:
           type: integer
           description: The total number of projects
+  parameters:
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

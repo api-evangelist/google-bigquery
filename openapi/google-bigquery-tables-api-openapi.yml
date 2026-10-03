@@ -135,6 +135,76 @@ paths:
           description: Table not found
 components:
   schemas:
+    TableSchema:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableFieldSchema'
+          description: Describes the fields in a table
+    TableList:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Table'
+          description: Tables in the requested dataset
+        nextPageToken:
+          type: string
+          description: A token to request the next page of results
+        totalItems:
+          type: integer
+          description: The total number of tables in the dataset
+    Table:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: The resource type, always bigquery#table
+        id:
+          type: string
+          description: The fully-qualified unique name of the table
+        tableReference:
+          $ref: '#/components/schemas/TableReference'
+        friendlyName:
+          type: string
+          description: A descriptive name for the table
+        description:
+          type: string
+          description: A user-friendly description of the table
+        schema:
+          $ref: '#/components/schemas/TableSchema'
+        numRows:
+          type: string
+          description: The number of rows in the table
+        numBytes:
+          type: string
+          description: The size of the table in bytes
+        type:
+          type: string
+          description: The type of the table
+          enum:
+          - TABLE
+          - VIEW
+          - MATERIALIZED_VIEW
+          - EXTERNAL
+          - SNAPSHOT
+        creationTime:
+          type: string
+          description: The time when this table was created
+        expirationTime:
+          type: string
+          description: The time when this table expires
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          description: Labels associated with this table
     TableFieldSchema:
       type: object
       required:
@@ -181,31 +251,6 @@ components:
           items:
             $ref: '#/components/schemas/TableFieldSchema'
           description: Nested fields for RECORD type
-    TableList:
-      type: object
-      properties:
-        kind:
-          type: string
-          description: The resource type
-        tables:
-          type: array
-          items:
-            $ref: '#/components/schemas/Table'
-          description: Tables in the requested dataset
-        nextPageToken:
-          type: string
-          description: A token to request the next page of results
-        totalItems:
-          type: integer
-          description: The total number of tables in the dataset
-    TableSchema:
-      type: object
-      properties:
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableFieldSchema'
-          description: Describes the fields in a table
     TableReference:
       type: object
       properties:
@@ -218,64 +263,26 @@ components:
         tableId:
           type: string
           description: The ID of the table
-    Table:
-      type: object
-      properties:
-        kind:
-          type: string
-          description: The resource type, always bigquery#table
-        id:
-          type: string
-          description: The fully-qualified unique name of the table
-        tableReference:
-          $ref: '#/components/schemas/TableReference'
-        friendlyName:
-          type: string
-          description: A descriptive name for the table
-        description:
-          type: string
-          description: A user-friendly description of the table
-        schema:
-          $ref: '#/components/schemas/TableSchema'
-        numRows:
-          type: string
-          description: The number of rows in the table
-        numBytes:
-          type: string
-          description: The size of the table in bytes
-        type:
-          type: string
-          description: The type of the table
-          enum:
-          - TABLE
-          - VIEW
-          - MATERIALIZED_VIEW
-          - EXTERNAL
-          - SNAPSHOT
-        creationTime:
-          type: string
-          description: The time when this table was created
-        expirationTime:
-          type: string
-          description: The time when this table expires
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-          description: Labels associated with this table
   parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The ID of the project
-      schema:
-        type: string
     tableId:
       name: tableId
       in: path
       required: true
       description: The ID of the table
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
       schema:
         type: string
     datasetId:
@@ -291,13 +298,6 @@ components:
       description: Page token for pagination
       schema:
         type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
   securitySchemes:
     oauth2:
       type: oauth2
