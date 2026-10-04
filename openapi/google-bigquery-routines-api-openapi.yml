@@ -145,6 +145,34 @@ paths:
         '404':
           description: Routine not found
 components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
   schemas:
     RoutineList:
       type: object
@@ -191,34 +219,6 @@ components:
         creationTime:
           type: string
           description: The time when this routine was created
-  parameters:
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The ID of the project
-      schema:
-        type: string
-    datasetId:
-      name: datasetId
-      in: path
-      required: true
-      description: The ID of the dataset
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
   securitySchemes:
     oauth2:
       type: oauth2

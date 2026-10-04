@@ -135,14 +135,6 @@ paths:
           description: Table not found
 components:
   schemas:
-    TableSchema:
-      type: object
-      properties:
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/TableFieldSchema'
-          description: Describes the fields in a table
     TableList:
       type: object
       properties:
@@ -251,6 +243,14 @@ components:
           items:
             $ref: '#/components/schemas/TableFieldSchema'
           description: Nested fields for RECORD type
+    TableSchema:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TableFieldSchema'
+          description: Describes the fields in a table
     TableReference:
       type: object
       properties:
@@ -264,11 +264,11 @@ components:
           type: string
           description: The ID of the table
   parameters:
-    tableId:
-      name: tableId
+    projectId:
+      name: projectId
       in: path
       required: true
-      description: The ID of the table
+      description: The ID of the project
       schema:
         type: string
     maxResults:
@@ -278,11 +278,10 @@ components:
       schema:
         type: integer
         format: int32
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The ID of the project
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
       schema:
         type: string
     datasetId:
@@ -292,10 +291,11 @@ components:
       description: The ID of the dataset
       schema:
         type: string
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
+    tableId:
+      name: tableId
+      in: path
+      required: true
+      description: The ID of the table
       schema:
         type: string
   securitySchemes:

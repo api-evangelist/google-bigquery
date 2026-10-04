@@ -95,18 +95,6 @@ components:
                 items:
                   $ref: '#/components/schemas/ErrorProto'
           description: Insert errors for individual rows
-    ErrorProto:
-      type: object
-      properties:
-        reason:
-          type: string
-          description: A short error code that summarizes the error
-        location:
-          type: string
-          description: Specifies where the error occurred
-        message:
-          type: string
-          description: A human-readable description of the error
     TableDataInsertAllRequest:
       type: object
       properties:
@@ -148,12 +136,24 @@ components:
         totalRows:
           type: string
           description: The total number of rows in the table
+    ErrorProto:
+      type: object
+      properties:
+        reason:
+          type: string
+          description: A short error code that summarizes the error
+        location:
+          type: string
+          description: Specifies where the error occurred
+        message:
+          type: string
+          description: A human-readable description of the error
   parameters:
-    tableId:
-      name: tableId
+    projectId:
+      name: projectId
       in: path
       required: true
-      description: The ID of the table
+      description: The ID of the project
       schema:
         type: string
     maxResults:
@@ -163,11 +163,10 @@ components:
       schema:
         type: integer
         format: int32
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The ID of the project
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
       schema:
         type: string
     datasetId:
@@ -177,10 +176,11 @@ components:
       description: The ID of the dataset
       schema:
         type: string
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
+    tableId:
+      name: tableId
+      in: path
+      required: true
+      description: The ID of the table
       schema:
         type: string
   securitySchemes:

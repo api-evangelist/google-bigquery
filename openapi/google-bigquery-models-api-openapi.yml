@@ -166,13 +166,6 @@ components:
           type: string
           description: A token to request the next page of results
   parameters:
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
     projectId:
       name: projectId
       in: path
@@ -180,17 +173,24 @@ components:
       description: The ID of the project
       schema:
         type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
     datasetId:
       name: datasetId
       in: path
       required: true
       description: The ID of the dataset
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
       schema:
         type: string
   securitySchemes:
