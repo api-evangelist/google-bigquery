@@ -1,0 +1,45 @@
+slug: google-bigquery
+provider: Google BigQuery
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Datasets
+  spec_file: google-bigquery-datasets-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.7
+  evidence: '"serverless data warehouse that enables scalable analysis over petabytes of data using SQL";
+    listDatasets, insertDataset, schemas Dataset, DatasetList'
+  reason: Dataset CRUD in an analytics data warehouse supports analytics/BI delivery; could alternatively
+    be data architecture management, hence not higher confidence.
+- tag: Jobs
+  spec_file: google-bigquery-jobs-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.7
+  evidence: POST /projects/{projectId}/queries  queryJobs  Google BigQuery Execute query; GET .../queries/{jobId}
+    getQueryResults
+  reason: BigQuery jobs are query/load/export execution units of a data warehouse — analytics workload
+    execution, closest to Analytics & BI Management under Information & Data Management. Could also be
+    read as pure infrastructure, hence moderate confidence.
+- tag: Models
+  spec_file: google-bigquery-models-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: 'GET /projects/{projectId}/datasets/{datasetId}/models  listModels; schemas: Model, ModelList'
+  reason: BigQuery ML models lifecycle (list/get/update/delete) maps to AI/ML model lifecycle management,
+    a sub-capability of Information & Data Management.

@@ -227,6 +227,9 @@ apis:
   - type: JSONSchema
     url: json-schema/google-bigquery-table-schema.json
 common:
+  - type: CapabilityMap
+    url: capabilities/google-bigquery-capability-edges.yml
+    name: Google BigQuery Business Capability Map
   - type: Website
     url: https://www.google.com/
   - type: PostmanWorkspace
