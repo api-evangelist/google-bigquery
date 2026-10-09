@@ -289,3 +289,64 @@ plans:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - metered
+  - subscription
+  units:
+  - compute
+  - data
+  plans:
+  - name: Free Tier
+    access: freemium
+    model: free
+    model_how: derived
+    units:
+    - data
+    periods:
+    - month
+  - name: On-Demand Compute
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - data
+    periods:
+    - per-use
+  - name: Capacity - Standard Edition
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - compute
+    periods:
+    - per-use
+  - name: Capacity - Enterprise Edition
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - compute
+    periods:
+    - per-use
+    - year
+  - name: Capacity - Enterprise Plus Edition
+    access: enterprise
+    model: metered
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - per-use
+  - name: Storage
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - data
+    periods:
+    - month
+    - per-use

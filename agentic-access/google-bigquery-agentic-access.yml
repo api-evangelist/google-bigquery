@@ -1,29 +1,22 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/bigquery-api-openapi.yml
+source: openapi/google-bigquery-datasets-api-openapi.yml, openapi/google-bigquery-jobs-api-openapi.yml,
+  openapi/google-bigquery-models-api-openapi.yml, openapi/google-bigquery-projects-api-openapi.yml,
+  openapi/google-bigquery-routines-api-openapi.yml, openapi/google-bigquery-tabledata-api-openapi.yml,
+  openapi/google-bigquery-tables-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 30
   by_action_class:
-    connected: 13
-    acting: 17
+    connected: 14
+    acting: 16
   by_consequence:
-    read: 13
-    write: 17
+    read: 14
+    write: 16
   human_in_the_loop_required: 0
 operations:
-- path: /projects
-  method: get
-  operationId: listProjects
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /projects/{projectId}/datasets
   method: get
   operationId: listDatasets
@@ -95,100 +88,6 @@ operations:
 - path: /projects/{projectId}/datasets/{datasetId}
   method: delete
   operationId: deleteDataset
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /projects/{projectId}/datasets/{datasetId}/tables
-  method: get
-  operationId: listTables
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /projects/{projectId}/datasets/{datasetId}/tables
-  method: post
-  operationId: insertTable
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}
-  method: get
-  operationId: getTable
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}
-  method: patch
-  operationId: patchTable
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}
-  method: delete
-  operationId: deleteTable
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}/data
-  method: get
-  operationId: listTabledata
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}/insertAll
-  method: post
-  operationId: insertAllTabledata
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -274,18 +173,12 @@ operations:
   method: post
   operationId: queryJobs
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /projects/{projectId}/queries/{jobId}
   method: get
   operationId: getQueryResults
@@ -348,6 +241,16 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /projects
+  method: get
+  operationId: listProjects
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /projects/{projectId}/datasets/{datasetId}/routines
   method: get
   operationId: listRoutines
@@ -403,6 +306,100 @@ operations:
 - path: /projects/{projectId}/datasets/{datasetId}/routines/{routineId}
   method: delete
   operationId: deleteRoutine
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}/data
+  method: get
+  operationId: listTabledata
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}/insertAll
+  method: post
+  operationId: insertAllTabledata
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /projects/{projectId}/datasets/{datasetId}/tables
+  method: get
+  operationId: listTables
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /projects/{projectId}/datasets/{datasetId}/tables
+  method: post
+  operationId: insertTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}
+  method: get
+  operationId: getTable
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}
+  method: patch
+  operationId: patchTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /projects/{projectId}/datasets/{datasetId}/tables/{tableId}
+  method: delete
+  operationId: deleteTable
   x-agentic-access:
     action-class: acting
     consequence: write
