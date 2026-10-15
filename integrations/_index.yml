@@ -73,7 +73,7 @@
     app_slug: google-bigquery
     beta: false
     builder: unknown (not in the directory record)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: google-bigquery-n8n
   label: n8n
@@ -98,5 +98,5 @@
     node_path: Google/BigQuery
     trigger: false
     builder: n8n (built-in node)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
