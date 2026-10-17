@@ -121,7 +121,46 @@ paths:
         '404':
           description: Model not found
 components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
   schemas:
+    ModelList:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+          description: Models in the requested dataset
+        nextPageToken:
+          type: string
+          description: A token to request the next page of results
     Model:
       type: object
       properties:
@@ -154,45 +193,6 @@ components:
         creationTime:
           type: string
           description: The time when this model was created
-    ModelList:
-      type: object
-      properties:
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/Model'
-          description: Models in the requested dataset
-        nextPageToken:
-          type: string
-          description: A token to request the next page of results
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The ID of the project
-      schema:
-        type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
-    datasetId:
-      name: datasetId
-      in: path
-      required: true
-      description: The ID of the dataset
-      schema:
-        type: string
   securitySchemes:
     oauth2:
       type: oauth2

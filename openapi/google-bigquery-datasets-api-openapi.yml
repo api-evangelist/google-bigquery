@@ -170,34 +170,6 @@ paths:
         '404':
           description: Dataset not found
 components:
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The ID of the project
-      schema:
-        type: string
-    maxResults:
-      name: maxResults
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        format: int32
-    pageToken:
-      name: pageToken
-      in: query
-      description: Page token for pagination
-      schema:
-        type: string
-    datasetId:
-      name: datasetId
-      in: path
-      required: true
-      description: The ID of the dataset
-      schema:
-        type: string
   schemas:
     Dataset:
       type: object
@@ -230,15 +202,6 @@ components:
         lastModifiedTime:
           type: string
           description: The date when this dataset was last modified in milliseconds since epoch
-    DatasetReference:
-      type: object
-      properties:
-        projectId:
-          type: string
-          description: The ID of the project containing the dataset
-        datasetId:
-          type: string
-          description: The ID of the dataset
     DatasetList:
       type: object
       properties:
@@ -253,6 +216,43 @@ components:
         nextPageToken:
           type: string
           description: A token to request the next page of results
+    DatasetReference:
+      type: object
+      properties:
+        projectId:
+          type: string
+          description: The ID of the project containing the dataset
+        datasetId:
+          type: string
+          description: The ID of the dataset
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The ID of the project
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      description: Page token for pagination
+      schema:
+        type: string
+    maxResults:
+      name: maxResults
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        format: int32
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: The ID of the dataset
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2
