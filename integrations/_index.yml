@@ -139,7 +139,7 @@
       type: source
       lapsed: false
       cloud: true
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: google-bigquery-fivetran
   label: Fivetran
@@ -165,7 +165,7 @@
     - connectors/databases/bigquery
     vendor_link: https://cloud.google.com/bigquery
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: google-bigquery-meltano
   label: Meltano
@@ -208,5 +208,5 @@
     - silver
     - unknown
     builder: 'community (Meltano Hub variant maintainers: adswerve, airbyte, anelendata, fixdauto, jmriego)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
