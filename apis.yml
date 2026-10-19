@@ -227,6 +227,8 @@ apis:
   - type: JSONSchema
     url: json-schema/google-bigquery-table-schema.json
 common:
+  - type: MCPServer
+    url: https://cloudcli.googleapis.com/mcp
   - type: Plans
     url: plans/google-bigquery-plans-pricing.yml
   - type: RateLimits
